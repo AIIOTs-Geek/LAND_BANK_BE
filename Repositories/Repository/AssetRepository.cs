@@ -6,46 +6,33 @@ using Repositories.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Repositories.Repository
 {
-    public class AssetRepository:IAssetRepository
+    public class AssetRepository : IAssetRepository
     {
         private readonly IConfiguration _configuration;
         public AssetRepository(IConfiguration configuration)
         {
             _configuration = configuration;
-        }
-        public async Task<APIResponse<StatusVm>> GetStatus(string statusType)
+        }        
+        public async Task<List<GetStatusResult>> GetStatus(string statusType)
         {
-            var statusList = new List<StatusVm>();
+            var result = new List<GetStatusResult>();
 
             using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
             {
-                var command = db.GetCommand(db.GetStatus(statusType));
-                await db.Connection.OpenAsync();
+                result = db.GetStatus(statusType).ToList();
 
-                using (var reader = await command.ExecuteReaderAsync())
+                if (result == null || !result.Any())
                 {
-                    while (await reader.ReadAsync())
-                    {
-                        var statusVm = new StatusVm();
-
-                        if (reader.FieldCount == 1 && reader.GetName(0) == "ErrorMessage")
-                        {
-                            return ResponseHelper<StatusVm>.CreateErrorRes(new List<string> { "No status found"});
-                        }
-                        else
-                        {
-                            statusVm.Id = Convert.ToInt32(reader["Id"]);
-                            statusVm.Status = reader["Status"].ToString();
-                        }
-
-                        statusList.Add(statusVm);
-                    }
+                    return null;
                 }
             }
+            return result;
+        }
     }
 }
