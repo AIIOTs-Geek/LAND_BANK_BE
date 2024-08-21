@@ -34,5 +34,50 @@ namespace Repositories.Repository
             }
             return result;
         }
+        public async Task<List<GetAssetsResult>> GetAssets()
+        {
+            var result = new List<GetAssetsResult>();
+
+            using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
+            {
+                result = db.GetAssets().ToList();
+
+                if (result == null || !result.Any())
+                {
+                    return null;
+                }
+            }
+            return result;
+        }
+        public async Task<List<GetCitiesResult>> GetAllCities()
+        {
+            var result = new List<GetCitiesResult>();
+
+            using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
+            {
+                result = db.GetCities().ToList();
+
+                if (result == null || !result.Any())
+                {
+                    return null;
+                }
+            }
+            return result;
+        }
+        public async Task<List<GetDistrictByCityIdResult>> GetDistrictsByCityId(int cityId)
+        {
+            var result = new List<GetDistrictByCityIdResult>();
+
+            using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
+            {
+                result = db.GetDistrictByCityId(cityId).ToList();
+
+                if (result == null || !result.Any())
+                {
+                    return null;
+                }
+            }
+            return result;
+        }
     }
 }

@@ -11,5 +11,8 @@ namespace Services.IService
     public interface IAssetService
     {        
         Task<APIResponse<List<StatusVm>>> GetStatus(string statusType);
+        Task<APIResponse<List<AssetVm>>> GetAssets();
+        Task<APIResponse<List<CityVm>>> GetCities();
+        Task<APIResponse<List<DistrictVm>>> GetDistrictsByCityId(int cityId);
     }
 }

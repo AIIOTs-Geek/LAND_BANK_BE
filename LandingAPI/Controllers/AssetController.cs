@@ -4,7 +4,7 @@ using Services.IService;
 
 namespace LandingAPI.Controllers
 {
-    [Route("api/[controller]/")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class AssetController : BaseController
     {
@@ -18,6 +18,22 @@ namespace LandingAPI.Controllers
         public async Task<IActionResult> GetStatus(string statusType)
         {
             return Response(await _assetService.GetStatus(statusType));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllAssets()
+        {
+            return Response(await _assetService.GetAssets());
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetAllCities()
+        {
+            return Response(await _assetService.GetCities());
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetDistrictsByCityId(int cityId)
+        {
+            return Response(await _assetService.GetDistrictsByCityId(cityId));
         }
     }
 }
