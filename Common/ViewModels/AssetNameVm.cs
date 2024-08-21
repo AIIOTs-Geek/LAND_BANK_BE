@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Common.ViewModels
 {
-    public class AssetVm
+    public class AssetNameVm
     {
+        public int Id { get; set; }
         public string AssetName { get; set; }
-        public string SubAssetName { get; set; }
-        public int? LandCount { get; set; }
-        public decimal? TotalArea { get; set; }
     }
 }

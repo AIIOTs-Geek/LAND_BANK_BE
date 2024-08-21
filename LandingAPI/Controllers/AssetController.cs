@@ -35,5 +35,10 @@ namespace LandingAPI.Controllers
         {
             return Response(await _assetService.GetDistrictsByCityId(cityId));
         }
+        [HttpGet]
+        public async Task<IActionResult> GetAssets(string? search, string? cityId, int? districtId, int? assetId, int? userId, int? landUseId, int? wltId, int? businessPlan)
+        {
+            return Response(await _assetService.GetAssets(search,cityId,districtId,assetId,userId,landUseId,wltId,businessPlan));
+        }
     }
 }

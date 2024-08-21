@@ -18,7 +18,7 @@ namespace Repositories.Repository
         public AssetRepository(IConfiguration configuration)
         {
             _configuration = configuration;
-        }        
+        }
         public async Task<List<GetStatusResult>> GetStatus(string statusType)
         {
             var result = new List<GetStatusResult>();
@@ -34,13 +34,13 @@ namespace Repositories.Repository
             }
             return result;
         }
-        public async Task<List<GetAssetsResult>> GetAssets()
+        public async Task<List<GetAssetNamesResult>> GetAssetNames()
         {
-            var result = new List<GetAssetsResult>();
+            var result = new List<GetAssetNamesResult>();
 
             using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
             {
-                result = db.GetAssets().ToList();
+                result = db.GetAssetNames().ToList();
 
                 if (result == null || !result.Any())
                 {
@@ -71,6 +71,21 @@ namespace Repositories.Repository
             using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
             {
                 result = db.GetDistrictByCityId(cityId).ToList();
+
+                if (result == null || !result.Any())
+                {
+                    return null;
+                }
+            }
+            return result;
+        }
+        public async Task<List<GetAssetsWithLandCountResult>> GetAssets(string? search, string? cityId, int? districtId, int? assetId, int? userId, int? landUseId, int? wltId, int? businessPlan)
+        {
+            var result = new List<GetAssetsWithLandCountResult>();
+
+            using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
+            {
+                result = db.GetAssetsWithLandCount(search, cityId, districtId, userId, landUseId, assetId, wltId, businessPlan).ToList();
 
                 if (result == null || !result.Any())
                 {

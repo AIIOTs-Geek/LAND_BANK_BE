@@ -1,5 +1,6 @@
 ﻿using Common.Helper;
 using Common.ViewModels;
+using DataContext.DataClasses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +12,9 @@ namespace Services.IService
     public interface IAssetService
     {        
         Task<APIResponse<List<StatusVm>>> GetStatus(string statusType);
-        Task<APIResponse<List<AssetVm>>> GetAssets();
+        Task<APIResponse<List<AssetNameVm>>> GetAssets();
         Task<APIResponse<List<CityVm>>> GetCities();
         Task<APIResponse<List<DistrictVm>>> GetDistrictsByCityId(int cityId);
+        Task<APIResponse<List<AssetVm>>> GetAssets(string? search, string? cityId, int? districtId, int? assetId, int? userId, int? landUseId, int? wltId, int? businessPlan);
     }
 }
