@@ -24,7 +24,7 @@ builder.Services.AddSwaggerGen(c =>
     {
         Title = "Landing Bank API",
         Version = "v1",
-        Description = "APIs for Landing Bank APP",
+        Description = "APIs for Landing Bank App",
     });    
 });
 var app = builder.Build();
