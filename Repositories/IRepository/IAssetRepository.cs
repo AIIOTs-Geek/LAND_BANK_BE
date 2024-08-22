@@ -12,9 +12,9 @@ namespace Repositories.IRepository
     public interface IAssetRepository
     {        
         Task<List<GetStatusResult>> GetStatus(string statusType);
-        Task<List<GetAssetsResult>> GetAssets();
+        Task<List<GetAssetNamesResult>> GetAssetNames();
         Task<List<GetCitiesResult>> GetAllCities();
         Task<List<GetDistrictByCityIdResult>> GetDistrictsByCityId(int cityId);
-
+        Task<List<GetAssetsWithLandCountResult>> GetAssets(string? search, string? cityId, int? districtId, int? assetId, int? userId, int? landUseId, int? wltId, int? businessPlan);
     }
 }

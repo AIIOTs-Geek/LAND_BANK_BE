@@ -1,5 +1,6 @@
 ﻿using Common.Helper;
 using Common.ViewModels;
+using DataContext.DataClasses;
 using Repositories.IRepository;
 using Services.IService;
 using System;
@@ -39,18 +40,18 @@ namespace Services.Service
             }
             return ResponseHelper<List<StatusVm>>.CreateGetSuccessResponse(statusVmList, statusList.Count);
         }
-        public async Task<APIResponse<List<AssetVm>>> GetAssets()
+        public async Task<APIResponse<List<AssetNameVm>>> GetAssets()
         {
-            var assetVmList = new List<AssetVm>();
-            var assetList = await _assetRepository.GetAssets();
+            var assetVmList = new List<AssetNameVm>();
+            var assetList = await _assetRepository.GetAssetNames();
             if (assetList == null || !assetList.Any())
             {
-                return ResponseHelper<List<AssetVm>>.CreateExceptionErrorResponse(HttpStatusCode.NotFound, new List<string> { "No assets found" });
+                return ResponseHelper<List<AssetNameVm>>.CreateExceptionErrorResponse(HttpStatusCode.NotFound, new List<string> { "No assets found" });
             }
 
             foreach (var item in assetList)
             {
-                var assetVm = new AssetVm
+                var assetVm = new AssetNameVm
                 {
                     Id = item.Id,
                     AssetName = item.AssetName
@@ -58,7 +59,7 @@ namespace Services.Service
 
                 assetVmList.Add(assetVm);
             }
-            return ResponseHelper<List<AssetVm>>.CreateGetSuccessResponse(assetVmList, assetList.Count);
+            return ResponseHelper<List<AssetNameVm>>.CreateGetSuccessResponse(assetVmList, assetVmList.Count);
         }
         public async Task<APIResponse<List<CityVm>>> GetCities()
         {
@@ -101,6 +102,29 @@ namespace Services.Service
                 districtVmList.Add(districtVm);
             }
             return ResponseHelper<List<DistrictVm>>.CreateGetSuccessResponse(districtVmList, districtList.Count);
+        }
+        public async Task<APIResponse<List<AssetVm>>> GetAssets(string? search, string? cityId, int? districtId, int? assetId, int? userId, int? landUseId, int? wltId, int? businessPlan)
+        {
+            var assetsVmList = new List<AssetVm>();
+            var assetsList = await _assetRepository.GetAssets(search,cityId,districtId,assetId,userId,landUseId,wltId,businessPlan);
+            if (assetsList == null || !assetsList.Any())
+            {
+                return ResponseHelper<List<AssetVm>>.CreateExceptionErrorResponse(HttpStatusCode.NotFound, new List<string> { "No districts found" });
+            }
+
+            foreach (var item in assetsList)
+            {
+                var assetVm = new AssetVm
+                {
+                    AssetName = item.AssetName,
+                    SubAssetName = item.SubAssetName,
+                    LandCount = item.NumberOfLands,
+                    TotalArea = item.TotalLandArea,
+                };
+
+                assetsVmList.Add(assetVm);
+            }
+            return ResponseHelper<List<AssetVm>>.CreateGetSuccessResponse(assetsVmList, assetsList.Count);
         }
     }
 }
