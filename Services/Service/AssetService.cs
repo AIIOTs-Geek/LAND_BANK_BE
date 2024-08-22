@@ -12,17 +12,17 @@ using System.Threading.Tasks;
 
 namespace Services.Service
 {
-    public class AssetService:IAssetService
+    public class AssetService : IAssetService
     {
         private readonly IAssetRepository _assetRepository;
         public AssetService(IAssetRepository assetRepository)
         {
-             _assetRepository = assetRepository;
-        }       
+            _assetRepository = assetRepository;
+        }
         public async Task<APIResponse<List<StatusVm>>> GetStatus(string statusType)
         {
             var statusVmList = new List<StatusVm>();
-            var statusList =  await _assetRepository.GetStatus(statusType);
+            var statusList = await _assetRepository.GetStatus(statusType);
             if (statusList == null || !statusList.Any())
             {
                 return ResponseHelper<List<StatusVm>>.CreateExceptionErrorResponse(HttpStatusCode.NotFound, new List<string> { "No status found" });
@@ -103,19 +103,20 @@ namespace Services.Service
             }
             return ResponseHelper<List<DistrictVm>>.CreateGetSuccessResponse(districtVmList, districtList.Count);
         }
-        public async Task<APIResponse<List<AssetVm>>> GetAssets(string? search, string? cityId, int? districtId, int? assetId, int? userId, int? landUseId, int? wltId, int? businessPlan)
+        public async Task<APIResponse<List<AssetVm>>> GetAssets(string? search, string? cityId, int? districtId, int? assetId)
         {
             var assetsVmList = new List<AssetVm>();
-            var assetsList = await _assetRepository.GetAssets(search,cityId,districtId,assetId,userId,landUseId,wltId,businessPlan);
+            var assetsList = await _assetRepository.GetAssets(search, cityId, districtId, assetId);
             if (assetsList == null || !assetsList.Any())
             {
-                return ResponseHelper<List<AssetVm>>.CreateExceptionErrorResponse(HttpStatusCode.NotFound, new List<string> { "No districts found" });
+                return ResponseHelper<List<AssetVm>>.CreateExceptionErrorResponse(HttpStatusCode.NotFound, new List<string> { "No assets found" });
             }
 
             foreach (var item in assetsList)
             {
                 var assetVm = new AssetVm
                 {
+                    AssetId = item.AssetId,
                     AssetName = item.AssetName,
                     SubAssetName = item.SubAssetName,
                     LandCount = item.NumberOfLands,
@@ -124,7 +125,7 @@ namespace Services.Service
 
                 assetsVmList.Add(assetVm);
             }
-            return ResponseHelper<List<AssetVm>>.CreateGetSuccessResponse(assetsVmList, assetsList.Count);
+            return ResponseHelper<List<AssetVm>>.CreateGetSuccessResponse(assetsVmList, assetsVmList.Count);
         }
     }
 }

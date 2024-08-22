@@ -8,6 +8,7 @@ namespace Common.ViewModels
 {
     public class AssetVm
     {
+        public int AssetId { get; set; }
         public string AssetName { get; set; }
         public string SubAssetName { get; set; }
         public int? LandCount { get; set; }
