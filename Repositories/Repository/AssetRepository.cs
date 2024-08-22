@@ -79,13 +79,13 @@ namespace Repositories.Repository
             }
             return result;
         }
-        public async Task<List<GetAssetsWithLandCountResult>> GetAssets(string? search, string? cityId, int? districtId, int? assetId, int? userId, int? landUseId, int? wltId, int? businessPlan)
+        public async Task<List<GetAssetsWithLandCountResult>> GetAssets(string? searchText, string? cityId, int? districtId, int? assetId)
         {
             var result = new List<GetAssetsWithLandCountResult>();
 
             using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
             {
-                result = db.GetAssetsWithLandCount(search, cityId, districtId, userId, landUseId, assetId, wltId, businessPlan).ToList();
+                result = db.GetAssetsWithLandCount(searchText, cityId, districtId, assetId).ToList();
 
                 if (result == null || !result.Any())
                 {

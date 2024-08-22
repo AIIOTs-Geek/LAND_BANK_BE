@@ -13,7 +13,7 @@ namespace LandingAPI.Controllers
         {
             _assetService = assetService;
         }
-        
+
         [HttpGet]
         public async Task<IActionResult> GetStatus(string statusType)
         {
@@ -36,9 +36,9 @@ namespace LandingAPI.Controllers
             return Response(await _assetService.GetDistrictsByCityId(cityId));
         }
         [HttpGet]
-        public async Task<IActionResult> GetAssets(string? search, string? cityId, int? districtId, int? assetId, int? userId, int? landUseId, int? wltId, int? businessPlan)
+        public async Task<IActionResult> GetAssets(string? searchText, string? cityId, int? districtId, int? assetId)
         {
-            return Response(await _assetService.GetAssets(search,cityId,districtId,assetId,userId,landUseId,wltId,businessPlan));
+            return Response(await _assetService.GetAssets(searchText, cityId, districtId, assetId));
         }
     }
 }
