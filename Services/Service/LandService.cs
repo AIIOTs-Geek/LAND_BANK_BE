@@ -30,7 +30,8 @@ namespace Services.Service
 
             var landDetailsVm = new LandDetailsVm
             {
-                Id = landDetails.LandId,
+                LandId = landDetails.LandId,
+                ReferenceId = landDetails.ReferenceNumber,
                 LandInformation = landDetails.LandInformation,
                 LandStatus = landDetails.LandStatus,
                 LandType = landDetails.LandType,

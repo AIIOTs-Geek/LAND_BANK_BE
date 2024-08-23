@@ -62,7 +62,7 @@
   </Function>
   <Function Name="dbo.GetLandDetails" Method="GetLandDetails">
     <Parameter Name="LandId" Parameter="landId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Deptt" Parameter="deptt" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="Deptt" Parameter="deptt" Type="System.String" DbType="VarChar(50)" />
     <ElementType Name="GetLandDetailsResult">
       <Column Name="LandId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Column Name="SubAssetId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -79,6 +79,7 @@
       <Column Name="LandUse" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="DistrictName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="CityName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="ReferenceNumber" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

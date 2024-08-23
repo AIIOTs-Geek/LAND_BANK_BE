@@ -8,7 +8,8 @@ namespace Common.ViewModels
 {
     public class LandDetailsVm
     {
-        public long Id { get; set; }
+        public long LandId { get; set; }
+        public string ReferenceId { get; set; }
         public string LandInformation { get; set; }
         public string Location { get; set; }
         public decimal Area { get; set; }

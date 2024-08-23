@@ -99,7 +99,7 @@ namespace DataContext.DataClasses
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetLandDetails")]
-		public ISingleResult<GetLandDetailsResult> GetLandDetails([global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandId", DbType="Int")] System.Nullable<int> landId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Deptt", DbType="VarChar(1)")] string deptt)
+		public ISingleResult<GetLandDetailsResult> GetLandDetails([global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandId", DbType="Int")] System.Nullable<int> landId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Deptt", DbType="VarChar(50)")] string deptt)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), landId, deptt);
 			return ((ISingleResult<GetLandDetailsResult>)(result.ReturnValue));
@@ -601,6 +601,8 @@ namespace DataContext.DataClasses
 		
 		private string _CityName;
 		
+		private string _ReferenceNumber;
+		
 		public GetLandDetailsResult()
 		{
 		}
@@ -841,6 +843,22 @@ namespace DataContext.DataClasses
 				if ((this._CityName != value))
 				{
 					this._CityName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReferenceNumber", DbType="VarChar(20)")]
+		public string ReferenceNumber
+		{
+			get
+			{
+				return this._ReferenceNumber;
+			}
+			set
+			{
+				if ((this._ReferenceNumber != value))
+				{
+					this._ReferenceNumber = value;
 				}
 			}
 		}
