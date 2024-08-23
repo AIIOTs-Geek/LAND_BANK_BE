@@ -69,7 +69,7 @@
     <Parameter Name="BusinessPlanId" Parameter="businessPlanId" Type="System.Int32" DbType="Int" />
     <Parameter Name="WLTStatus" Parameter="wLTStatus" Type="System.Boolean" DbType="Bit" />
     <ElementType Name="GetLandByAssetIdResult">
-      <Column Name="LandId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LandId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Column Name="Area" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
       <Column Name="Location" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
       <Column Name="AssetName" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />

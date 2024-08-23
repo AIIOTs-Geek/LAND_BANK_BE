@@ -8,7 +8,7 @@ namespace Common.ViewModels
 {
     public class LandByAssetIdVm
     {
-        public int LandId { get; set; }
+        public long LandId { get; set; }
         public string AssetName { get; set; }
         public string SubAssetName { get; set; }
         public string LandUse {  get; set; }
