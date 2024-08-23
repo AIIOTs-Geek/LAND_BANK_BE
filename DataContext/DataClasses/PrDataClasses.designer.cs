@@ -661,7 +661,7 @@ namespace DataContext.DataClasses
 	public partial class GetLandByAssetIdResult
 	{
 		
-		private int _LandId;
+		private long _LandId;
 		
 		private decimal _Area;
 		
@@ -685,8 +685,8 @@ namespace DataContext.DataClasses
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LandId", DbType="Int NOT NULL")]
-		public int LandId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LandId", DbType="BigInt NOT NULL")]
+		public long LandId
 		{
 			get
 			{
