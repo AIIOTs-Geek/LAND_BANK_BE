@@ -30,7 +30,7 @@ namespace Repositories.Repository
                 return result;
             }
         }
-        public async Task<List<GetLandByAssetIdResult>> GetLandsByAssetId(int assetId, string? searchText, string? cityId, string? districtId, int? userId, int? landUseId, int? businessPlanId, bool? IsWlt)
+        public async Task<List<GetLandByAssetIdResult>> GetLandsByAssetId(int assetId, string? searchText, int? cityId, int? districtId, int? userId, int? landUseId, int? businessPlanId, bool? IsWlt)
         {
             var result = new List<GetLandByAssetIdResult>();
 
