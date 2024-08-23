@@ -10,6 +10,6 @@ namespace Repositories.IRepository
     public interface ILandRepository
     {
         Task<GetLandDetailsResult> GetLandDetails(int landId, string? deptt);
-        Task<List<GetLandByAssetIdResult>> GetLandsByAssetId(int assetId, string? searchText, string? cityId, string? districtId, int? userId, int? landUseId, int? businessPlanId, bool? IsWlt);
+        Task<List<GetLandByAssetIdResult>> GetLandsByAssetId(int assetId, string? searchText, int? cityId, int? districtId, int? userId, int? landUseId, int? businessPlanId, bool? IsWlt);
     }
 }

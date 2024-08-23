@@ -36,7 +36,7 @@ namespace LandingAPI.Controllers
             return Response(await _assetService.GetDistrictsByCityId(cityId));
         }
         [HttpGet]
-        public async Task<IActionResult> GetAssets(string? searchText, string? cityId, int? districtId, int? assetId)
+        public async Task<IActionResult> GetAssets(string? searchText, int? cityId, int? districtId, int? assetId)
         {
             return Response(await _assetService.GetAssets(searchText, cityId, districtId, assetId));
         }
