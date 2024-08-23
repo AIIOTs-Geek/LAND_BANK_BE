@@ -35,7 +35,7 @@ namespace Services.Service
                 LandStatus = landDetails.LandStatus,
                 LandType = landDetails.LandType,
                 LandUse = landDetails.LandUse,
-                BusinessPlan = landDetails.BusinessPlanDetailed,
+                BusinessPlan = landDetails.BusinessPlanDetails,
                 City = landDetails.CityName,
                 District = landDetails.DistrictName,
                 SubAssetCode = landDetails.SubAssetCode,
