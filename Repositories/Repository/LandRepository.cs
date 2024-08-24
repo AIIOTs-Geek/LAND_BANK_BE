@@ -16,12 +16,12 @@ namespace Repositories.Repository
         {
             _configuration = configuration;
         }
-        public async Task<GetLandDetailsResult?> GetLandDetails(int landId, string? deptt)
+        public async Task<GetLandDetailsFiltersResult?> GetLandDetails(int landId, string? deptt)
         {
             using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
             {
-                var result = db.GetLandDetails(landId, deptt).SingleOrDefault();
-
+                //var result = db.GetLandDetails(landId, deptt).SingleOrDefault();
+                var result = db.GetLandDetailsFilters(landId, deptt).SingleOrDefault();
                 if (result == null)
                 {
                     return null;

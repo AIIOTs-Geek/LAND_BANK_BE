@@ -4,6 +4,7 @@ using DataContext.DataClasses;
 using Repositories.IRepository;
 using Repositories.Repository;
 using Services.IService;
+using System.Text.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,7 @@ namespace Services.Service
             {
                 return ResponseHelper<LandDetailsVm>.CreateExceptionErrorResponse(HttpStatusCode.NotFound, new List<string> { "No details found for this land" });
             }
-
+            
             var landDetailsVm = new LandDetailsVm
             {
                 LandId = landDetails.LandId,
@@ -53,8 +54,16 @@ namespace Services.Service
                     DeedNumber = landDetails.TDNo,
                     DeedType = landDetails.TDType,
                     DeedStatus = landDetails.TDStatus
-                }
+                },
+                OwnerShipDetails = new List<TitleDeed>()
+
             };
+            if (!string.IsNullOrEmpty(landDetails.TitleDeeds))
+            {
+                var jsonTitleDeeds = landDetails.TitleDeeds;
+                landDetailsVm.OwnerShipDetails = JsonSerializer.Deserialize<List<TitleDeed>>(jsonTitleDeeds);
+            }                    
+
 
             return ResponseHelper<LandDetailsVm>.CreateSuccessRes(landDetailsVm, new List<string> { "Land details fetched successfully" });
         }
