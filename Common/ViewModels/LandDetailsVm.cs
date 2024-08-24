@@ -10,6 +10,7 @@ namespace Common.ViewModels
     {
         public long LandId { get; set; }
         public string ReferenceId { get; set; }
+        public string MapUrl { get; set; }
         public string LandInformation { get; set; }
         public string Location { get; set; }
         public decimal Area { get; set; }
@@ -19,9 +20,13 @@ namespace Common.ViewModels
         public string LandType { get; set; }
         public string LandUse { get; set; }
         public string BusinessPlan { get; set; }
+        public string BusinessPlanDetail { get; set; }
+        public string BusinessPlanStatus { get; set; }
         public string AssetCode { get; set; }
         public string AssetName { get; set; }
         public string SubAssetCode { get; set; }
         public string SubAssetName { get; set; }
+        public bool IsWlt { get; set; }
+        public TitleDeed TitleDeed { get; set; }
     }
 }

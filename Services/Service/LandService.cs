@@ -32,11 +32,14 @@ namespace Services.Service
             {
                 LandId = landDetails.LandId,
                 ReferenceId = landDetails.ReferenceNumber,
+                MapUrl = landDetails.MapImageURL,
                 LandInformation = landDetails.LandInformation,
                 LandStatus = landDetails.LandStatus,
                 LandType = landDetails.LandType,
                 LandUse = landDetails.LandUse,
-                BusinessPlan = landDetails.BusinessPlanDetails,
+                BusinessPlan = landDetails.BusinessPlanName,
+                BusinessPlanDetail = landDetails.BusinessPlanDetails,
+                BusinessPlanStatus = landDetails.BusinessPlanStatus,
                 City = landDetails.CityName,
                 District = landDetails.DistrictName,
                 SubAssetCode = landDetails.SubAssetCode,
@@ -45,6 +48,12 @@ namespace Services.Service
                 AssetName = landDetails.AssetName,
                 Area = landDetails.Area,
                 Location = landDetails.Location,
+                TitleDeed = new TitleDeed
+                {
+                    DeedNumber = landDetails.TDNo,
+                    DeedType = landDetails.TDType,
+                    DeedStatus = landDetails.TDStatus
+                }
             };
 
             return ResponseHelper<LandDetailsVm>.CreateSuccessRes(landDetailsVm, new List<string> { "Land details fetched successfully" });
@@ -63,6 +72,7 @@ namespace Services.Service
                 var landVm = new LandByAssetIdVm
                 {
                     LandId = item.LandId,
+                    ReferenceNumber = item.ReferenceNumber,
                     Location = item.Location,
                     LandArea = item.Area,
                     CityName = item.CityName,
