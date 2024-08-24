@@ -9,6 +9,7 @@ namespace Common.ViewModels
     public class LandByAssetIdVm
     {
         public long LandId { get; set; }
+        public string ReferenceNumber { get; set; }
         public string AssetName { get; set; }
         public string SubAssetName { get; set; }
         public string LandUse {  get; set; }
