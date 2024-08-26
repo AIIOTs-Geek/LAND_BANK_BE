@@ -118,9 +118,10 @@ namespace Services.Service
                 {
                     AssetId = item.AssetId,
                     AssetName = item.AssetName,
-                    SubAssetName = item.SubAssetName,
+                    //SubAssetName = item.SubAssetName,
                     LandCount = item.NumberOfLands,
                     TotalArea = item.TotalLandArea,
+                    AssetCode = item.AssetCode
                 };
 
                 assetsVmList.Add(assetVm);
