@@ -8,7 +8,7 @@ namespace Common.ViewModels
 {
     public class TitleDeed
     {
-        //public int TitleId { get; set; }
+        public string DeedDate { get; set; }
         public string? DeedStatus { get; set; }
         public string DeedNumber { get; set; }
         public string Owner { get; set; }
