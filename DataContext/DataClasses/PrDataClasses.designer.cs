@@ -1042,6 +1042,8 @@ namespace DataContext.DataClasses
 		
 		private string _TitleDeedStatus;
 		
+		private string _TDDate;
+		
 		private string _TDOwnership;
 		
 		private string _WLTStatus;
@@ -1386,6 +1388,22 @@ namespace DataContext.DataClasses
 				if ((this._TitleDeedStatus != value))
 				{
 					this._TitleDeedStatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TDDate", DbType="NVarChar(500)")]
+		public string TDDate
+		{
+			get
+			{
+				return this._TDDate;
+			}
+			set
+			{
+				if ((this._TDDate != value))
+				{
+					this._TDDate = value;
 				}
 			}
 		}

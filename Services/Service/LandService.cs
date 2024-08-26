@@ -56,6 +56,7 @@ namespace Services.Service
                     DeedType = landDetails.TDType,
                     DeedStatus = landDetails.TitleDeedStatus,
                     Owner =landDetails.TDOwnership,
+                    DeedDate = landDetails.TDDate,
                 },
                 OwnerShipDetails = new List<TitleDeed>()
 

@@ -114,6 +114,7 @@
       <Column Name="TDNo" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="TDType" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="TitleDeedStatus" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="TDDate" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="TDOwnership" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="WLTStatus" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="ReferenceNumber" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
