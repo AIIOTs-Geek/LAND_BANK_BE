@@ -49,11 +49,13 @@ namespace Services.Service
                 AssetName = landDetails.AssetName,
                 Area = landDetails.Area,
                 Location = landDetails.Location,
+                IsWlt = landDetails.WLTStatus,
                 TitleDeed = new TitleDeed
                 {
                     DeedNumber = landDetails.TDNo,
                     DeedType = landDetails.TDType,
-                    DeedStatus = landDetails.TDStatus
+                    DeedStatus = landDetails.TitleDeedStatus,
+                    Owner =landDetails.TDOwnership,
                 },
                 OwnerShipDetails = new List<TitleDeed>()
 

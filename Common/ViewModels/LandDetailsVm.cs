@@ -26,7 +26,7 @@ namespace Common.ViewModels
         public string AssetName { get; set; }
         public string SubAssetCode { get; set; }
         public string SubAssetName { get; set; }
-        public bool IsWlt { get; set; }
+        public string IsWlt { get; set; }
         public TitleDeed TitleDeed { get; set; }
         public List<TitleDeed>? OwnerShipDetails { get; set; }
     }

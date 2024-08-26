@@ -1038,9 +1038,13 @@ namespace DataContext.DataClasses
 		
 		private string _TDNo;
 		
-		private System.Nullable<int> _TDType;
+		private string _TDType;
 		
-		private System.Nullable<int> _TDStatus;
+		private string _TitleDeedStatus;
+		
+		private string _TDOwnership;
+		
+		private string _WLTStatus;
 		
 		private string _ReferenceNumber;
 		
@@ -1178,7 +1182,7 @@ namespace DataContext.DataClasses
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Area", DbType="Decimal(18,0) NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Area", DbType="Decimal(18,2) NOT NULL")]
 		public decimal Area
 		{
 			get
@@ -1354,8 +1358,8 @@ namespace DataContext.DataClasses
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TDType", DbType="Int")]
-		public System.Nullable<int> TDType
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TDType", DbType="NVarChar(500)")]
+		public string TDType
 		{
 			get
 			{
@@ -1370,18 +1374,50 @@ namespace DataContext.DataClasses
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TDStatus", DbType="Int")]
-		public System.Nullable<int> TDStatus
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TitleDeedStatus", DbType="NVarChar(500)")]
+		public string TitleDeedStatus
 		{
 			get
 			{
-				return this._TDStatus;
+				return this._TitleDeedStatus;
 			}
 			set
 			{
-				if ((this._TDStatus != value))
+				if ((this._TitleDeedStatus != value))
 				{
-					this._TDStatus = value;
+					this._TitleDeedStatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TDOwnership", DbType="NVarChar(50)")]
+		public string TDOwnership
+		{
+			get
+			{
+				return this._TDOwnership;
+			}
+			set
+			{
+				if ((this._TDOwnership != value))
+				{
+					this._TDOwnership = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WLTStatus", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string WLTStatus
+		{
+			get
+			{
+				return this._WLTStatus;
+			}
+			set
+			{
+				if ((this._WLTStatus != value))
+				{
+					this._WLTStatus = value;
 				}
 			}
 		}
