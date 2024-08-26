@@ -93,7 +93,8 @@ namespace Services.Service
                     LandType = item.LandType,
                     LandUse = item.LandUse,
                     AssetName = item.AssetName,
-                    SubAssetName = item.SubAssetName                    
+                    SubAssetName = item.SubAssetName,
+                    DeedType = item.LandDeed
                 };
 
                 landVmList.Add(landVm);
