@@ -8,10 +8,10 @@ namespace Common.ViewModels
 {
     public class TitleDeed
     {
-        public int Id { get; set; }
-        public int? DeedStatus { get; set; }
+        //public int TitleId { get; set; }
+        public string? DeedStatus { get; set; }
         public string DeedNumber { get; set; }
         public string Owner { get; set; }
-        public int? DeedType { get; set; }
+        public string? DeedType { get; set; }
     }
 }
