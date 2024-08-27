@@ -10,5 +10,10 @@ namespace Common.ViewModels
     {
         public int Id { get; set; }
         public string Status { get; set; }
+        public int? ParentId { get; set; }
+        public List<StatusVm> Children { get; set; } = new List<StatusVm>();
+        public List<StatusVm> Grandchildren { get; set; } = new List<StatusVm>();
     }
+
+
 }

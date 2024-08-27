@@ -18,10 +18,13 @@ namespace LandingAPI.Controllers
         {
             return Response(await _landService.GetLandDetails(landId, deptt));
         }
+
         [HttpGet]
         public async Task<IActionResult> GetLandsByAssetId(int assetId, string? searchText, int? cityId, int? districtId, int? userId, int? landUseId, int? businessPlanId, bool? IsWlt)
         {
             return Response(await _landService.GetLandsByAssetId(assetId, searchText, cityId, districtId, userId, landUseId, businessPlanId, IsWlt));
         }
+
+        
     }
 }

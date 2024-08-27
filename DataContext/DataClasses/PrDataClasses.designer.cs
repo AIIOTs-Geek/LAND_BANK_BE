@@ -104,6 +104,13 @@ namespace DataContext.DataClasses
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), assetId, searchText, cityId, districtId, userId, landUseId, businessPlanId, wLTStatus);
 			return ((ISingleResult<GetLandByAssetIdResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetLandUses")]
+		public ISingleResult<GetLandUsesResult> GetLandUses([global::System.Data.Linq.Mapping.ParameterAttribute(Name="StatusType", DbType="VarChar(50)")] string statusType)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), statusType);
+			return ((ISingleResult<GetLandUsesResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class GetStatusResult
@@ -985,6 +992,32 @@ namespace DataContext.DataClasses
 				if ((this._ReferenceNumber != value))
 				{
 					this._ReferenceNumber = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GetLandUsesResult
+	{
+		
+		private string _JSON_F52E2B61_18A1_11d1_B105_00805F49916B;
+		
+		public GetLandUsesResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[JSON_F52E2B61-18A1-11d1-B105-00805F49916B]", Storage="_JSON_F52E2B61_18A1_11d1_B105_00805F49916B", DbType="NVarChar(MAX)")]
+		public string JSON_F52E2B61_18A1_11d1_B105_00805F49916B
+		{
+			get
+			{
+				return this._JSON_F52E2B61_18A1_11d1_B105_00805F49916B;
+			}
+			set
+			{
+				if ((this._JSON_F52E2B61_18A1_11d1_B105_00805F49916B != value))
+				{
+					this._JSON_F52E2B61_18A1_11d1_B105_00805F49916B = value;
 				}
 			}
 		}
