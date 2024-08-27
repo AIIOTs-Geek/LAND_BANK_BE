@@ -96,7 +96,8 @@ namespace Services.Service
                     SubAssetName = item.SubAssetName,
                     DeedType = item.LandDeed,
                     DeedOwner = item.DeedOwner,
-                    BusinessPlan = item.BusinessPlan
+                    BusinessPlan = item.BusinessPlan,
+                    WLTStatus = item.IsWlt
                 };
 
                 landVmList.Add(landVm);

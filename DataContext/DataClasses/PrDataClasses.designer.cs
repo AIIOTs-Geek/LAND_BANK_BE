@@ -1298,6 +1298,8 @@ namespace DataContext.DataClasses
 		
 		private string _DeedOwner;
 		
+		private string _IsWlt;
+		
 		public GetLandByAssetIdResult()
 		{
 		}
@@ -1522,6 +1524,22 @@ namespace DataContext.DataClasses
 				if ((this._DeedOwner != value))
 				{
 					this._DeedOwner = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsWlt", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string IsWlt
+		{
+			get
+			{
+				return this._IsWlt;
+			}
+			set
+			{
+				if ((this._IsWlt != value))
+				{
+					this._IsWlt = value;
 				}
 			}
 		}

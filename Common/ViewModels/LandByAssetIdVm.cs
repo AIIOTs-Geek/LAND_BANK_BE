@@ -15,7 +15,7 @@ namespace Common.ViewModels
         public string LandUse {  get; set; }
         public string LandType { get; set; }
         public string LandStatus { get; set; }
-        public bool WLTStatus { get; set; }
+        public string WLTStatus { get; set; }
         public decimal LandArea { get; set; }
         public string Location { get; set; }
         public string CityName { get; set; }
