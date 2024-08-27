@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace Models.Models.Land
 {
-    public class LandUseMaster:BaseModel
+    public class LandTitleDeedOwnerDetails:BaseModel
     {
         public int ID { get; set; }
-        public string LandUse { get; set; }
-        public int ParentId { get; set; }
+        public int TDID { get; set; }   
+        public int TDOwnerID { get; set; }  
+
     }
 }
