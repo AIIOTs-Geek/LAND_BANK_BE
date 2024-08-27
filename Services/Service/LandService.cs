@@ -50,6 +50,10 @@ namespace Services.Service
                 Area = landDetails.Area,
                 Location = landDetails.Location,
                 IsWlt = landDetails.WLTStatus,
+                Masterplan = landDetails.MasterPlan,
+                InfraApproval = landDetails.InfraApproval,
+                InfraContraction = landDetails.InfraContraction,
+                MunHandingOver = landDetails.MHandingOver,
                 TitleDeed = new TitleDeed
                 {
                     DeedNumber = landDetails.TDNo,
