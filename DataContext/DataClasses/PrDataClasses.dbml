@@ -125,4 +125,10 @@
       <Column Name="IsWlt" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="dbo.GetLandUses" Method="GetLandUses">
+    <Parameter Name="StatusType" Parameter="statusType" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="GetLandUsesResult">
+      <Column Name="[JSON_F52E2B61-18A1-11d1-B105-00805F49916B]" Member="JSON_F52E2B61_18A1_11d1_B105_00805F49916B" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

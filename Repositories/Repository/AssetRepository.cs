@@ -34,6 +34,21 @@ namespace Repositories.Repository
             }
             return result;
         }
+
+        public Task<List<GetLandUsesResult>> GetLandUsesAsync(string statusType)
+        {
+            using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
+            {
+                // Fetch data and convert to list
+                var result = db.GetLandUses(statusType).ToList();
+
+                // Return the result (empty list if no data found)
+                return Task.FromResult(result ?? new List<GetLandUsesResult>());
+            }
+        }
+
+
+
         public async Task<List<GetAssetNamesResult>> GetAssetNames()
         {
             var result = new List<GetAssetNamesResult>();
