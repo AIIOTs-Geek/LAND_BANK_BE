@@ -8,7 +8,7 @@ namespace Models.Models.WorkFlow
 {
     public class WF_ControlMaster
     {
-        public int Id { get; set; }
+        public int id { get; set; }
         public int CurrentStage { get; set; }
         public int ActionId { get; set; }
         public int NextStage { get; set; }

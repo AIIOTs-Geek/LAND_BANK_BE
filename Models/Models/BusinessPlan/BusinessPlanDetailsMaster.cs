@@ -5,12 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Models.Models.Land
+namespace Models.Models.BusinessPlan
 {
-    public class LandUseMaster:BaseModel
+    public class BusinessPlanDetailsMaster:BaseModel
     {
         public int ID { get; set; }
-        public string LandUse { get; set; }
-        public int ParentId { get; set; }
+        public string BusinessPlanDetails { get; set; }
     }
 }

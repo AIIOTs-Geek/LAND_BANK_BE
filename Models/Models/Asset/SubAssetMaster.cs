@@ -12,5 +12,7 @@ namespace Models.Models.Asset
         public int Id { get; set; }
         public string SubAssetName { get; set; }
         public string SubAssetCode { get; set; }
+        public int AssetId { get; set; }
+        public string SubAssetCodeActual { get; set;; }
     }
 }
