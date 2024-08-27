@@ -27,6 +27,10 @@ namespace Common.ViewModels
         public string SubAssetCode { get; set; }
         public string SubAssetName { get; set; }
         public string IsWlt { get; set; }
+        public string Masterplan { get; set; }
+        public string InfraApproval { get; set; }
+        public string InfraContraction { get; set; }
+        public string MunHandingOver { get; set; }
         public TitleDeed TitleDeed { get; set; }
         public List<TitleDeed>? OwnerShipDetails { get; set; }
     }
