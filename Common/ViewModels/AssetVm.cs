@@ -10,6 +10,7 @@ namespace Common.ViewModels
     {
         public int AssetId { get; set; }
         public string AssetName { get; set; }
+        public string AssetCode { get; set; }   
         public string SubAssetName { get; set; }
         public int? LandCount { get; set; }
         public decimal? TotalArea { get; set; }

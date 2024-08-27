@@ -4,6 +4,7 @@ using DataContext.DataClasses;
 using Repositories.IRepository;
 using Repositories.Repository;
 using Services.IService;
+using System.Text.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,7 @@ namespace Services.Service
             {
                 return ResponseHelper<LandDetailsVm>.CreateExceptionErrorResponse(HttpStatusCode.NotFound, new List<string> { "No details found for this land" });
             }
-
+            
             var landDetailsVm = new LandDetailsVm
             {
                 LandId = landDetails.LandId,
@@ -48,17 +49,28 @@ namespace Services.Service
                 AssetName = landDetails.AssetName,
                 Area = landDetails.Area,
                 Location = landDetails.Location,
+                IsWlt = landDetails.WLTStatus,
                 TitleDeed = new TitleDeed
                 {
                     DeedNumber = landDetails.TDNo,
                     DeedType = landDetails.TDType,
-                    DeedStatus = landDetails.TDStatus
-                }
+                    DeedStatus = landDetails.TitleDeedStatus,
+                    Owner =landDetails.TDOwnership,
+                    DeedDate = landDetails.TDDate,
+                },
+                OwnerShipDetails = new List<TitleDeed>()
+
             };
+            if (!string.IsNullOrEmpty(landDetails.TitleDeeds))
+            {
+                var jsonTitleDeeds = landDetails.TitleDeeds;
+                landDetailsVm.OwnerShipDetails = JsonSerializer.Deserialize<List<TitleDeed>>(jsonTitleDeeds);
+            }                    
+
 
             return ResponseHelper<LandDetailsVm>.CreateSuccessRes(landDetailsVm, new List<string> { "Land details fetched successfully" });
         }
-        public async Task<APIResponse<List<LandByAssetIdVm>>> GetLandsByAssetId(int assetId, string? searchText, int? cityId, int? districtId, int? userId, int? landUseId, int? businessPlanId, bool? IsWlt)
+        public async Task<APIResponse<List<LandByAssetIdVm>>> GetLandsByAssetId(int assetId, string? searchText, int? cityId, int? districtId, int? userId, int? landUseId, int? businessPlanId, int? IsWlt)
         {
             var landVmList = new List<LandByAssetIdVm>();
             var landList = await _landRepository.GetLandsByAssetId(assetId, searchText, cityId, districtId, userId, landUseId, businessPlanId, IsWlt);
@@ -81,7 +93,11 @@ namespace Services.Service
                     LandType = item.LandType,
                     LandUse = item.LandUse,
                     AssetName = item.AssetName,
-                    SubAssetName = item.SubAssetName                    
+                    SubAssetName = item.SubAssetName,
+                    DeedType = item.LandDeed,
+                    DeedOwner = item.DeedOwner,
+                    BusinessPlan = item.BusinessPlan,
+                    WLTStatus = item.IsWlt
                 };
 
                 landVmList.Add(landVm);

@@ -16,12 +16,12 @@ namespace Repositories.Repository
         {
             _configuration = configuration;
         }
-        public async Task<GetLandDetailsResult?> GetLandDetails(int landId, string? deptt)
+        public async Task<GetLandDetailsFiltersResult?> GetLandDetails(int landId, string? deptt)
         {
             using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
             {
-                var result = db.GetLandDetails(landId, deptt).SingleOrDefault();
-
+                //var result = db.GetLandDetails(landId, deptt).SingleOrDefault();
+                var result = db.GetLandDetailsFilters(landId, deptt).SingleOrDefault();
                 if (result == null)
                 {
                     return null;
@@ -30,7 +30,7 @@ namespace Repositories.Repository
                 return result;
             }
         }
-        public async Task<List<GetLandByAssetIdResult>> GetLandsByAssetId(int assetId, string? searchText, int? cityId, int? districtId, int? userId, int? landUseId, int? businessPlanId, bool? IsWlt)
+        public async Task<List<GetLandByAssetIdResult>> GetLandsByAssetId(int assetId, string? searchText, int? cityId, int? districtId, int? userId, int? landUseId, int? businessPlanId, int? IsWlt)
         {
             var result = new List<GetLandByAssetIdResult>();
 

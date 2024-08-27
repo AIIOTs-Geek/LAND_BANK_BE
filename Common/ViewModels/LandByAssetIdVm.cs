@@ -15,10 +15,13 @@ namespace Common.ViewModels
         public string LandUse {  get; set; }
         public string LandType { get; set; }
         public string LandStatus { get; set; }
-        public bool WLTStatus { get; set; }
+        public string WLTStatus { get; set; }
         public decimal LandArea { get; set; }
         public string Location { get; set; }
         public string CityName { get; set; }
         public string DistrictName { get; set; }
+        public string DeedType { get; set; }
+        public string DeedOwner { get; set; }
+        public string BusinessPlan { get; set; }
     }
 }
