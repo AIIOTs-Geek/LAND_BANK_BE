@@ -98,18 +98,18 @@ namespace DataContext.DataClasses
 			return ((ISingleResult<GetLandDetailsFiltersResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetLandByAssetId")]
-		public ISingleResult<GetLandByAssetIdResult> GetLandByAssetId([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AssetId", DbType="Int")] System.Nullable<int> assetId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SearchText", DbType="VarChar(100)")] string searchText, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CityId", DbType="Int")] System.Nullable<int> cityId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DistrictId", DbType="Int")] System.Nullable<int> districtId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandUseId", DbType="Int")] System.Nullable<int> landUseId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BusinessPlanId", DbType="Int")] System.Nullable<int> businessPlanId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="WLTStatus", DbType="Int")] System.Nullable<int> wLTStatus)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), assetId, searchText, cityId, districtId, userId, landUseId, businessPlanId, wLTStatus);
-			return ((ISingleResult<GetLandByAssetIdResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetAssetsWithLandCount")]
 		public ISingleResult<GetAssetsWithLandCountResult> GetAssetsWithLandCount([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SearchText", DbType="NVarChar(50)")] string searchText, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CityId", DbType="Int")] System.Nullable<int> cityId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DistrictId", DbType="Int")] System.Nullable<int> districtId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AssetId", DbType="Int")] System.Nullable<int> assetId)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), searchText, cityId, districtId, assetId);
 			return ((ISingleResult<GetAssetsWithLandCountResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetLandByAssetId")]
+		public ISingleResult<GetLandByAssetIdResult> GetLandByAssetId([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AssetId", DbType="Int")] System.Nullable<int> assetId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SearchText", DbType="VarChar(100)")] string searchText, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CityId", DbType="Int")] System.Nullable<int> cityId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DistrictId", DbType="Int")] System.Nullable<int> districtId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandUseId", DbType="Int")] System.Nullable<int> landUseId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BusinessPlanId", DbType="Int")] System.Nullable<int> businessPlanId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="WLTStatus", DbType="Int")] System.Nullable<int> wLTStatus)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), assetId, searchText, cityId, districtId, userId, landUseId, businessPlanId, wLTStatus);
+			return ((ISingleResult<GetLandByAssetIdResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -1169,6 +1169,104 @@ namespace DataContext.DataClasses
 		}
 	}
 	
+	public partial class GetAssetsWithLandCountResult
+	{
+		
+		private int _AssetId;
+		
+		private string _AssetName;
+		
+		private string _AssetCode;
+		
+		private System.Nullable<int> _NumberOfLands;
+		
+		private System.Nullable<decimal> _TotalLandArea;
+		
+		public GetAssetsWithLandCountResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetId", DbType="Int NOT NULL")]
+		public int AssetId
+		{
+			get
+			{
+				return this._AssetId;
+			}
+			set
+			{
+				if ((this._AssetId != value))
+				{
+					this._AssetId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetName", DbType="NVarChar(500) NOT NULL", CanBeNull=false)]
+		public string AssetName
+		{
+			get
+			{
+				return this._AssetName;
+			}
+			set
+			{
+				if ((this._AssetName != value))
+				{
+					this._AssetName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetCode", DbType="NVarChar(50)")]
+		public string AssetCode
+		{
+			get
+			{
+				return this._AssetCode;
+			}
+			set
+			{
+				if ((this._AssetCode != value))
+				{
+					this._AssetCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumberOfLands", DbType="Int")]
+		public System.Nullable<int> NumberOfLands
+		{
+			get
+			{
+				return this._NumberOfLands;
+			}
+			set
+			{
+				if ((this._NumberOfLands != value))
+				{
+					this._NumberOfLands = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalLandArea", DbType="Decimal(38,2)")]
+		public System.Nullable<decimal> TotalLandArea
+		{
+			get
+			{
+				return this._TotalLandArea;
+			}
+			set
+			{
+				if ((this._TotalLandArea != value))
+				{
+					this._TotalLandArea = value;
+				}
+			}
+		}
+	}
+	
 	public partial class GetLandByAssetIdResult
 	{
 		
@@ -1195,6 +1293,10 @@ namespace DataContext.DataClasses
 		private string _ReferenceNumber;
 		
 		private string _LandDeed;
+		
+		private string _BusinessPlan;
+		
+		private string _DeedOwner;
 		
 		public GetLandByAssetIdResult()
 		{
@@ -1391,101 +1493,35 @@ namespace DataContext.DataClasses
 				}
 			}
 		}
-	}
-	
-	public partial class GetAssetsWithLandCountResult
-	{
 		
-		private int _AssetId;
-		
-		private string _AssetName;
-		
-		private string _AssetCode;
-		
-		private System.Nullable<int> _NumberOfLands;
-		
-		private System.Nullable<decimal> _TotalLandArea;
-		
-		public GetAssetsWithLandCountResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetId", DbType="Int NOT NULL")]
-		public int AssetId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BusinessPlan", DbType="NVarChar(500) NOT NULL", CanBeNull=false)]
+		public string BusinessPlan
 		{
 			get
 			{
-				return this._AssetId;
+				return this._BusinessPlan;
 			}
 			set
 			{
-				if ((this._AssetId != value))
+				if ((this._BusinessPlan != value))
 				{
-					this._AssetId = value;
+					this._BusinessPlan = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetName", DbType="NVarChar(500) NOT NULL", CanBeNull=false)]
-		public string AssetName
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeedOwner", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string DeedOwner
 		{
 			get
 			{
-				return this._AssetName;
+				return this._DeedOwner;
 			}
 			set
 			{
-				if ((this._AssetName != value))
+				if ((this._DeedOwner != value))
 				{
-					this._AssetName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetCode", DbType="NVarChar(50)")]
-		public string AssetCode
-		{
-			get
-			{
-				return this._AssetCode;
-			}
-			set
-			{
-				if ((this._AssetCode != value))
-				{
-					this._AssetCode = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumberOfLands", DbType="Int")]
-		public System.Nullable<int> NumberOfLands
-		{
-			get
-			{
-				return this._NumberOfLands;
-			}
-			set
-			{
-				if ((this._NumberOfLands != value))
-				{
-					this._NumberOfLands = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalLandArea", DbType="Decimal(38,2)")]
-		public System.Nullable<decimal> TotalLandArea
-		{
-			get
-			{
-				return this._TotalLandArea;
-			}
-			set
-			{
-				if ((this._TotalLandArea != value))
-				{
-					this._TotalLandArea = value;
+					this._DeedOwner = value;
 				}
 			}
 		}
