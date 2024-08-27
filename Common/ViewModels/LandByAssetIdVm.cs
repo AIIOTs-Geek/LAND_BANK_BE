@@ -21,5 +21,7 @@ namespace Common.ViewModels
         public string CityName { get; set; }
         public string DistrictName { get; set; }
         public string DeedType { get; set; }
+        public string DeedOwner { get; set; }
+        public string BusinessPlan { get; set; }
     }
 }
