@@ -21,11 +21,11 @@ namespace Services.Service
         {
             _landRepository = landRepository;
         }
-        public async Task<APIResponse<LandDetailsVm>> GetLandDetails(int landId, string? deptt, string? year)
+        public async Task<APIResponse<LandDetailsVm>> GetLandDetails(int landId, string? deptt)
         {
             try
             {
-                var landDetails = await _landRepository.GetLandDetails(landId, deptt, year);
+                var landDetails = await _landRepository.GetLandDetails(landId, deptt);
                 if (landDetails == null)
                 {
                     return ResponseHelper<LandDetailsVm>.CreateExceptionErrorResponse(HttpStatusCode.NotFound, new List<string> { "No details found for this land" });
@@ -85,7 +85,7 @@ namespace Services.Service
                 if (!string.IsNullOrEmpty(landDetails.Wlt))
                 {
                     var jsonWlt = landDetails.Wlt;
-                    landDetailsVm.WhiteLandDetails = JsonSerializer.Deserialize<WltVm>(jsonWlt);
+                    landDetailsVm.WhiteLandDetails = JsonSerializer.Deserialize<List<WltVm>>(jsonWlt);
                 }
 
                 return ResponseHelper<LandDetailsVm>.CreateSuccessRes(landDetailsVm, new List<string> { "Land details fetched successfully" });

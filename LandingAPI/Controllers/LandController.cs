@@ -14,9 +14,9 @@ namespace LandingAPI.Controllers
             _landService = landService;
         }
         [HttpGet]
-        public async Task<IActionResult> GetLandDetails(int landId, string? deptt, string? year)
+        public async Task<IActionResult> GetLandDetails(int landId, string? deptt)
         {
-            return Response(await _landService.GetLandDetails(landId, deptt, year));
+            return Response(await _landService.GetLandDetails(landId, deptt));
         }
 
         [HttpGet]
