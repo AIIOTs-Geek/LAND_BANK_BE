@@ -35,5 +35,6 @@ namespace Common.ViewModels
         public List<TitleDeed>? OwnerShipDetails { get; set; }
         public SaleDetailsVm? SaleDetails { get; set; }
         public FinanceVm? FinanceDetails { get; set; }
+        public WltVm? WhiteLandDetails { get; set; }
     }
 }
