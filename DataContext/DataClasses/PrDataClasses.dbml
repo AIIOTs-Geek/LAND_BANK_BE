@@ -74,7 +74,6 @@
   <Function Name="dbo.GetLandDetailsFilters" Method="GetLandDetailsFilters">
     <Parameter Name="LandId" Parameter="landId" Type="System.Int32" DbType="Int" />
     <Parameter Name="Deptt" Parameter="deptt" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Year" Parameter="year" Type="System.String" DbType="VarChar(50)" />
     <ElementType Name="GetLandDetailsFiltersResult">
       <Column Name="LandId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Column Name="SubAssetId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
