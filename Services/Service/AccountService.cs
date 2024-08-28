@@ -50,7 +50,7 @@ namespace Services.Service
 
                 // Verify password
 
-                if (PasswordCryptography.VerifyPassword(loginDto.Password, user.Password))
+                if (!PasswordCryptography.VerifyPassword(loginDto.Password, user.Password))
                 {
                     return ResponseHelper<LoginViewModel>.CreateErrorRes(null, HttpStatusCode.Unauthorized, new List<string> { "Incorrect Password" });
                 }
