@@ -1,4 +1,5 @@
 ﻿using Models.Models.UserDetails;
+using DataContext.DataClasses;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -11,7 +12,7 @@ namespace Common
 {
     public class JWTToken
     {
-        public JwtSecurityToken GenerateJWTToken(IConfiguration configuration, User user)
+        public JwtSecurityToken GenerateJWTToken(IConfiguration configuration, UserLoginResult user)
         {
             DateTime expiryDate;
 
@@ -24,7 +25,7 @@ namespace Common
 
             if (user.Role != null)
             {
-                claims.Add(new Claim("Role", user.Role.RoleName));
+                claims.Add(new Claim("Role", user.Role));
                 claims.Add(new Claim("Id", user.Id.ToString()));
             }
 
@@ -40,7 +41,7 @@ namespace Common
         }
 
 
-        public JwtSecurityToken GenerateJWTTokenForResetPassword(IConfiguration configuration, User user)
+        public JwtSecurityToken GenerateJWTTokenForResetPassword(IConfiguration configuration, UserLoginResult user)
         {
             DateTime expiryDate;
 
@@ -53,7 +54,7 @@ namespace Common
 
             if (user.Role != null)
             {
-                claims.Add(new Claim("Role", user.Role.RoleName));
+                claims.Add(new Claim("Role", user.Role));
                 claims.Add(new Claim("Id", user.Id.ToString()));
             }
 

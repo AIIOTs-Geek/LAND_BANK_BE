@@ -41,65 +41,35 @@ namespace Services.Service
             try
             {
                
-                var user = await _accountRepository.Login(loginDto);
+                var user = await _accountRepository.Login(loginDto.Email);
                 if (user == null)
                 {
                     return ResponseHelper<LoginViewModel>.CreateErrorRes(null, HttpStatusCode.Unauthorized, new List<string> { "UserId not Found" });
-                }
-                if (user.RoleId == 1)
-                {
-                    // Fetch users from AD
-                  //  var usersResponse = await _userService.GetUsersFromAD();
-
-                    if (!usersResponse.Success)
-                    {
-                        return ResponseHelper<LoginViewModel>.CreateErrorRes(null, new List<string> { "UserId not Found" });
-                    }
-
-                    // Get the list of users from the response
-                    var users = usersResponse.Data;
-
-                    // Check if the email exists in the users list
-                    //var userfromAD = users.FirstOrDefault(u => u.UserPrincipalName.Equals(loginDto.Email, StringComparison.OrdinalIgnoreCase));
-
-                    if (userfromAD == null)
-                    {
-
-                        return ResponseHelper<LoginViewModel>.CreateErrorRes(null, HttpStatusCode.Unauthorized, new List<string> { "UserId Not Found" });
-
-                    }
-                }
+                }              
 
                 // Verify password
 
                 if (!VerifyPassword(loginDto.Password, user.Password))
                 {
-                    // Authentication successful
                     return ResponseHelper<LoginViewModel>.CreateErrorRes(null, HttpStatusCode.Unauthorized, new List<string> { "Incorrect Password" });
                 }
 
                 var token = JWTToken.GenerateJWTToken(_configuration, user);
 
-             //   var sign = await _dbContext.SystemConfiguration.FirstOrDefaultAsync();
-
                 return ResponseHelper<LoginViewModel>.CreateSuccessResponses(new LoginViewModel
                 {
                     Token = new JwtSecurityTokenHandler().WriteToken(token),
                     Expiration = token.ValidTo,
-                    RoleName = user.Role.RoleName,
-                    RoleId = user.RoleId,
+                    RoleName = user.Role,
                     FirstName = user.FName,
                     LastName = user.LName,
                     Email = user.Email,
                     MobilePhone = user.MobilePhone,
-                    displayname = user.DisplayName,
+                    Displayname = user.DisplayName,
                     Position = user.Position,
                     Id = user.Id,
-                    Department = user.Department.DepartmentNameEn,
-                    company = user.Company.CompanyNameEn,
-                    PhysicalSignature = sign.IsSignatureEnabled,
-                    //HasMultipleRoles = hasMultipleRoles,
-                    // SignatureImage = signatureBase64
+                    Department = user.Department,
+                    Company = user.Company,
 
                 }, new List<string> { Constant.SuccessfulLogin });
             }

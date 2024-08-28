@@ -1,4 +1,4 @@
-﻿using Common.Dtos.Login;
+﻿using DataContext.DataClasses;
 using Models.Models.UserDetails;
 using System;
 using System.Collections.Generic;
@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace Repositories.IRepository
 {
-    public  interface IAccountRepository
+    public interface IAccountRepository
     {
-        Task<User> Login(LoginDto loginDto);
+        Task<UserLoginResult> Login(string email);
     }
 }

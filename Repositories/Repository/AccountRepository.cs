@@ -1,4 +1,4 @@
-﻿using Common.Dtos.Login;
+﻿using Common.ViewModels;
 using DataContext;
 using DataContext.DataClasses;
 using Microsoft.EntityFrameworkCore;
@@ -26,13 +26,17 @@ namespace Repositories.Repository
             _dbContext = dbContext;
             _configuration = configuration;
         }
-        public async Task<User> Login(LoginDto loginDto)
+        public async Task<UserLoginResult> Login(string email)
         {
-            var result = new User();
-
+            var result = new UserLoginResult();
             using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
             {
+                result = db.UserLogin(email).SingleOrDefault();
 
+                if (result == null)
+                {
+                    return null;
+                }
             }
             return result;
         }
