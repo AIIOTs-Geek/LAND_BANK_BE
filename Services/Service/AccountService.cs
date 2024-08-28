@@ -28,6 +28,7 @@ namespace Services.Service
         private readonly IAccountRepository _accountRepository;
         private readonly LBDbContext _dbContext;
         private readonly IConfiguration _configuration;
+        JWTToken JWTToken = new JWTToken();
 
         public AccountService(IAccountRepository accountRepository, LBDbContext dbContext, IConfiguration configuration)
         {
@@ -49,7 +50,7 @@ namespace Services.Service
 
                 // Verify password
 
-                if (!VerifyPassword(loginDto.Password, user.Password))
+                if (PasswordCryptography.VerifyPassword(loginDto.Password, user.Password))
                 {
                     return ResponseHelper<LoginViewModel>.CreateErrorRes(null, HttpStatusCode.Unauthorized, new List<string> { "Incorrect Password" });
                 }
@@ -65,11 +66,11 @@ namespace Services.Service
                     LastName = user.LName,
                     Email = user.Email,
                     MobilePhone = user.MobilePhone,
-                    Displayname = user.DisplayName,
+                    displayname = user.DisplayName,
                     Position = user.Position,
                     Id = user.Id,
                     Department = user.Department,
-                    Company = user.Company,
+                    company = user.Company,
 
                 }, new List<string> { Constant.SuccessfulLogin });
             }
