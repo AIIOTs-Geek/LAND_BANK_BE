@@ -31,6 +31,8 @@ namespace Common.ViewModels
         public string InfraApproval { get; set; }
         public string InfraContraction { get; set; }
         public string MunHandingOver { get; set; }
+        public decimal? Latitude { get; set; }
+        public decimal? Longitude { get; set; }
         public TitleDeed TitleDeed { get; set; }
         public List<TitleDeed>? OwnerShipDetails { get; set; }
         public SaleDetailsVm? SaleDetails { get; set; }

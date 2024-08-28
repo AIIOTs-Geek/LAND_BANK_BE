@@ -51,6 +51,8 @@ namespace Services.Service
                     AssetName = landDetails.AssetName,
                     Area = landDetails.Area,
                     Location = landDetails.Location,
+                    Latitude = landDetails.Latitude,
+                    Longitude = landDetails.Longitude,
                     IsWlt = landDetails.WLTStatus,
                     Masterplan = landDetails.MasterPlan,
                     InfraApproval = landDetails.InfraApproval,
