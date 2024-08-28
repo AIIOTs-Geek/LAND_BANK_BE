@@ -77,13 +77,18 @@ namespace Services.Service
                     var jsonSales = landDetails.Sales;
                     landDetailsVm.SaleDetails = JsonSerializer.Deserialize<SaleDetailsVm>(jsonSales);
                 }
+                if (!string.IsNullOrEmpty(landDetails.Finance))
+                {
+                    var jsonFinance = landDetails.Finance;
+                    landDetailsVm.FinanceDetails = JsonSerializer.Deserialize<FinanceVm>(jsonFinance);
+                }
 
 
                 return ResponseHelper<LandDetailsVm>.CreateSuccessRes(landDetailsVm, new List<string> { "Land details fetched successfully" });
             }
             catch (Exception ex)
             {
-                throw new Exception("hello");
+                throw new Exception("Something went wrong");
             }
         }
         public async Task<APIResponse<List<LandByAssetIdVm>>> GetLandsByAssetId(int assetId, string? searchText, int? cityId, int? districtId, int? userId, int? landUseId, int? businessPlanId, int? IsWlt)
