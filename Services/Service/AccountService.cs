@@ -66,11 +66,11 @@ namespace Services.Service
                     LastName = user.LName,
                     Email = user.Email,
                     MobilePhone = user.MobilePhone,
-                    displayname = user.DisplayName,
+                    Displayname = user.DisplayName,
                     Position = user.Position,
                     Id = user.Id,
                     Department = user.Department,
-                    company = user.Company,
+                    Company = user.Company,
 
                 }, new List<string> { Constant.SuccessfulLogin });
             }
