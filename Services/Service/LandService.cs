@@ -23,52 +23,79 @@ namespace Services.Service
         }
         public async Task<APIResponse<LandDetailsVm>> GetLandDetails(int landId, string? deptt)
         {
-            var landDetails = await _landRepository.GetLandDetails(landId, deptt);
-            if (landDetails == null)
+            try
             {
-                return ResponseHelper<LandDetailsVm>.CreateExceptionErrorResponse(HttpStatusCode.NotFound, new List<string> { "No details found for this land" });
-            }
-            
-            var landDetailsVm = new LandDetailsVm
-            {
-                LandId = landDetails.LandId,
-                ReferenceId = landDetails.ReferenceNumber,
-                MapUrl = landDetails.MapImageURL,
-                LandInformation = landDetails.LandInformation,
-                LandStatus = landDetails.LandStatus,
-                LandType = landDetails.LandType,
-                LandUse = landDetails.LandUse,
-                BusinessPlan = landDetails.BusinessPlanName,
-                BusinessPlanDetail = landDetails.BusinessPlanDetails,
-                BusinessPlanStatus = landDetails.BusinessPlanStatus,
-                City = landDetails.CityName,
-                District = landDetails.DistrictName,
-                SubAssetCode = landDetails.SubAssetCode,
-                SubAssetName = landDetails.SubAssetName,
-                AssetCode = landDetails.AssetCode,
-                AssetName = landDetails.AssetName,
-                Area = landDetails.Area,
-                Location = landDetails.Location,
-                IsWlt = landDetails.WLTStatus,
-                TitleDeed = new TitleDeed
+                var landDetails = await _landRepository.GetLandDetails(landId, deptt);
+                if (landDetails == null)
                 {
-                    DeedNumber = landDetails.TDNo,
-                    DeedType = landDetails.TDType,
-                    DeedStatus = landDetails.TitleDeedStatus,
-                    Owner =landDetails.TDOwnership,
-                    DeedDate = landDetails.TDDate,
-                },
-                OwnerShipDetails = new List<TitleDeed>()
+                    return ResponseHelper<LandDetailsVm>.CreateExceptionErrorResponse(HttpStatusCode.NotFound, new List<string> { "No details found for this land" });
+                }
 
-            };
-            if (!string.IsNullOrEmpty(landDetails.TitleDeeds))
+                var landDetailsVm = new LandDetailsVm
+                {
+                    LandId = landDetails.LandId,
+                    ReferenceId = landDetails.ReferenceNumber,
+                    MapUrl = landDetails.MapImageURL,
+                    LandInformation = landDetails.LandInformation,
+                    LandStatus = landDetails.LandStatus,
+                    LandType = landDetails.LandType,
+                    LandUse = landDetails.LandUse,
+                    BusinessPlan = landDetails.BusinessPlanName,
+                    BusinessPlanDetail = landDetails.BusinessPlanDetails,
+                    BusinessPlanStatus = landDetails.BusinessPlanStatus,
+                    City = landDetails.CityName,
+                    District = landDetails.DistrictName,
+                    SubAssetCode = landDetails.SubAssetCode,
+                    SubAssetName = landDetails.SubAssetName,
+                    AssetCode = landDetails.AssetCode,
+                    AssetName = landDetails.AssetName,
+                    Area = landDetails.Area,
+                    Location = landDetails.Location,
+                    Latitude = landDetails.Latitude,
+                    Longitude = landDetails.Longitude,
+                    IsWlt = landDetails.WLTStatus,
+                    Masterplan = landDetails.MasterPlan,
+                    InfraApproval = landDetails.InfraApproval,
+                    InfraContraction = landDetails.InfraContraction,
+                    MunHandingOver = landDetails.MHandingOver,
+                    TitleDeed = new TitleDeed
+                    {
+                        DeedNumber = landDetails.TDNo,
+                        DeedType = landDetails.TDType,
+                        DeedStatus = landDetails.TitleDeedStatus,
+                        Owner = landDetails.TDOwnership,
+                        DeedDate = landDetails.TDDate,
+                    },
+                    OwnerShipDetails = new List<TitleDeed>(),
+                    SaleDetails = new SaleDetailsVm()
+                };
+                if (!string.IsNullOrEmpty(landDetails.TitleDeeds))
+                {
+                    var jsonTitleDeeds = landDetails.TitleDeeds;
+                    landDetailsVm.OwnerShipDetails = JsonSerializer.Deserialize<List<TitleDeed>>(jsonTitleDeeds);
+                }
+                if (!string.IsNullOrEmpty(landDetails.Sales))
+                {
+                    var jsonSales = landDetails.Sales;
+                    landDetailsVm.SaleDetails = JsonSerializer.Deserialize<SaleDetailsVm>(jsonSales);
+                }
+                if (!string.IsNullOrEmpty(landDetails.Finance))
+                {
+                    var jsonFinance = landDetails.Finance;
+                    landDetailsVm.FinanceDetails = JsonSerializer.Deserialize<FinanceVm>(jsonFinance);
+                }
+                if (!string.IsNullOrEmpty(landDetails.Wlt))
+                {
+                    var jsonWlt = landDetails.Wlt;
+                    landDetailsVm.WhiteLandDetails = JsonSerializer.Deserialize<List<WltVm>>(jsonWlt);
+                }
+
+                return ResponseHelper<LandDetailsVm>.CreateSuccessRes(landDetailsVm, new List<string> { "Land details fetched successfully" });
+            }
+            catch (Exception ex)
             {
-                var jsonTitleDeeds = landDetails.TitleDeeds;
-                landDetailsVm.OwnerShipDetails = JsonSerializer.Deserialize<List<TitleDeed>>(jsonTitleDeeds);
-            }                    
-
-
-            return ResponseHelper<LandDetailsVm>.CreateSuccessRes(landDetailsVm, new List<string> { "Land details fetched successfully" });
+                throw new Exception("Something went wrong");
+            }
         }
         public async Task<APIResponse<List<LandByAssetIdVm>>> GetLandsByAssetId(int assetId, string? searchText, int? cityId, int? districtId, int? userId, int? landUseId, int? businessPlanId, int? IsWlt)
         {
@@ -94,7 +121,10 @@ namespace Services.Service
                     LandUse = item.LandUse,
                     AssetName = item.AssetName,
                     SubAssetName = item.SubAssetName,
-                    DeedType = item.LandDeed
+                    DeedType = item.LandDeed,
+                    DeedOwner = item.DeedOwner,
+                    BusinessPlan = item.BusinessPlan,
+                    WLTStatus = item.IsWlt
                 };
 
                 landVmList.Add(landVm);

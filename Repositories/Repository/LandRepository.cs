@@ -20,7 +20,6 @@ namespace Repositories.Repository
         {
             using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
             {
-                //var result = db.GetLandDetails(landId, deptt).SingleOrDefault();
                 var result = db.GetLandDetailsFilters(landId, deptt).SingleOrDefault();
                 if (result == null)
                 {

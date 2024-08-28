@@ -1,6 +1,8 @@
 ﻿using Common.Helper;
 using Common.ViewModels;
 using DataContext.DataClasses;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Repositories.IRepository;
 using Services.IService;
 using System;
@@ -40,6 +42,98 @@ namespace Services.Service
             }
             return ResponseHelper<List<StatusVm>>.CreateGetSuccessResponse(statusVmList, statusList.Count);
         }
+
+        public async Task<APIResponse<List<StatusVm>>> GetLandUsesAsync(string statusType)
+        {
+            try
+            {
+                // Fetch the JSON result from the repository
+                var result = await _assetRepository.GetLandUsesAsync(statusType);
+
+                // Check if no data was returned
+                if (result == null || !result.Any())
+                {
+                    return ResponseHelper<List<StatusVm>>.CreateExceptionErrorResponse(HttpStatusCode.NotFound, new List<string> { "No land uses found" });
+                }
+
+                // Extract JSON string from the result
+                var landUsesJson = result.First().JSON_F52E2B61_18A1_11d1_B105_00805F49916B;
+
+                // Check if JSON data is null or empty
+                if (string.IsNullOrEmpty(landUsesJson))
+                {
+                    return ResponseHelper<List<StatusVm>>.CreateExceptionErrorResponse(HttpStatusCode.NotFound, new List<string> { "No land uses found" });
+                }
+
+                // Parse the JSON data using JObject
+                JObject jsonObject = JObject.Parse(landUsesJson);
+
+                // Extract the "LandUses" array from the JSON object
+                JArray landUsesArray = (JArray)jsonObject["LandUses"];
+
+                // Check if the "LandUses" array is null or empty
+                if (landUsesArray == null || !landUsesArray.Any())
+                {
+                    return ResponseHelper<List<StatusVm>>.CreateExceptionErrorResponse(HttpStatusCode.NotFound, new List<string> { "No land uses found" });
+                }
+
+                // Convert JArray to List<StatusVm>
+                var landUses = landUsesArray.ToObject<List<StatusVm>>();
+
+                // Build the hierarchical structure
+                var lookup = landUses.ToLookup(x => x.ParentId);
+                var rootItems = new List<StatusVm>();
+
+                // First, build the hierarchy for Children
+                foreach (var item in landUses)
+                {
+                    if (!item.ParentId.HasValue)
+                    {
+                        rootItems.Add(item);
+                    }
+                    else
+                    {
+                        var parent = landUses.FirstOrDefault(x => x.Id == item.ParentId);
+                        if (parent != null)
+                        {
+                            parent.Children.Add(item);
+                        }
+                    }
+                }
+
+                // Then, handle Grandchildren
+                foreach (var item in landUses)
+                {
+                    if (item.Children.Any())
+                    {
+                        foreach (var child in item.Children)
+                        {
+                            var grandchildren = landUses.Where(x => x.ParentId == child.Id).ToList();
+                            child.Grandchildren.AddRange(grandchildren);
+                        }
+                    }
+                }
+
+                // Return a success response with the hierarchical data
+                return ResponseHelper<List<StatusVm>>.CreateGetSuccessResponse(rootItems, rootItems.Count);
+            }
+            catch (Exception ex)
+            {
+                // Log the detailed exception using a logging framework
+                Console.Error.WriteLine($"Exception occurred: {ex.Message}");
+                Console.Error.WriteLine(ex.StackTrace);
+
+                // Return an error response
+                return ResponseHelper<List<StatusVm>>.CreateExceptionErrorResponse(HttpStatusCode.InternalServerError, new List<string> { "An unexpected error occurred." });
+            }
+        }
+
+
+
+
+
+
+
         public async Task<APIResponse<List<AssetNameVm>>> GetAssets()
         {
             var assetVmList = new List<AssetNameVm>();
