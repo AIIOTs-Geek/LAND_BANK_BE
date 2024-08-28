@@ -124,7 +124,8 @@ namespace Services.Service
                     DeedType = item.LandDeed,
                     DeedOwner = item.DeedOwner,
                     BusinessPlan = item.BusinessPlan,
-                    WLTStatus = item.IsWlt
+                    WLTStatus = item.IsWlt,
+                    DeedStatus = item.TitleDeedStatus
                 };
 
                 landVmList.Add(landVm);
