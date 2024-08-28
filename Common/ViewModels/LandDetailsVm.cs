@@ -33,5 +33,6 @@ namespace Common.ViewModels
         public string MunHandingOver { get; set; }
         public TitleDeed TitleDeed { get; set; }
         public List<TitleDeed>? OwnerShipDetails { get; set; }
+        public SaleDetailsVm? SaleDetails { get; set; }
     }
 }
