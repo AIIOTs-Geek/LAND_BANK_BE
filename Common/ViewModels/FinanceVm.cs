@@ -17,5 +17,5 @@ namespace Common.ViewModels
         public string ZakatPayment { get; set; }
         public string ZakatValue { get; set; }
     }
-    }
+}
 

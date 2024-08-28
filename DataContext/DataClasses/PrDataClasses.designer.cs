@@ -106,9 +106,9 @@ namespace DataContext.DataClasses
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetLandDetailsFilters")]
-		public ISingleResult<GetLandDetailsFiltersResult> GetLandDetailsFilters([global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandId", DbType="Int")] System.Nullable<int> landId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Deptt", DbType="VarChar(50)")] string deptt)
+		public ISingleResult<GetLandDetailsFiltersResult> GetLandDetailsFilters([global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandId", DbType="Int")] System.Nullable<int> landId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Deptt", DbType="VarChar(50)")] string deptt, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Year", DbType="VarChar(50)")] string year)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), landId, deptt);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), landId, deptt, year);
 			return ((ISingleResult<GetLandDetailsFiltersResult>)(result.ReturnValue));
 		}
 	}
@@ -762,6 +762,8 @@ namespace DataContext.DataClasses
 		
 		private string _Finance;
 		
+		private string _Wlt;
+		
 		public GetLandDetailsFiltersResult()
 		{
 		}
@@ -1306,6 +1308,22 @@ namespace DataContext.DataClasses
 				if ((this._Finance != value))
 				{
 					this._Finance = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Wlt", DbType="NVarChar(MAX)")]
+		public string Wlt
+		{
+			get
+			{
+				return this._Wlt;
+			}
+			set
+			{
+				if ((this._Wlt != value))
+				{
+					this._Wlt = value;
 				}
 			}
 		}

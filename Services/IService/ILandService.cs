@@ -11,7 +11,7 @@ namespace Services.IService
 {
     public interface ILandService
     {
-        Task<APIResponse<LandDetailsVm>> GetLandDetails(int landId, string? deptt);
+        Task<APIResponse<LandDetailsVm>> GetLandDetails(int landId, string? deptt, string? year);
         Task<APIResponse<List<LandByAssetIdVm>>> GetLandsByAssetId(int assetId, string? searchText, int? cityId, int? districtId, int? userId, int? landUseId, int? businessPlanId, int? IsWlt);
     }
 }
