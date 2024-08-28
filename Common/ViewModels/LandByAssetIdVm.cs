@@ -22,6 +22,7 @@ namespace Common.ViewModels
         public string DistrictName { get; set; }
         public string DeedType { get; set; }
         public string DeedOwner { get; set; }
+        public string DeedStatus { get; set; }
         public string BusinessPlan { get; set; }
     }
 }
