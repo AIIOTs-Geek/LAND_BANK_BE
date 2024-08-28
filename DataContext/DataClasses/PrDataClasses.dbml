@@ -108,6 +108,7 @@
       <Column Name="MHandingOver" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="TitleDeeds" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="Sales" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Finance" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

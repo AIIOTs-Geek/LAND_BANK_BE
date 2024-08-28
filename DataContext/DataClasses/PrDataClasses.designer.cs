@@ -760,6 +760,8 @@ namespace DataContext.DataClasses
 		
 		private string _Sales;
 		
+		private string _Finance;
+		
 		public GetLandDetailsFiltersResult()
 		{
 		}
@@ -1288,6 +1290,22 @@ namespace DataContext.DataClasses
 				if ((this._Sales != value))
 				{
 					this._Sales = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Finance", DbType="NVarChar(MAX)")]
+		public string Finance
+		{
+			get
+			{
+				return this._Finance;
+			}
+			set
+			{
+				if ((this._Finance != value))
+				{
+					this._Finance = value;
 				}
 			}
 		}
