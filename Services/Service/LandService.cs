@@ -58,6 +58,7 @@ namespace Services.Service
                     InfraApproval = landDetails.InfraApproval,
                     InfraContraction = landDetails.InfraContraction,
                     MunHandingOver = landDetails.MHandingOver,
+                    PlotNo = landDetails.PlotNo,
                     TitleDeed = new TitleDeed
                     {
                         DeedNumber = landDetails.TDNo,
@@ -125,7 +126,8 @@ namespace Services.Service
                     DeedOwner = item.DeedOwner,
                     BusinessPlan = item.BusinessPlan,
                     WLTStatus = item.IsWlt,
-                    DeedStatus = item.TitleDeedStatus
+                    DeedStatus = item.TitleDeedStatus,
+                    Status = item.RandomNumber,
                 };
 
                 landVmList.Add(landVm);
