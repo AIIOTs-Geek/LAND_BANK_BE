@@ -18,9 +18,10 @@ namespace Repositories.Repository
         }
         public async Task<GetLandDetailsFiltersResult?> GetLandDetails(int landId, string? deptt)
         {
+            int? userId = null;
             using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
             {
-                var result = db.GetLandDetailsFilters(landId, deptt).SingleOrDefault();
+                var result = db.GetLandDetailsFilters(landId, deptt, userId).SingleOrDefault();
                 if (result == null)
                 {
                     return null;
