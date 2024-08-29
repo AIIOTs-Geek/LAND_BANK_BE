@@ -24,5 +24,6 @@ namespace Common.ViewModels
         public string DeedOwner { get; set; }
         public string DeedStatus { get; set; }
         public string BusinessPlan { get; set; }
+        public int? Status { get; set; }
     }
 }
