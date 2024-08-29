@@ -58,6 +58,7 @@ namespace Services.Service
                     InfraApproval = landDetails.InfraApproval,
                     InfraContraction = landDetails.InfraContraction,
                     MunHandingOver = landDetails.MHandingOver,
+                    PlotNo = landDetails.PlotNo,
                     TitleDeed = new TitleDeed
                     {
                         DeedNumber = landDetails.TDNo,
