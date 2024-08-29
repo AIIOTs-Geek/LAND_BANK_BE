@@ -63,36 +63,6 @@
       <Column Name="Department" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.GetLandByAssetId" Method="GetLandByAssetId">
-    <Parameter Name="AssetId" Parameter="assetId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="SearchText" Parameter="searchText" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="CityId" Parameter="cityId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="DistrictId" Parameter="districtId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="LandUseId" Parameter="landUseId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="BusinessPlanId" Parameter="businessPlanId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="WLTStatus" Parameter="wLTStatus" Type="System.Int32" DbType="Int" />
-    <ElementType Name="GetLandByAssetIdResult">
-      <Column Name="LandId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="Area" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
-      <Column Name="Location" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="AssetName" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="SubAssetName" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="LandStatus" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="LandType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="LandUse" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="DistrictName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="CityName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="LandDeed" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="BusinessPlan" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="DeedOwner" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="IsWlt" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="TitleDeedStatus" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="RandomNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ReferenceNumber" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="RowNum" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.GetLandDetailsFilters" Method="GetLandDetailsFilters">
     <Parameter Name="LandId" Parameter="landId" Type="System.Int32" DbType="Int" />
     <Parameter Name="Deptt" Parameter="deptt" Type="System.String" DbType="VarChar(50)" />
@@ -134,6 +104,37 @@
       <Column Name="Sales" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="Finance" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="Wlt" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetLandByAssetId" Method="GetLandByAssetId">
+    <Parameter Name="AssetId" Parameter="assetId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SearchText" Parameter="searchText" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="CityId" Parameter="cityId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DistrictId" Parameter="districtId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OwnerId" Parameter="ownerId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LandUseId" Parameter="landUseId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="BusinessPlanId" Parameter="businessPlanId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="WLTStatus" Parameter="wLTStatus" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetLandByAssetIdResult">
+      <Column Name="LandId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Area" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Location" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="AssetName" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="SubAssetName" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="LandStatus" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LandType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LandUse" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DistrictName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="CityName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="LandDeed" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="BusinessPlan" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="DeedOwner" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IsWlt" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TitleDeedStatus" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="RandomNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ReferenceNumber" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="RowNum" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>
