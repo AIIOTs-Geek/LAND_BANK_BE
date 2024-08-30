@@ -1,4 +1,5 @@
 ﻿using Api.Controllers;
+using Common.Dtos;
 using Microsoft.AspNetCore.Mvc;
 using Services.IService;
 
@@ -24,7 +25,16 @@ namespace LandingAPI.Controllers
         {
             return Response(await _landService.GetLandsByAssetId(assetId, searchText, cityId, districtId, userId, landUseId, businessPlanId, IsWlt));
         }
+        [HttpGet]
+        public async Task<IActionResult> GetBuyerDetails(string search)
+        {
+            return Response(await _landService.GetBuyerDetails(search));
+        }
+        [HttpPost]
+        public async Task<IActionResult> AddBuyerDetails(AddBuyerDto buyerDto)
+        {
+            return Response(await _landService.AddBuyerDetails(buyerDto));
+        }
 
-        
     }
 }

@@ -1,4 +1,5 @@
-﻿using Common.Helper;
+﻿using Common.Dtos;
+using Common.Helper;
 using Common.ViewModels;
 using DataContext.DataClasses;
 using System;
@@ -13,5 +14,7 @@ namespace Services.IService
     {
         Task<APIResponse<LandDetailsVm>> GetLandDetails(int landId, string? deptt);
         Task<APIResponse<List<LandByAssetIdVm>>> GetLandsByAssetId(int assetId, string? searchText, int? cityId, int? districtId, int? userId, int? landUseId, int? businessPlanId, int? IsWlt);
+        Task<APIResponse<string>> AddBuyerDetails(AddBuyerDto buyerDto);
+        Task<APIResponse<List<GetbuyerDetailsResult>>> GetBuyerDetails(string search);
     }
 }
