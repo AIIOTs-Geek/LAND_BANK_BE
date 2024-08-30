@@ -1339,33 +1339,33 @@ namespace DataContext.DataClasses
 	public partial class GetLandByAssetIdResult
 	{
 		
-		private long _LandId;
+		private int _Id;
 		
-		private decimal _Area;
+		private string _AdId;
 		
-		private string _Location;
+		private string _DisplayName;
 		
-		private string _AssetName;
+		private string _FName;
 		
-		private string _SubAssetName;
+		private string _MName;
 		
-		private string _LandStatus;
+		private string _LName;
 		
-		private string _LandType;
+		private string _Email;
 		
-		private string _LandUse;
+		private string _MobilePhone;
 		
-		private string _DistrictName;
+		private string _JobTitle;
 		
-		private string _CityName;
+		private string _Position;
 		
-		private string _LandDeed;
+		private string _Password;
 		
-		private string _BusinessPlan;
+		private string _Role;
 		
-		private string _DeedOwner;
+		private string _Company;
 		
-		private string _IsWlt;
+		private string _Department;
 		
 		private string _TitleDeedStatus;
 		
@@ -1379,242 +1379,194 @@ namespace DataContext.DataClasses
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LandId", DbType="BigInt NOT NULL")]
-		public long LandId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL")]
+		public int Id
 		{
 			get
 			{
-				return this._LandId;
+				return this._Id;
 			}
 			set
 			{
-				if ((this._LandId != value))
+				if ((this._Id != value))
 				{
-					this._LandId = value;
+					this._Id = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Area", DbType="Decimal(18,2) NOT NULL")]
-		public decimal Area
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdId", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string AdId
 		{
 			get
 			{
-				return this._Area;
+				return this._AdId;
 			}
 			set
 			{
-				if ((this._Area != value))
+				if ((this._AdId != value))
 				{
-					this._Area = value;
+					this._AdId = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Location", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
-		public string Location
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DisplayName", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string DisplayName
 		{
 			get
 			{
-				return this._Location;
+				return this._DisplayName;
 			}
 			set
 			{
-				if ((this._Location != value))
+				if ((this._DisplayName != value))
 				{
-					this._Location = value;
+					this._DisplayName = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetName", DbType="NVarChar(500) NOT NULL", CanBeNull=false)]
-		public string AssetName
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FName", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string FName
 		{
 			get
 			{
-				return this._AssetName;
+				return this._FName;
 			}
 			set
 			{
-				if ((this._AssetName != value))
+				if ((this._FName != value))
 				{
-					this._AssetName = value;
+					this._FName = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SubAssetName", DbType="NVarChar(500) NOT NULL", CanBeNull=false)]
-		public string SubAssetName
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MName", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string MName
 		{
 			get
 			{
-				return this._SubAssetName;
+				return this._MName;
 			}
 			set
 			{
-				if ((this._SubAssetName != value))
+				if ((this._MName != value))
 				{
-					this._SubAssetName = value;
+					this._MName = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LandStatus", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string LandStatus
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LName", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string LName
 		{
 			get
 			{
-				return this._LandStatus;
+				return this._LName;
 			}
 			set
 			{
-				if ((this._LandStatus != value))
+				if ((this._LName != value))
 				{
-					this._LandStatus = value;
+					this._LName = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LandType", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string LandType
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Email
 		{
 			get
 			{
-				return this._LandType;
+				return this._Email;
 			}
 			set
 			{
-				if ((this._LandType != value))
+				if ((this._Email != value))
 				{
-					this._LandType = value;
+					this._Email = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LandUse", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string LandUse
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MobilePhone", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string MobilePhone
 		{
 			get
 			{
-				return this._LandUse;
+				return this._MobilePhone;
 			}
 			set
 			{
-				if ((this._LandUse != value))
+				if ((this._MobilePhone != value))
 				{
-					this._LandUse = value;
+					this._MobilePhone = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DistrictName", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string DistrictName
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JobTitle", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string JobTitle
 		{
 			get
 			{
-				return this._DistrictName;
+				return this._JobTitle;
 			}
 			set
 			{
-				if ((this._DistrictName != value))
+				if ((this._JobTitle != value))
 				{
-					this._DistrictName = value;
+					this._JobTitle = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CityName", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string CityName
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Position", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Position
 		{
 			get
 			{
-				return this._CityName;
+				return this._Position;
 			}
 			set
 			{
-				if ((this._CityName != value))
+				if ((this._Position != value))
 				{
-					this._CityName = value;
+					this._Position = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LandDeed", DbType="NVarChar(500) NOT NULL", CanBeNull=false)]
-		public string LandDeed
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Password
 		{
 			get
 			{
-				return this._LandDeed;
+				return this._Password;
 			}
 			set
 			{
-				if ((this._LandDeed != value))
+				if ((this._Password != value))
 				{
-					this._LandDeed = value;
+					this._Password = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BusinessPlan", DbType="NVarChar(500) NOT NULL", CanBeNull=false)]
-		public string BusinessPlan
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Role", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Role
 		{
 			get
 			{
-				return this._BusinessPlan;
+				return this._Role;
 			}
 			set
 			{
-				if ((this._BusinessPlan != value))
+				if ((this._Role != value))
 				{
-					this._BusinessPlan = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeedOwner", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string DeedOwner
-		{
-			get
-			{
-				return this._DeedOwner;
-			}
-			set
-			{
-				if ((this._DeedOwner != value))
-				{
-					this._DeedOwner = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsWlt", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string IsWlt
-		{
-			get
-			{
-				return this._IsWlt;
-			}
-			set
-			{
-				if ((this._IsWlt != value))
-				{
-					this._IsWlt = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TitleDeedStatus", DbType="NVarChar(500) NOT NULL", CanBeNull=false)]
-		public string TitleDeedStatus
-		{
-			get
-			{
-				return this._TitleDeedStatus;
-			}
-			set
-			{
-				if ((this._TitleDeedStatus != value))
-				{
-					this._TitleDeedStatus = value;
+					this._Role = value;
 				}
 			}
 		}
@@ -1640,29 +1592,29 @@ namespace DataContext.DataClasses
 		{
 			get
 			{
-				return this._ReferenceNumber;
+				return this._Company;
 			}
 			set
 			{
-				if ((this._ReferenceNumber != value))
+				if ((this._Company != value))
 				{
-					this._ReferenceNumber = value;
+					this._Company = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RowNum", DbType="BigInt")]
-		public System.Nullable<long> RowNum
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Department", DbType="NVarChar(100)")]
+		public string Department
 		{
 			get
 			{
-				return this._RowNum;
+				return this._Department;
 			}
 			set
 			{
-				if ((this._RowNum != value))
+				if ((this._Department != value))
 				{
-					this._RowNum = value;
+					this._Department = value;
 				}
 			}
 		}
