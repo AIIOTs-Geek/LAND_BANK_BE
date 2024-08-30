@@ -26,6 +26,7 @@ namespace Common.ViewModels
         public string AssetName { get; set; }
         public string SubAssetCode { get; set; }
         public string SubAssetName { get; set; }
+        public string  PlotNo { get; set; }
         public string IsWlt { get; set; }
         public string Masterplan { get; set; }
         public string InfraApproval { get; set; }
@@ -37,6 +38,6 @@ namespace Common.ViewModels
         public List<TitleDeed>? OwnerShipDetails { get; set; }
         public SaleDetailsVm? SaleDetails { get; set; }
         public FinanceVm? FinanceDetails { get; set; }
-        public List<WltVm>? WhiteLandDetails { get; set; }
+        public List<WltWrapperVm>? WhiteLandDetails { get; set; }
     }
 }

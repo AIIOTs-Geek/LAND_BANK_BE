@@ -12,7 +12,7 @@ namespace Common.ViewModels
         public string ReferenceNumber { get; set; }
         public string AssetName { get; set; }
         public string SubAssetName { get; set; }
-        public string LandUse {  get; set; }
+        public string LandUse { get; set; }
         public string LandType { get; set; }
         public string LandStatus { get; set; }
         public string WLTStatus { get; set; }
@@ -24,5 +24,23 @@ namespace Common.ViewModels
         public string DeedOwner { get; set; }
         public string DeedStatus { get; set; }
         public string BusinessPlan { get; set; }
+        public int? Status { get; set; }
+
+
+        public string StatusName
+        {
+            get
+            {
+                return Status switch
+                {
+                    1 => "Not Submit",
+                    2 => "Approved",
+                    3 => "Send Back",
+                    4 => "Waiting for Approval",
+                   
+                };
+            }
+
+        }
     }
 }
