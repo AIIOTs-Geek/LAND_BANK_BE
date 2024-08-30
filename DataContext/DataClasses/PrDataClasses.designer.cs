@@ -118,6 +118,20 @@ namespace DataContext.DataClasses
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), assetId, searchText, cityId, districtId, ownerId, landUseId, businessPlanId, wLTStatus, userId);
 			return ((ISingleResult<GetLandByAssetIdResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AddBuyerDetails")]
+		public ISingleResult<AddBuyerDetailsResult> AddBuyerDetails([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BuyerId", DbType="VarChar(50)")] string buyerId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BuyerName", DbType="NVarChar(50)")] string buyerName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CompanyId", DbType="Int")] System.Nullable<int> companyId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(50)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mobile", DbType="NVarChar(50)")] string mobile)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userId, buyerId, buyerName, companyId, email, mobile);
+			return ((ISingleResult<AddBuyerDetailsResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetbuyerDetails")]
+		public ISingleResult<GetbuyerDetailsResult> GetbuyerDetails([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Search", DbType="NVarChar(50)")] string search, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), search, userId);
+			return ((ISingleResult<GetbuyerDetailsResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class GetStatusResult
@@ -1663,6 +1677,130 @@ namespace DataContext.DataClasses
 				if ((this._RowNum != value))
 				{
 					this._RowNum = value;
+				}
+			}
+		}
+	}
+	
+	public partial class AddBuyerDetailsResult
+	{
+		
+		private System.Nullable<decimal> _NewBuyerId;
+		
+		public AddBuyerDetailsResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NewBuyerId", DbType="Decimal(38,0)")]
+		public System.Nullable<decimal> NewBuyerId
+		{
+			get
+			{
+				return this._NewBuyerId;
+			}
+			set
+			{
+				if ((this._NewBuyerId != value))
+				{
+					this._NewBuyerId = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GetbuyerDetailsResult
+	{
+		
+		private string _BuyerId;
+		
+		private string _BuyerName;
+		
+		private string _Email;
+		
+		private string _Mobile;
+		
+		private string _CompanyNameEn;
+		
+		public GetbuyerDetailsResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BuyerId", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string BuyerId
+		{
+			get
+			{
+				return this._BuyerId;
+			}
+			set
+			{
+				if ((this._BuyerId != value))
+				{
+					this._BuyerId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BuyerName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string BuyerName
+		{
+			get
+			{
+				return this._BuyerName;
+			}
+			set
+			{
+				if ((this._BuyerName != value))
+				{
+					this._BuyerName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this._Email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Mobile
+		{
+			get
+			{
+				return this._Mobile;
+			}
+			set
+			{
+				if ((this._Mobile != value))
+				{
+					this._Mobile = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompanyNameEn", DbType="NVarChar(100)")]
+		public string CompanyNameEn
+		{
+			get
+			{
+				return this._CompanyNameEn;
+			}
+			set
+			{
+				if ((this._CompanyNameEn != value))
+				{
+					this._CompanyNameEn = value;
 				}
 			}
 		}
