@@ -100,7 +100,7 @@ namespace Services.Service
                 throw new Exception("Something went wrong");
             }
         }
-        public async Task<APIResponse<List<LandByAssetIdVm>>> GetLandsByAssetId(int assetId, string? searchText, int? cityId, int? districtId, int? userId, int? landUseId, int? businessPlanId, int? IsWlt, int pageNo , int pageSize )
+        public async Task<APIResponse<List<LandByAssetIdVm>>> GetLandsByAssetId(int assetId, string? searchText, int? cityId, int? districtId, int? userId, int? landUseId, int? businessPlanId, int? IsWlt, int pageNo=1 , int pageSize=10 )
         {
             var landVmList = new List<LandByAssetIdVm>();
             var landList = await _landRepository.GetLandsByAssetId(assetId, searchText, cityId, districtId, userId, landUseId, businessPlanId, IsWlt, pageNo, pageSize);
