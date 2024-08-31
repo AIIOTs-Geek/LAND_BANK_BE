@@ -11,6 +11,8 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using Common.Dtos;
+using Models.Models.UserDetails;
 
 namespace Services.Service
 {
@@ -87,8 +89,8 @@ namespace Services.Service
                 }
                 if (!string.IsNullOrEmpty(landDetails.Wlt))
                 {
-                    var jsonWlt = landDetails.Wlt;
-                    landDetailsVm.WhiteLandDetails = JsonSerializer.Deserialize<List<WltVm>>(jsonWlt);
+                    var jsonWlt = landDetails.Wlt;                    
+                    landDetailsVm.WhiteLandDetails = JsonSerializer.Deserialize<List<WltWrapperVm>>(jsonWlt);
                 }
 
                 return ResponseHelper<LandDetailsVm>.CreateSuccessRes(landDetailsVm, new List<string> { "Land details fetched successfully" });
@@ -133,6 +135,25 @@ namespace Services.Service
                 landVmList.Add(landVm);
             }
             return ResponseHelper<List<LandByAssetIdVm>>.CreateGetSuccessResponse(landVmList, landVmList.Count);
+        }
+        public async Task<APIResponse<string>> AddBuyerDetails(AddBuyerDto buyerDto)
+        {
+            var addBuyer = await _landRepository.AddBuyerDetails(buyerDto);
+            if (addBuyer == null) 
+            {
+                return ResponseHelper<string>.CreateExceptionErrorResponse(HttpStatusCode.Conflict, new List<string> { "Buyer already exists" });
+            }
+            return ResponseHelper<string>.CreateSuccessRes(addBuyer.ToString(), new List<string> { "Buyer added successfully"});
+        }
+        public async Task<APIResponse<List<GetbuyerDetailsResult>>> GetBuyerDetails(string search)
+        {
+           // var landVmList = new List<GetbuyerDetailsResult>();
+            var buyerList = await _landRepository.GetBuyerDetails(search);
+            if (buyerList == null || !buyerList.Any())
+            {
+                return ResponseHelper<List<GetbuyerDetailsResult>>.CreateExceptionErrorResponse(HttpStatusCode.NotFound, new List<string> { "No Buyer found" });
+            }
+            return ResponseHelper<List<GetbuyerDetailsResult>>.CreateGetSuccessResponse(buyerList, buyerList.Count());
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using DataContext.DataClasses;
+﻿using Common.Dtos;
+using Common.Helper;
+using DataContext.DataClasses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +13,7 @@ namespace Repositories.IRepository
     {
         Task<GetLandDetailsFiltersResult> GetLandDetails(int landId, string? deptt);
         Task<List<GetLandByAssetIdResult>> GetLandsByAssetId(int assetId, string? searchText, int? cityId, int? districtId, int? userId, int? landUseId, int? businessPlanId, int? IsWlt);
+        Task<AddBuyerDetailsResult> AddBuyerDetails(AddBuyerDto buyerDto);
+        Task<List<GetbuyerDetailsResult>> GetBuyerDetails(string search);
     }
 }
