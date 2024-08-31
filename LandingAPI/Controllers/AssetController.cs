@@ -36,9 +36,9 @@ namespace LandingAPI.Controllers
             return Response(await _assetService.GetDistrictsByCityId(cityId));
         }
         [HttpGet]
-        public async Task<IActionResult> GetAssets(string? searchText, int? cityId, int? districtId, int? assetId, int pageNo=1, int pageSize=10)
+        public async Task<IActionResult> GetAssets(string? searchText, int? cityId, int? districtId, int? assetId)
         {
-            return Response(await _assetService.GetAssets(searchText, cityId, districtId, assetId,pageNo,pageSize));
+            return Response(await _assetService.GetAssets(searchText, cityId, districtId, assetId));
         }
 
         [HttpGet]

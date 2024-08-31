@@ -100,10 +100,10 @@ namespace Services.Service
                 throw new Exception("Something went wrong");
             }
         }
-        public async Task<APIResponse<List<LandByAssetIdVm>>> GetLandsByAssetId(int assetId, string? searchText, int? cityId, int? districtId, int? userId, int? landUseId, int? businessPlanId, int? IsWlt, int pageNo=1 , int pageSize=10 )
+        public async Task<APIResponse<List<LandByAssetIdVm>>> GetLandsByAssetId(int assetId, string? searchText, int? cityId, int? districtId, int? userId, int? landUseId, int? businessPlanId, int? IsWlt)
         {
             var landVmList = new List<LandByAssetIdVm>();
-            var landList = await _landRepository.GetLandsByAssetId(assetId, searchText, cityId, districtId, userId, landUseId, businessPlanId, IsWlt, pageNo, pageSize);
+            var landList = await _landRepository.GetLandsByAssetId(assetId, searchText, cityId, districtId, userId, landUseId, businessPlanId, IsWlt);
             if (landList == null || !landList.Any())
             {
                 return ResponseHelper<List<LandByAssetIdVm>>.CreateExceptionErrorResponse(HttpStatusCode.NotFound, new List<string> { "No land found" });
