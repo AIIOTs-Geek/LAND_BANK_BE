@@ -197,7 +197,7 @@ namespace Services.Service
             }
             return ResponseHelper<List<DistrictVm>>.CreateGetSuccessResponse(districtVmList, districtList.Count);
         }
-        public async Task<APIResponse<List<AssetVm>>> GetAssets(string? search, int? cityId, int? districtId, int? assetId, int pageNo, int pageSize)
+        public async Task<APIResponse<List<AssetVm>>> GetAssets(string? search, int? cityId, int? districtId, int? assetId, int pageNo=1, int pageSize=10)
         {
             var assetsVmList = new List<AssetVm>();
             var assetsList = await _assetRepository.GetAssets(search, cityId, districtId, assetId,pageNo,pageSize);

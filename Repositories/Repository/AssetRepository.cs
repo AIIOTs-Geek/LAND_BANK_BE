@@ -94,7 +94,7 @@ namespace Repositories.Repository
             }
             return result;
         }
-        public async Task<List<GetAssetsWithLandCountResult>> GetAssets(string? searchText, int? cityId, int? districtId, int? assetId, int pageNo, int pageSize)
+        public async Task<List<GetAssetsWithLandCountResult>> GetAssets(string? searchText, int? cityId, int? districtId, int? assetId, int pageNo=1, int pageSize=10)
         {
             var result = new List<GetAssetsWithLandCountResult>();
 

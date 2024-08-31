@@ -33,7 +33,7 @@ namespace Repositories.Repository
                 return result;
             }
         }
-        public async Task<List<GetLandByAssetIdResult>> GetLandsByAssetId(int assetId, string? searchText, int? cityId, int? districtId, int? ownerId, int? landUseId, int? businessPlanId, int? IsWlt , int pageNo , int pageSize )
+        public async Task<List<GetLandByAssetIdResult>> GetLandsByAssetId(int assetId, string? searchText, int? cityId, int? districtId, int? ownerId, int? landUseId, int? businessPlanId, int? IsWlt , int pageNo =1, int pageSize =10)
         {
             var result = new List<GetLandByAssetIdResult>();
             int? userId = null;
