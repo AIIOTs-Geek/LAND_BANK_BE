@@ -13,7 +13,7 @@ namespace Services.IService
     public interface ILandService
     {
         Task<APIResponse<LandDetailsVm>> GetLandDetails(int landId, string? deptt);
-        Task<APIResponse<List<LandByAssetIdVm>>> GetLandsByAssetId(int assetId, string? searchText, int? cityId, int? districtId, int? userId, int? landUseId, int? businessPlanId, int? IsWlt);
+        Task<APIResponse<List<LandByAssetIdVm>>> GetLandsByAssetId(int assetId, string? searchText, int? cityId, int? districtId, int? userId, int? landUseId, int? businessPlanId, int? IsWlt, int pageNo , int pageSize );
         Task<APIResponse<string>> AddBuyerDetails(AddBuyerDto buyerDto);
         Task<APIResponse<List<GetbuyerDetailsResult>>> GetBuyerDetails(string search);
     }

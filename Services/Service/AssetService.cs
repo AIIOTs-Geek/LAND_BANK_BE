@@ -197,10 +197,10 @@ namespace Services.Service
             }
             return ResponseHelper<List<DistrictVm>>.CreateGetSuccessResponse(districtVmList, districtList.Count);
         }
-        public async Task<APIResponse<List<AssetVm>>> GetAssets(string? search, int? cityId, int? districtId, int? assetId)
+        public async Task<APIResponse<List<AssetVm>>> GetAssets(string? search, int? cityId, int? districtId, int? assetId, int pageNo, int pageSize)
         {
             var assetsVmList = new List<AssetVm>();
-            var assetsList = await _assetRepository.GetAssets(search, cityId, districtId, assetId);
+            var assetsList = await _assetRepository.GetAssets(search, cityId, districtId, assetId,pageNo,pageSize);
             if (assetsList == null || !assetsList.Any())
             {
                 return ResponseHelper<List<AssetVm>>.CreateExceptionErrorResponse(HttpStatusCode.NotFound, new List<string> { "No assets found" });
