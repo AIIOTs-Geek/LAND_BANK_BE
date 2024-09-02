@@ -162,6 +162,7 @@
   </Function>
   <Function Name="dbo.UpdateLandOverview" Method="UpdateLandOverview">
     <Parameter Name="LandId" Parameter="landId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Action" Parameter="action" Type="System.String" DbType="VarChar(1)" />
     <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
     <Parameter Name="LandInformation" Parameter="landInformation" Type="System.String" DbType="NVarChar(MAX)" />
     <Parameter Name="DistrictId" Parameter="districtId" Type="System.Int32" DbType="Int" />
