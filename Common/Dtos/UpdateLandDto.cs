@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Common.Dtos
 {
-    public class LandDto
+    public class UpdateLandDto
     {
         public string? ActionName { get; set; }
         public int? LandId { get; set; }
@@ -30,6 +30,7 @@ namespace Common.Dtos
         public int? InfraApproval { get; set; }
         public int? InfraContraction { get; set; }
         public int? MunHandingOver { get; set; }
+        public int? TitleDeedId { get; set; }
         public int? DeedStatus { get; set; }
         public string? DeedNumber { get; set; }
         public string? DeedDate { get; set; }

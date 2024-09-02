@@ -155,6 +155,7 @@ namespace DataContext.DataClasses
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Masterplan", DbType="Int")] System.Nullable<int> masterplan, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="InfraApproval", DbType="Int")] System.Nullable<int> infraApproval, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="InfraConstruction", DbType="Int")] System.Nullable<int> infraConstruction, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TitleDeedId", DbType="Int")] System.Nullable<int> titleDeedId, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TitleDeedNo", DbType="NVarChar(MAX)")] string titleDeedNo, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TitleDeedDate", DbType="NVarChar(MAX)")] string titleDeedDate, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TitleDeedType", DbType="Int")] System.Nullable<int> titleDeedType, 
@@ -163,7 +164,7 @@ namespace DataContext.DataClasses
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TDOwnerID", DbType="Int")] System.Nullable<int> tDOwnerID, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="DeedSequence", DbType="Int")] System.Nullable<int> deedSequence)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), landId, action, userId, landInformation, districtId, area, subAssetID, location, mapImageURL, businessPlanID, businessPlanDetailedID, businessPlanStatusID, landStatusID, landUseId, landTypeID, wLTStatusID, munHandingOver, masterplan, infraApproval, infraConstruction, titleDeedNo, titleDeedDate, titleDeedType, titleDeedStatus, tDFileUrl, tDOwnerID, deedSequence);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), landId, action, userId, landInformation, districtId, area, subAssetID, location, mapImageURL, businessPlanID, businessPlanDetailedID, businessPlanStatusID, landStatusID, landUseId, landTypeID, wLTStatusID, munHandingOver, masterplan, infraApproval, infraConstruction, titleDeedId, titleDeedNo, titleDeedDate, titleDeedType, titleDeedStatus, tDFileUrl, tDOwnerID, deedSequence);
 			return ((int)(result.ReturnValue));
 		}
 	}
