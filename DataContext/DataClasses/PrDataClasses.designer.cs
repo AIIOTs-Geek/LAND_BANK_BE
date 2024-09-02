@@ -136,6 +136,7 @@ namespace DataContext.DataClasses
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UpdateLandOverview")]
 		public int UpdateLandOverview(
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandId", DbType="Int")] System.Nullable<int> landId, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Action", DbType="VarChar(1)")] string action, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandInformation", DbType="NVarChar(MAX)")] string landInformation, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="DistrictId", DbType="Int")] System.Nullable<int> districtId, 
@@ -162,7 +163,7 @@ namespace DataContext.DataClasses
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TDOwnerID", DbType="Int")] System.Nullable<int> tDOwnerID, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="DeedSequence", DbType="Int")] System.Nullable<int> deedSequence)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), landId, userId, landInformation, districtId, area, subAssetID, location, mapImageURL, businessPlanID, businessPlanDetailedID, businessPlanStatusID, landStatusID, landUseId, landTypeID, wLTStatusID, munHandingOver, masterplan, infraApproval, infraConstruction, titleDeedNo, titleDeedDate, titleDeedType, titleDeedStatus, tDFileUrl, tDOwnerID, deedSequence);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), landId, action, userId, landInformation, districtId, area, subAssetID, location, mapImageURL, businessPlanID, businessPlanDetailedID, businessPlanStatusID, landStatusID, landUseId, landTypeID, wLTStatusID, munHandingOver, masterplan, infraApproval, infraConstruction, titleDeedNo, titleDeedDate, titleDeedType, titleDeedStatus, tDFileUrl, tDOwnerID, deedSequence);
 			return ((int)(result.ReturnValue));
 		}
 	}
