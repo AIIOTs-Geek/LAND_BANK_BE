@@ -25,19 +25,6 @@
       <Column Name="AssetName" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.GetAssetsWithLandCount" Method="GetAssetsWithLandCount">
-    <Parameter Name="SearchText" Parameter="searchText" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="CityId" Parameter="cityId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="DistrictId" Parameter="districtId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="AssetId" Parameter="assetId" Type="System.Int32" DbType="Int" />
-    <ElementType Name="GetAssetsWithLandCountResult">
-      <Column Name="AssetId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="AssetName" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="AssetCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="NumberOfLands" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TotalLandArea" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.GetLandUses" Method="GetLandUses">
     <Parameter Name="StatusType" Parameter="statusType" Type="System.String" DbType="VarChar(50)" />
     <ElementType Name="GetLandUsesResult">
@@ -106,6 +93,28 @@
       <Column Name="Wlt" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.AddBuyerDetails" Method="AddBuyerDetails">
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="BuyerId" Parameter="buyerId" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="BuyerName" Parameter="buyerName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="CompanyId" Parameter="companyId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Mobile" Parameter="mobile" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="AddBuyerDetailsResult">
+      <Column Name="NewBuyerId" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetbuyerDetails" Method="GetbuyerDetails">
+    <Parameter Name="Search" Parameter="search" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetbuyerDetailsResult">
+      <Column Name="BuyerId" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BuyerName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Mobile" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CompanyNameEn" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.GetLandByAssetId" Method="GetLandByAssetId">
     <Parameter Name="AssetId" Parameter="assetId" Type="System.Int32" DbType="Int" />
     <Parameter Name="SearchText" Parameter="searchText" Type="System.String" DbType="VarChar(100)" />
@@ -137,26 +146,18 @@
       <Column Name="RowNum" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.AddBuyerDetails" Method="AddBuyerDetails">
+  <Function Name="dbo.GetAssetsWithLandCount" Method="GetAssetsWithLandCount">
+    <Parameter Name="SearchText" Parameter="searchText" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="CityId" Parameter="cityId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DistrictId" Parameter="districtId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AssetId" Parameter="assetId" Type="System.Int32" DbType="Int" />
     <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="BuyerId" Parameter="buyerId" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="BuyerName" Parameter="buyerName" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="CompanyId" Parameter="companyId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Mobile" Parameter="mobile" Type="System.String" DbType="NVarChar(50)" />
-    <ElementType Name="AddBuyerDetailsResult">
-      <Column Name="NewBuyerId" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.GetbuyerDetails" Method="GetbuyerDetails">
-    <Parameter Name="Search" Parameter="search" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
-    <ElementType Name="GetbuyerDetailsResult">
-      <Column Name="BuyerId" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="BuyerName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Mobile" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="CompanyNameEn" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    <ElementType Name="GetAssetsWithLandCountResult">
+      <Column Name="AssetId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AssetName" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="AssetCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NumberOfLands" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalLandArea" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>
