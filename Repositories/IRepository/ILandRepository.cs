@@ -15,6 +15,6 @@ namespace Repositories.IRepository
         Task<List<GetLandByAssetIdResult>> GetLandsByAssetId(int assetId, string? searchText, int? cityId, int? districtId, int? userId, int? landUseId, int? businessPlanId, int? IsWlt);
         Task<AddBuyerDetailsResult> AddBuyerDetails(AddBuyerDto buyerDto);
         Task<List<GetbuyerDetailsResult>> GetBuyerDetails(string search);
-        Task<int> Updateland(LandDto landDto);
+        Task<int> Updateland(UpdateLandDto landDto);
     }
 }

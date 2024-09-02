@@ -181,6 +181,7 @@
     <Parameter Name="Masterplan" Parameter="masterplan" Type="System.Int32" DbType="Int" />
     <Parameter Name="InfraApproval" Parameter="infraApproval" Type="System.Int32" DbType="Int" />
     <Parameter Name="InfraConstruction" Parameter="infraConstruction" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TitleDeedId" Parameter="titleDeedId" Type="System.Int32" DbType="Int" />
     <Parameter Name="TitleDeedNo" Parameter="titleDeedNo" Type="System.String" DbType="NVarChar(MAX)" />
     <Parameter Name="TitleDeedDate" Parameter="titleDeedDate" Type="System.String" DbType="NVarChar(MAX)" />
     <Parameter Name="TitleDeedType" Parameter="titleDeedType" Type="System.Int32" DbType="Int" />
