@@ -164,5 +164,14 @@ namespace Services.Service
             }
             return ResponseHelper<string>.CreateSuccessRes(result.ToString(), new List<string> { "Land updated successfully" });
         }
+        public async Task<APIResponse<string>> UpdateBuyerDetails(AddBuyerDto buyerDto)
+        {
+            var result = await _landRepository.UpdateBuyerDetails( buyerDto);
+            if (result == 0)
+            {
+                return ResponseHelper<string>.CreateExceptionErrorResponse(HttpStatusCode.Conflict, new List<string> { "Buyer not updated" });
+            }
+            return ResponseHelper<string>.CreateSuccessRes(result.ToString(), new List<string> { "Buyer Details updated successfully" });
+        }
     }
 }

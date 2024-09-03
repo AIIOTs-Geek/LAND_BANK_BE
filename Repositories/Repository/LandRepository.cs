@@ -93,5 +93,20 @@ namespace Repositories.Repository
             }
             return 1;
         }
+        public async Task<int> UpdateBuyerDetails(AddBuyerDto buyerDto)
+        {
+            int? userId = null;
+            var result = new UpsertBuyerDetailsResult();
+            using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
+            {
+                result = db.UpsertBuyerDetails(userId, buyerDto.Id,buyerDto.BuyerId,buyerDto.BuyerName,buyerDto.CompanyId,buyerDto.BuyerEmail,buyerDto.BuyerMobile).SingleOrDefault();
+
+                if (result == null)
+                {
+                    return 0;
+                }
+            }
+            return 1;
+        }
     }
 }

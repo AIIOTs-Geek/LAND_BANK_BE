@@ -17,6 +17,7 @@ namespace Services.IService
         Task<APIResponse<string>> AddBuyerDetails(AddBuyerDto buyerDto);
         Task<APIResponse<List<GetbuyerDetailsResult>>> GetBuyerDetails(string search);
         Task<APIResponse<string>> UpdateLand(UpdateLandDto landDto);
+        Task<APIResponse<string>> UpdateBuyerDetails(AddBuyerDto buyerDto);
 
     }
 }
