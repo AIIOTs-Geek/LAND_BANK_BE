@@ -54,7 +54,7 @@ namespace Repositories.Repository
             int? userId = null;
             using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
             {
-               result = db.AddBuyerDetails(userId, buyerDto.BuyerId, buyerDto.BuyerName, buyerDto.CompanyId, buyerDto.BuyerEmail,buyerDto.BuyerMobile).SingleOrDefault();
+                result = db.AddBuyerDetails(userId, buyerDto.BuyerId, buyerDto.BuyerName, buyerDto.CompanyId, buyerDto.BuyerEmail, buyerDto.BuyerMobile).SingleOrDefault();
 
                 if (result == null)
                 {
@@ -77,6 +77,21 @@ namespace Repositories.Repository
                 }
             }
             return result;
+        }
+        public async Task<int> Updateland(UpdateLandDto landDto)
+        {
+            int? userId = null;
+            int result;
+            using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
+            {
+                result = db.UpdateLandOverview(landDto.LandId, landDto.ActionName, userId, landDto.LandInfo, landDto.DistrictId, landDto.Area, landDto.SubAssetId, landDto.Location, landDto.MapUrl, landDto.BusinessPlanId, landDto.BusinessPlanDetailedId, landDto.BusinessPlanStatusId, landDto.LandStatusId, landDto.LandUseId, landDto.LandTypeId, landDto.WltStatus, landDto.MunHandingOver, landDto.MasterPlan, landDto.InfraApproval, landDto.InfraContraction, landDto.TitleDeedId, landDto.DeedNumber, landDto.DeedDate, landDto.DeedType, landDto.DeedStatus, landDto.DeedUrl, landDto.DeedOwner, landDto.DeedSequence);
+
+                if (result != 0)
+                {
+                    return 0;
+                }
+            }
+            return 1;
         }
     }
 }

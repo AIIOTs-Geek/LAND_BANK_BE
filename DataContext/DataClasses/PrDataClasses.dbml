@@ -160,4 +160,35 @@
       <Column Name="TotalLandArea" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.UpdateLandOverview" Method="UpdateLandOverview">
+    <Parameter Name="LandId" Parameter="landId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Action" Parameter="action" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LandInformation" Parameter="landInformation" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="DistrictId" Parameter="districtId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Area" Parameter="area" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="SubAssetID" Parameter="subAssetID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Location" Parameter="location" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="MapImageURL" Parameter="mapImageURL" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="BusinessPlanID" Parameter="businessPlanID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="BusinessPlanDetailedID" Parameter="businessPlanDetailedID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="BusinessPlanStatusID" Parameter="businessPlanStatusID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LandStatusID" Parameter="landStatusID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LandUseId" Parameter="landUseId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LandTypeID" Parameter="landTypeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="WLTStatusID" Parameter="wLTStatusID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MunHandingOver" Parameter="munHandingOver" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Masterplan" Parameter="masterplan" Type="System.Int32" DbType="Int" />
+    <Parameter Name="InfraApproval" Parameter="infraApproval" Type="System.Int32" DbType="Int" />
+    <Parameter Name="InfraConstruction" Parameter="infraConstruction" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TitleDeedId" Parameter="titleDeedId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TitleDeedNo" Parameter="titleDeedNo" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="TitleDeedDate" Parameter="titleDeedDate" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="TitleDeedType" Parameter="titleDeedType" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TitleDeedStatus" Parameter="titleDeedStatus" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TDFileUrl" Parameter="tDFileUrl" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="TDOwnerID" Parameter="tDOwnerID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DeedSequence" Parameter="deedSequence" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>
