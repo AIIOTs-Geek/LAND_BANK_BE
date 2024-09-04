@@ -212,7 +212,7 @@ namespace Services.Service
                 {
                     AssetId = item.AssetId,
                     AssetName = item.AssetName,
-                    //SubAssetName = item.SubAssetName,
+                    CityName = item.CityName,
                     LandCount = item.NumberOfLands,
                     TotalArea = item.TotalLandArea,
                     AssetCode = item.AssetCode
