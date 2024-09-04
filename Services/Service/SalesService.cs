@@ -54,7 +54,7 @@ namespace Services.Service
             var result = await _salesRepository.GetLandCoordinates(landId);
             if (result == null)
             {
-                return ResponseHelper<LandCoordinateVm>.CreateExceptionErrorResponse(HttpStatusCode.Conflict, new List<string> { "Coordinates not found" });
+                return ResponseHelper<LandCoordinateVm>.CreateGetSuccessResponse(new LandCoordinateVm(), 567788888);
             }
             var landShapeArray = JsonSerializer.Deserialize<List<LandShape>>(result.LandShapeArray);
 
