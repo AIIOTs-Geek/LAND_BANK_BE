@@ -15,7 +15,8 @@ namespace LandingAPI
             services.AddScoped<ILandService, LandService>();
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IAccountRepository, AccountRepository>();
-
+            services.AddScoped<ISalesService, SalesService>();
+            services.AddScoped<ISalesRepository, SalesRepository>();
             return services;
         }
     }

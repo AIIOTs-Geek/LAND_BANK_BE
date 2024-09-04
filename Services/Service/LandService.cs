@@ -148,7 +148,6 @@ namespace Services.Service
         }
         public async Task<APIResponse<List<GetbuyerDetailsResult>>> GetBuyerDetails(string search)
         {
-           // var landVmList = new List<GetbuyerDetailsResult>();
             var buyerList = await _landRepository.GetBuyerDetails(search);
             if (buyerList == null || !buyerList.Any())
             {
