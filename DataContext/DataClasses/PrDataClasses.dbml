@@ -148,6 +148,16 @@
     <Parameter Name="DeedSequence" Parameter="deedSequence" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
+
+  <Function Name="dbo.UpsertBuyerDetails" Method="UpsertBuyerDetails">
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="BuyerId" Parameter="buyerId" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="BuyerName" Parameter="buyerName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="CompanyId" Parameter="companyId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Mobile" Parameter="mobile" Type="System.String" DbType="NVarChar(50)" />
+
   <Function Name="dbo.GetLandDetailsFilters2" Method="GetLandDetailsFilters2">
     <Parameter Name="LandId" Parameter="landId" Type="System.Int32" DbType="Int" />
     <Parameter Name="Deptt" Parameter="deptt" Type="System.String" DbType="VarChar(50)" />
@@ -198,6 +208,7 @@
     <Parameter Name="Latitude" Parameter="latitude" Type="System.Decimal" DbType="Decimal(9,6)" />
     <Parameter Name="Longitude" Parameter="longitude" Type="System.Decimal" DbType="Decimal(9,6)" />
     <Parameter Name="LandShapeWKT" Parameter="landShapeWKT" Type="System.String" DbType="NVarChar(MAX)" />
+
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.GetLandCoordinates" Method="GetLandCoordinates">
