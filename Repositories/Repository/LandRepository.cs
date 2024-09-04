@@ -75,7 +75,7 @@ namespace Repositories.Repository
                 {
                     return 0;
                 }
-                return result;
+                return 1;
             }
             
         }
