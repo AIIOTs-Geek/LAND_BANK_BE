@@ -47,37 +47,7 @@ namespace Repositories.Repository
                 }
             }
             return result;
-        }
-        public async Task<AddBuyerDetailsResult> AddBuyerDetails(AddBuyerDto buyerDto)
-        {
-            var result = new AddBuyerDetailsResult();
-            int? userId = null;
-            using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
-            {
-                result = db.AddBuyerDetails(userId, buyerDto.BuyerId, buyerDto.BuyerName, buyerDto.CompanyId, buyerDto.BuyerEmail, buyerDto.BuyerMobile).SingleOrDefault();
-
-                if (result == null)
-                {
-                    return null;
-                }
-            }
-            return result;
-        }
-        public async Task<List<GetbuyerDetailsResult>> GetBuyerDetails(string search)
-        {
-            var result = new List<GetbuyerDetailsResult>();
-            int? userId = null;
-            using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
-            {
-                result = db.GetbuyerDetails(search, userId).ToList();
-
-                if (result == null)
-                {
-                    return null;
-                }
-            }
-            return result;
-        }
+        }        
         public async Task<int> Updateland(UpdateLandDto landDto)
         {
             int? userId = null;
