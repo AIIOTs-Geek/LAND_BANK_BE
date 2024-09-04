@@ -55,16 +55,19 @@ namespace Services.Service
             if (result == null)
             {
                 return ResponseHelper<LandCoordinateVm>.CreateGetSuccessResponse(new LandCoordinateVm(), 567788888);
-            }
-            var landShapeArray = JsonSerializer.Deserialize<List<LandShape>>(result.LandShapeArray);
+            }           
 
             var landCoordinateVm = new LandCoordinateVm
             {
                 MapId = result.Id,
                 Latitude = result.Latitude,
                 Longitude = result.Longitude,
-                LandShapeArray = landShapeArray
             };
+            if (result.LandShapeArray != null)
+            {
+                var landShapeArray = JsonSerializer.Deserialize<List<LandShape>>(result.LandShapeArray);
+                landCoordinateVm.LandShapeArray = landShapeArray;   
+            }
             return ResponseHelper<LandCoordinateVm>.CreateSuccessRes(landCoordinateVm, new List<string> { "Coordinates fetched successfully" });
         }       
 
