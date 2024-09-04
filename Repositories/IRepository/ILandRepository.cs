@@ -16,5 +16,6 @@ namespace Repositories.IRepository
         Task<AddBuyerDetailsResult> AddBuyerDetails(AddBuyerDto buyerDto);
         Task<List<GetbuyerDetailsResult>> GetBuyerDetails(string search);
         Task<int> Updateland(UpdateLandDto landDto);
+        Task<int> UpdateBuyerDetails(AddBuyerDto buyerDto);
     }
 }

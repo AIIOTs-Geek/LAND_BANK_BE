@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Common.Dtos;
 using Models.Models.UserDetails;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace Services.Service
 {
@@ -162,6 +163,34 @@ namespace Services.Service
                 return ResponseHelper<string>.CreateExceptionErrorResponse(HttpStatusCode.Conflict, new List<string> { "Land not updated" });
             }
             return ResponseHelper<string>.CreateSuccessRes(result.ToString(), new List<string> { "Land updated successfully" });
+        }
+        public async Task<APIResponse<string>> UpdateBuyerDetails(AddBuyerDto buyerDto)
+        {
+            var result = await _landRepository.UpdateBuyerDetails( buyerDto);
+            switch (result)
+            {
+                case 0:
+                    return ResponseHelper<string>.CreateSuccessRes(
+                   result.ToString(),
+                      new List<string> { "Buyer details proceeded successfully" }
+                          );
+                case 1001:
+                    return ResponseHelper<string>.CreateExceptionErrorResponse(
+                        HttpStatusCode.BadRequest,
+                        new List<string> { "Company ID does not exist" }
+                    );
+                case 1002:
+                    return ResponseHelper<string>.CreateExceptionErrorResponse(
+                        HttpStatusCode.NotFound,
+                        new List<string> { " ID does not exist" }
+                    );
+                default:
+                    return ResponseHelper<string>.CreateExceptionErrorResponse(
+                       HttpStatusCode.Conflict,
+                       new List<string> { "An Unexpected error occured" }
+                   );
+                   
+            }
         }
     }
 }
