@@ -131,6 +131,7 @@ namespace Services.Service
                     WLTStatus = item.IsWlt,
                     DeedStatus = item.TitleDeedStatus,
                     Status = item.RandomNumber,
+                    Valuation = item.Valuation
                 };
 
                 landVmList.Add(landVm);

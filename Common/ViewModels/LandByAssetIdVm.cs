@@ -14,6 +14,7 @@ namespace Common.ViewModels
         public string SubAssetName { get; set; }
         public string LandUse { get; set; }
         public string LandType { get; set; }
+        public decimal? Valuation {  get; set; }
         public string LandStatus { get; set; }
         public string WLTStatus { get; set; }
         public decimal LandArea { get; set; }
