@@ -8,14 +8,21 @@ namespace Common.ViewModels
 {
     public class FinanceVm
     {
-        public string Area { get; set; }
-        public string LatestValue { get; set; }
-        public string PriceValue { get; set; }
-        public string BookValue { get; set; }
-        public string CostPerPrice { get; set; }
-        public string ZakatImplication { get; set; }
+        public decimal Area { get; set; }
+        public decimal LatestValue { get; set; }
+        public decimal PriceValue { get; set; }
+        public decimal BookValue { get; set; }
+        public decimal CostPerPrice { get; set; }
+        public string ZakatImplication { get; set; } = "Yes";
         public string ZakatPayment { get; set; }
         public string ZakatValue { get; set; }
+        public List<Graph> MapData { get; set; }
+    }
+
+    public class Graph
+    {
+        public decimal Value { get; set; }
+        public int Year { get; set; }
     }
 }
 
