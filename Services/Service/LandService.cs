@@ -71,7 +71,9 @@ namespace Services.Service
                         DeedDate = landDetails.TDDate,
                     },
                     OwnerShipDetails = new List<TitleDeed>(),
-                    SaleDetails = new SaleDetailsVm()
+                    SaleDetails = new SaleDetailsVm(),
+                    FinanceDetails = new FinanceVm(),
+                    WhiteLandDetails = new List<WltWrapperVm>()
                 };
                 if (!string.IsNullOrEmpty(landDetails.TitleDeeds))
                 {
@@ -85,14 +87,23 @@ namespace Services.Service
                 }
                 if (!string.IsNullOrEmpty(landDetails.Finance))
                 {
-                    var jsonFinance = landDetails.Finance;
-                    landDetailsVm.FinanceDetails = JsonSerializer.Deserialize<FinanceVm>(jsonFinance);
+                    try
+                    {
+                        landDetailsVm.FinanceDetails = JsonSerializer.Deserialize<FinanceVm>(landDetails.Finance);
+                    }
+                    catch (JsonException ex)
+                    {
+                        // Handle or log the deserialization error
+                        throw new Exception("Error deserializing Finance", ex);
+                    }
                 }
+
                 if (!string.IsNullOrEmpty(landDetails.Wlt))
                 {
                     var jsonWlt = landDetails.Wlt;                    
                     landDetailsVm.WhiteLandDetails = JsonSerializer.Deserialize<List<WltWrapperVm>>(jsonWlt);
                 }
+                
 
                 return ResponseHelper<LandDetailsVm>.CreateSuccessRes(landDetailsVm, new List<string> { "Land details fetched successfully" });
             }
