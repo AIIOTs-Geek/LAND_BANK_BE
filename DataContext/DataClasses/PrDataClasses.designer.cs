@@ -160,13 +160,6 @@ namespace DataContext.DataClasses
 			return ((ISingleResult<GetLandDetailsFilters2Result>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AddORUpdateLandCoordinates")]
-		public int AddORUpdateLandCoordinates([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandId", DbType="Int")] System.Nullable<int> landId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CoordinateId", DbType="Int")] System.Nullable<int> coordinateId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Latitude", DbType="Decimal(9,6)")] System.Nullable<decimal> latitude, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Longitude", DbType="Decimal(9,6)")] System.Nullable<decimal> longitude, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandShapeWKT", DbType="NVarChar(MAX)")] string landShapeWKT)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userId, landId, coordinateId, latitude, longitude, landShapeWKT);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetLandCoordinates")]
 		public ISingleResult<GetLandCoordinatesResult> GetLandCoordinates([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandId", DbType="Int")] System.Nullable<int> landId)
 		{
@@ -199,6 +192,13 @@ namespace DataContext.DataClasses
 		public int UpsertFinance([global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandId", DbType="Int")] System.Nullable<int> landId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Value", DbType="Decimal(18,2)")] System.Nullable<decimal> value, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="Date")] System.Nullable<System.DateTime> date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ConsultantId", DbType="Int")] System.Nullable<int> consultantId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TypeId", DbType="Int")] System.Nullable<int> typeId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), landId, value, date, consultantId, typeId, userId);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AddORUpdateLandCoordinates")]
+		public int AddORUpdateLandCoordinates([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandId", DbType="Int")] System.Nullable<int> landId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Latitude", DbType="Decimal(18,9)")] System.Nullable<decimal> latitude, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Longitude", DbType="Decimal(18,9)")] System.Nullable<decimal> longitude, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandShapeWKT", DbType="NVarChar(MAX)")] string landShapeWKT)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userId, landId, latitude, longitude, landShapeWKT);
 			return ((int)(result.ReturnValue));
 		}
 	}

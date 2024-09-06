@@ -54,7 +54,7 @@ namespace Repositories.Repository
             int result;
             using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
             {
-                result = db.AddORUpdateLandCoordinates(userId, landCoordinateDto.LandId,landCoordinateDto.MapId,landCoordinateDto.Latitude,landCoordinateDto.Longitude,landCoordinateDto.LandShape);
+                result = db.AddORUpdateLandCoordinates(userId, landCoordinateDto.LandId,landCoordinateDto.Latitude,landCoordinateDto.Longitude,landCoordinateDto.LandShape);
 
                 if (result != 0)
                 {
