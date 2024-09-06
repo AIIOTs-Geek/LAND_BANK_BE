@@ -79,5 +79,25 @@ namespace Repositories.Repository
             }
             
         }
+
+        public async Task<int> UpsertFinance(UpsertFinanceDto upsertFinance)
+        {
+            int? userId = null;
+
+            using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
+            {
+
+                var result = db.UpsertFinance(upsertFinance.LandId,upsertFinance.Value,upsertFinance.Date,upsertFinance.ValuationConsultantId,upsertFinance.TypeId,userId);
+                if (result == -1)
+                {
+                  
+                    return -1;
+                }
+
+              
+                return 1;
+            }
+
+        }
     }
 }

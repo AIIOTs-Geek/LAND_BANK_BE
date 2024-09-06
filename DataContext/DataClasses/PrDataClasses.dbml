@@ -257,6 +257,15 @@
       <Column Name="Wlt" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.UpsertFinance" Method="UpsertFinance">
+    <Parameter Name="LandId" Parameter="landId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Value" Parameter="value" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="ConsultantId" Parameter="consultantId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TypeId" Parameter="typeId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
   <Function Name="dbo.AddORUpdateLandCoordinates" Method="AddORUpdateLandCoordinates">
     <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
     <Parameter Name="LandId" Parameter="landId" Type="System.Int32" DbType="Int" />

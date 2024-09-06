@@ -36,5 +36,11 @@ namespace LandingAPI.Controllers
             return Response(await _landService.UpdateBuyerDetails(buyerDto));
         }
 
+        [HttpPost]
+        public async Task<IActionResult> UpsertFinance(UpsertFinanceDto upsertFinance)
+        {
+            return Response(await _landService.UpsertFinance(upsertFinance));
+        }
+
     }
 }

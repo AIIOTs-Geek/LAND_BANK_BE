@@ -186,5 +186,16 @@ namespace Services.Service
                    
             }
         }
+
+        public async Task<APIResponse<string>> UpsertFinance(UpsertFinanceDto upsertFinanceDto)
+        {
+            var result = await _landRepository.UpsertFinance(upsertFinanceDto);
+            if (result == -1)
+            {
+                return ResponseHelper<string>.CreateExceptionErrorResponse(HttpStatusCode.Conflict, new List<string> { "Finance Details not updated" });
+            }
+            return ResponseHelper<string>.CreateSuccessRes(result.ToString(), new List<string> { "Finance  Details updated successfully" });
+        }
+
     }
 }
