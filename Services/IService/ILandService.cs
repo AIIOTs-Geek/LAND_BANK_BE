@@ -17,5 +17,7 @@ namespace Services.IService
         Task<APIResponse<string>> UpdateLand(UpdateLandDto landDto);
         Task<APIResponse<string>> UpdateBuyerDetails(AddBuyerDto buyerDto);
 
+        Task<APIResponse<string>> UpsertFinance(UpsertFinanceDto upsertFinance);
+
     }
 }
