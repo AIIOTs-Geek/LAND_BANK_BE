@@ -70,12 +70,20 @@ namespace Repositories.Repository
             using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
             {
                
-                var result = db.UpsertBuyerDetails( userId,buyerDto.Id,buyerDto.BuyerId,buyerDto.BuyerName,buyerDto.CompanyId,buyerDto.BuyerEmail,buyerDto.BuyerMobile);
+               var result =  db.UpsertBuyerDetails( userId,buyerDto.Id,buyerDto.BuyerId,buyerDto.BuyerName,buyerDto.CompanyId,buyerDto.BuyerEmail,buyerDto.BuyerMobile);
+
                 if (result == null)
                 {
                     return 0;
                 }
-                return 1;
+                //int resultCode=0;
+                //if (result != null)
+                //{
+
+                //    resultCode = Convert.ToInt32(result);
+                //}
+
+                return result;
             }
             
         }
