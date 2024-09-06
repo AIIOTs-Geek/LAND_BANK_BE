@@ -14,8 +14,8 @@ namespace Common.ViewModels
         public decimal BookValue { get; set; }
         public decimal CostPerPrice { get; set; }
         public string ZakatImplication { get; set; } = "Yes";
+        public decimal ZakatValue { get; set; }
         public string ZakatPayment { get; set; }
-        public string ZakatValue { get; set; }
         public List<Graph> MapData { get; set; }
     }
 
