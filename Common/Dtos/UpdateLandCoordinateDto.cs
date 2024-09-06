@@ -8,7 +8,6 @@ namespace Common.Dtos
 {
     public class UpdateLandCoordinateDto
     {
-        public int MapId { get; set; }
         public int LandId { get; set; }
         public decimal Latitude { get; set; }
         public decimal Longitude { get; set; }
