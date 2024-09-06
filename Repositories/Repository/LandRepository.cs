@@ -72,14 +72,18 @@ namespace Repositories.Repository
                
                var result =  db.UpsertBuyerDetails( userId,buyerDto.Id,buyerDto.BuyerId,buyerDto.BuyerName,buyerDto.CompanyId,buyerDto.BuyerEmail,buyerDto.BuyerMobile);
 
-                int resultCode=0; 
-                if (result != null)
+                if (result == null)
                 {
-                    
-                    resultCode = Convert.ToInt32(result);
+                    return 0;
                 }
+                //int resultCode=0;
+                //if (result != null)
+                //{
 
-                return resultCode;
+                //    resultCode = Convert.ToInt32(result);
+                //}
+
+                return result;
             }
             
         }
