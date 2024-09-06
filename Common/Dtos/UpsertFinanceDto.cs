@@ -8,7 +8,7 @@ namespace Common.Dtos
 {
     public class UpsertFinanceDto
     {
-        public int? UserId { get; set; }
+     
         public int LandId {  get; set; }
         public int TypeId { get; set; }
         public decimal Value { get; set; }
