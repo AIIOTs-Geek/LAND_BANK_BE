@@ -6,6 +6,7 @@ using Models.Models.UserDetails;
 using Repositories.IRepository;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -80,24 +81,59 @@ namespace Repositories.Repository
             
         }
 
+        //public async Task<int> UpsertFinance(UpsertFinanceDto upsertFinance)
+        //{
+        //    int? userId = null;
+
+        //    using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
+        //    {
+
+        //        var result = db.UpsertFinance(upsertFinance.LandId,upsertFinance.Value,upsertFinance.Date,upsertFinance.ValuationConsultantId,upsertFinance.TypeId,userId);
+        //        if (result == -1)
+        //        {
+
+        //            return -1;
+        //        }
+
+
+        //        return 1;
+        //    }
+
+        //}
+
         public async Task<int> UpsertFinance(UpsertFinanceDto upsertFinance)
         {
             int? userId = null;
 
+
+            
+
+            string typeIds = string.Join(",", upsertFinance.TypeIds);
+            string values = string.Join(",", upsertFinance.Value.Select(v => v.ToString("F2", CultureInfo.InvariantCulture)));
+
             using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
-            {
-
-                var result = db.UpsertFinance(upsertFinance.LandId,upsertFinance.Value,upsertFinance.Date,upsertFinance.ValuationConsultantId,upsertFinance.TypeId,userId);
-                if (result == -1)
                 {
-                  
-                    return -1;
+                    
+                    var result = db.UpsertFinance(
+                        upsertFinance.LandId,
+                        values,
+                        upsertFinance.Date,
+                        upsertFinance.ValuationConsultantId,  
+                        userId,
+                        typeIds
+                    );
+
+                    if (result == 1)
+                    {
+                        return 1;
+                    }
+
+                    return 0;
                 }
-
-              
-                return 1;
             }
+           
+        
+       
 
-        }
     }
 }

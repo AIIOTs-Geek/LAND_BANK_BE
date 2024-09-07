@@ -257,21 +257,21 @@
       <Column Name="Wlt" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.UpsertFinance" Method="UpsertFinance">
-    <Parameter Name="LandId" Parameter="landId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Value" Parameter="value" Type="System.Decimal" DbType="Decimal(18,2)" />
-    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="ConsultantId" Parameter="consultantId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="TypeId" Parameter="typeId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.AddORUpdateLandCoordinates" Method="AddORUpdateLandCoordinates">
     <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
     <Parameter Name="LandId" Parameter="landId" Type="System.Int32" DbType="Int" />
     <Parameter Name="Latitude" Parameter="latitude" Type="System.Decimal" DbType="Decimal(18,9)" />
     <Parameter Name="Longitude" Parameter="longitude" Type="System.Decimal" DbType="Decimal(18,9)" />
     <Parameter Name="LandShapeWKT" Parameter="landShapeWKT" Type="System.String" DbType="NVarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UpsertFinance" Method="UpsertFinance">
+    <Parameter Name="LandId" Parameter="landId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Values" Parameter="values" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime2" />
+    <Parameter Name="ConsultantId" Parameter="consultantId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TypeIds" Parameter="typeIds" Type="System.String" DbType="VarChar(MAX)" />
     <Return Type="System.Int32" />
   </Function>
 </Database>
