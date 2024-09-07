@@ -103,16 +103,6 @@
     <Parameter Name="DeedSequence" Parameter="deedSequence" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.UpsertBuyerDetails" Method="UpsertBuyerDetails" IsComposable="true">
-    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="BuyerId" Parameter="buyerId" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="BuyerName" Parameter="buyerName" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="CompanyId" Parameter="companyId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Mobile" Parameter="mobile" Type="System.String" DbType="NVarChar(50)" />
-    <Return Type="object" />
-  </Function>
   <Function Name="dbo.GetLandDetailsFilters2" Method="GetLandDetailsFilters2">
     <Parameter Name="LandId" Parameter="landId" Type="System.Int32" DbType="Int" />
     <Parameter Name="Deptt" Parameter="deptt" Type="System.String" DbType="VarChar(50)" />
@@ -155,6 +145,15 @@
       <Column Name="Finance" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="Wlt" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.AddORUpdateLandCoordinates" Method="AddORUpdateLandCoordinates">
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LandId" Parameter="landId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CoordinateId" Parameter="coordinateId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Latitude" Parameter="latitude" Type="System.Decimal" DbType="Decimal(9,6)" />
+    <Parameter Name="Longitude" Parameter="longitude" Type="System.Decimal" DbType="Decimal(9,6)" />
+    <Parameter Name="LandShapeWKT" Parameter="landShapeWKT" Type="System.String" DbType="NVarChar(MAX)" />
+    <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.GetLandCoordinates" Method="GetLandCoordinates">
     <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
@@ -272,6 +271,16 @@
     <Parameter Name="ConsultantId" Parameter="consultantId" Type="System.Int32" DbType="Int" />
     <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
     <Parameter Name="TypeIds" Parameter="typeIds" Type="System.String" DbType="VarChar(MAX)" />
+
+  <Function Name="dbo.UpsertBuyerDetails" Method="UpsertBuyerDetails">
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="BuyerId" Parameter="buyerId" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="BuyerName" Parameter="buyerName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="CompanyId" Parameter="companyId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Mobile" Parameter="mobile" Type="System.String" DbType="NVarChar(50)" />
+
     <Return Type="System.Int32" />
   </Function>
 </Database>
