@@ -24,7 +24,7 @@ namespace Common.Dtos
         public int? WltStatus { get; set; }
         public int? PlotNumber { get; set; }
         public string? LandInfo { get; set; }  
-        public string Location { get; set; }
+        public string? Location { get; set; }
         public string? MapUrl { get; set; }
         public int? MasterPlan { get; set; }
         public int? InfraApproval { get; set; }

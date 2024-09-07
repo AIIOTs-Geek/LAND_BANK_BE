@@ -182,26 +182,10 @@ namespace DataContext.DataClasses
 			return ((ISingleResult<GetLandByAssetIdResult>)(result.ReturnValue));
 		}
 		
-
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetLandDetailsFilters")]
-		public ISingleResult<GetLandDetailsFiltersResult> GetLandDetailsFilters([global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandId", DbType="Int")] System.Nullable<int> landId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Deptt", DbType="VarChar(50)")] string deptt, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), landId, deptt, userId);
-			return ((ISingleResult<GetLandDetailsFiltersResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AddORUpdateLandCoordinates")]
 		public int AddORUpdateLandCoordinates([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandId", DbType="Int")] System.Nullable<int> landId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Latitude", DbType="Decimal(18,9)")] System.Nullable<decimal> latitude, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Longitude", DbType="Decimal(18,9)")] System.Nullable<decimal> longitude, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandShapeWKT", DbType="NVarChar(MAX)")] string landShapeWKT)
-
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userId, landId, latitude, longitude, landShapeWKT);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UpsertFinance")]
-		public int UpsertFinance([global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandId", DbType="Int")] System.Nullable<int> landId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Values", DbType="VarChar(MAX)")] string values, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="DateTime2")] System.Nullable<System.DateTime> date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ConsultantId", DbType="Int")] System.Nullable<int> consultantId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TypeIds", DbType="VarChar(MAX)")] string typeIds, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ZakatPayment", DbType="Int")] System.Nullable<int> zakatPayment, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ZakatImplication", DbType="Int")] System.Nullable<int> zakatImplication)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), landId, values, date, consultantId, userId, typeIds, zakatPayment, zakatImplication);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -217,6 +201,20 @@ namespace DataContext.DataClasses
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), landId, deptt, userId);
 			return ((ISingleResult<GetLandDetailsFiltersResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UpsertBuyerDetails")]
+		public int UpsertBuyerDetails([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Id", DbType="Int")] System.Nullable<int> id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BuyerId", DbType="VarChar(50)")] string buyerId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BuyerName", DbType="NVarChar(50)")] string buyerName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CompanyId", DbType="Int")] System.Nullable<int> companyId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(50)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mobile", DbType="NVarChar(50)")] string mobile, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ZakatPayment", DbType="Int")] System.Nullable<int> zakatPayment, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ZakatImplication", DbType="Int")] System.Nullable<int> zakatImplication)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userId, id, buyerId, buyerName, companyId, email, mobile, zakatPayment, zakatImplication);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UpsertFinance")]
+		public int UpsertFinance([global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandId", DbType="Int")] System.Nullable<int> landId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Values", DbType="VarChar(MAX)")] string values, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="DateTime2")] System.Nullable<System.DateTime> date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ConsultantId", DbType="Int")] System.Nullable<int> consultantId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TypeIds", DbType="VarChar(MAX)")] string typeIds, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ZakatPayment", DbType="Int")] System.Nullable<int> zakatPayment, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ZakatImplication", DbType="Int")] System.Nullable<int> zakatImplication)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), landId, values, date, consultantId, userId, typeIds, zakatPayment, zakatImplication);
+			return ((int)(result.ReturnValue));
 		}
 	}
 	
