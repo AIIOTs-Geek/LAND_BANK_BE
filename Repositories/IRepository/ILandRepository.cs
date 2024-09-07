@@ -16,5 +16,6 @@ namespace Repositories.IRepository
         Task<int> Updateland(UpdateLandDto landDto);
         Task<int> UpdateBuyerDetails(AddBuyerDto buyerDto);
         Task<int> UpsertFinance(UpsertFinanceDto upsertFinance);
+        Task<int> UpsertTitleDeed(UpsertTitleDeedDto upsertTitleDeed);
     }
 }

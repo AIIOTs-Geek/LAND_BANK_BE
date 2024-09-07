@@ -48,7 +48,7 @@ namespace Repositories.Repository
                 }
             }
             return result;
-        }        
+        }
         public async Task<int> Updateland(UpdateLandDto landDto)
         {
             int? userId = null;
@@ -67,11 +67,11 @@ namespace Repositories.Repository
         public async Task<int> UpdateBuyerDetails(AddBuyerDto buyerDto)
         {
             int? userId = null;
-            
+
             using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
             {
-               
-               var result =  db.UpsertBuyerDetails( userId,buyerDto.Id,buyerDto.BuyerId,buyerDto.BuyerName,buyerDto.CompanyId,buyerDto.BuyerEmail,buyerDto.BuyerMobile);
+
+                var result = db.UpsertBuyerDetails(userId, buyerDto.Id, buyerDto.BuyerId, buyerDto.BuyerName, buyerDto.CompanyId, buyerDto.BuyerEmail, buyerDto.BuyerMobile);
 
                 if (result == null)
                 {
@@ -86,7 +86,7 @@ namespace Repositories.Repository
 
                 return result;
             }
-            
+
         }
 
         //public async Task<int> UpsertFinance(UpsertFinanceDto upsertFinance)
@@ -120,33 +120,46 @@ namespace Repositories.Repository
             {
 
                 typeIds = string.Join(",", upsertFinance.TypeIds);
-                 values = string.Join(",", upsertFinance.Value.Select(v => v.ToString("F2", CultureInfo.InvariantCulture)));
+                values = string.Join(",", upsertFinance.Value.Select(v => v.ToString("F2", CultureInfo.InvariantCulture)));
             }
 
             using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
+            {
+
+                var result = db.UpsertFinance(
+                    upsertFinance.LandId,
+                    values,
+                    upsertFinance.Date,
+                    upsertFinance.ValuationConsultantId,
+                    userId,
+                    typeIds,
+                    upsertFinance.ZakatPayment,
+                    upsertFinance.ZakatImplication
+                );
+                if (result == 1)
                 {
-                    
-                    var result = db.UpsertFinance(
-                        upsertFinance.LandId,
-                        values,
-                        upsertFinance.Date,
-                        upsertFinance.ValuationConsultantId,  
-                        userId,
-                        typeIds,
-                        upsertFinance.ZakatPayment,
-                        upsertFinance.ZakatImplication
-                    );
-                    if (result == 1)
-                    {
-                        return 1;
-                    }
-
-                    return 0;
+                    return 1;
                 }
-            }
-           
-        
-       
 
+                return 0;
+            }
+        }
+        public async Task<int> UpsertTitleDeed(UpsertTitleDeedDto upsertTitleDeed)
+        {
+            int? userId = null;
+            using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
+            {
+
+                var result = db.UpsertTitleDeed(userId,
+                    upsertTitleDeed.LandId,upsertTitleDeed.TitleDeedId, upsertTitleDeed.DeedNumber,upsertTitleDeed.DeedDate,upsertTitleDeed.DeedType,upsertTitleDeed.DeedStatus,upsertTitleDeed.DeedUrl,upsertTitleDeed.DeedOwner,upsertTitleDeed.DeedSequence
+                );
+                if (result != 0)
+                {
+                    return 1;
+                }
+
+                return 0;
+            }
+        }
     }
 }

@@ -18,6 +18,7 @@ namespace Services.IService
         Task<APIResponse<string>> UpdateBuyerDetails(AddBuyerDto buyerDto);
 
         Task<APIResponse<string>> UpsertFinance(UpsertFinanceDto upsertFinance);
+        Task<APIResponse<string>> UpsertTitleDeed(UpsertTitleDeedDto upsertTitleDeed);
 
     }
 }
