@@ -112,41 +112,6 @@ namespace DataContext.DataClasses
 			return ((ISingleResult<GetbuyerDetailsResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UpdateLandOverview")]
-		public int UpdateLandOverview(
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandId", DbType="Int")] System.Nullable<int> landId, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Action", DbType="VarChar(1)")] string action, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandInformation", DbType="NVarChar(MAX)")] string landInformation, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="DistrictId", DbType="Int")] System.Nullable<int> districtId, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Area", DbType="Decimal(18,2)")] System.Nullable<decimal> area, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SubAssetID", DbType="Int")] System.Nullable<int> subAssetID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Location", DbType="NVarChar(MAX)")] string location, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="MapImageURL", DbType="NVarChar(MAX)")] string mapImageURL, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="BusinessPlanID", DbType="Int")] System.Nullable<int> businessPlanID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="BusinessPlanDetailedID", DbType="Int")] System.Nullable<int> businessPlanDetailedID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="BusinessPlanStatusID", DbType="Int")] System.Nullable<int> businessPlanStatusID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandStatusID", DbType="Int")] System.Nullable<int> landStatusID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandUseId", DbType="Int")] System.Nullable<int> landUseId, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandTypeID", DbType="Int")] System.Nullable<int> landTypeID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="WLTStatusID", DbType="Int")] System.Nullable<int> wLTStatusID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="MunHandingOver", DbType="Int")] System.Nullable<int> munHandingOver, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Masterplan", DbType="Int")] System.Nullable<int> masterplan, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="InfraApproval", DbType="Int")] System.Nullable<int> infraApproval, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="InfraConstruction", DbType="Int")] System.Nullable<int> infraConstruction, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TitleDeedId", DbType="Int")] System.Nullable<int> titleDeedId, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TitleDeedNo", DbType="NVarChar(MAX)")] string titleDeedNo, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TitleDeedDate", DbType="NVarChar(MAX)")] string titleDeedDate, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TitleDeedType", DbType="Int")] System.Nullable<int> titleDeedType, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TitleDeedStatus", DbType="Int")] System.Nullable<int> titleDeedStatus, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TDFileUrl", DbType="NVarChar(MAX)")] string tDFileUrl, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TDOwnerID", DbType="Int")] System.Nullable<int> tDOwnerID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="DeedSequence", DbType="Int")] System.Nullable<int> deedSequence)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), landId, action, userId, landInformation, districtId, area, subAssetID, location, mapImageURL, businessPlanID, businessPlanDetailedID, businessPlanStatusID, landStatusID, landUseId, landTypeID, wLTStatusID, munHandingOver, masterplan, infraApproval, infraConstruction, titleDeedId, titleDeedNo, titleDeedDate, titleDeedType, titleDeedStatus, tDFileUrl, tDOwnerID, deedSequence);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetLandDetailsFilters2")]
 		public ISingleResult<GetLandDetailsFilters2Result> GetLandDetailsFilters2([global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandId", DbType="Int")] System.Nullable<int> landId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Deptt", DbType="VarChar(50)")] string deptt, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId)
 		{
@@ -214,6 +179,39 @@ namespace DataContext.DataClasses
 		public int UpsertFinance([global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandId", DbType="Int")] System.Nullable<int> landId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Values", DbType="VarChar(MAX)")] string values, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="DateTime2")] System.Nullable<System.DateTime> date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ConsultantId", DbType="Int")] System.Nullable<int> consultantId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TypeIds", DbType="VarChar(MAX)")] string typeIds, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ZakatPayment", DbType="Int")] System.Nullable<int> zakatPayment, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ZakatImplication", DbType="Int")] System.Nullable<int> zakatImplication)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), landId, values, date, consultantId, userId, typeIds, zakatPayment, zakatImplication);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UpsertTitleDeed")]
+		public int UpsertTitleDeed([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandId", DbType="Int")] System.Nullable<int> landId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TitleDeedId", DbType="Int")] System.Nullable<int> titleDeedId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TitleDeedNo", DbType="NVarChar(MAX)")] string titleDeedNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TitleDeedDate", DbType="NVarChar(MAX)")] string titleDeedDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TitleDeedType", DbType="Int")] System.Nullable<int> titleDeedType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TitleDeedStatus", DbType="Int")] System.Nullable<int> titleDeedStatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TDFileUrl", DbType="NVarChar(MAX)")] string tDFileUrl, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TDOwnerID", DbType="Int")] System.Nullable<int> tDOwnerID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DeedSequence", DbType="Int")] System.Nullable<int> deedSequence)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userId, landId, titleDeedId, titleDeedNo, titleDeedDate, titleDeedType, titleDeedStatus, tDFileUrl, tDOwnerID, deedSequence);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UpdateLandOverview")]
+		public int UpdateLandOverview(
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandId", DbType="Int")] System.Nullable<int> landId, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandInformation", DbType="NVarChar(MAX)")] string landInformation, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="DistrictId", DbType="Int")] System.Nullable<int> districtId, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Area", DbType="Decimal(18,2)")] System.Nullable<decimal> area, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SubAssetID", DbType="Int")] System.Nullable<int> subAssetID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Location", DbType="NVarChar(MAX)")] string location, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="MapImageURL", DbType="NVarChar(MAX)")] string mapImageURL, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="BusinessPlanID", DbType="Int")] System.Nullable<int> businessPlanID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="BusinessPlanDetailedID", DbType="Int")] System.Nullable<int> businessPlanDetailedID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="BusinessPlanStatusID", DbType="Int")] System.Nullable<int> businessPlanStatusID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandStatusID", DbType="Int")] System.Nullable<int> landStatusID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandUseId", DbType="Int")] System.Nullable<int> landUseId, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandTypeID", DbType="Int")] System.Nullable<int> landTypeID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="WLTStatusID", DbType="Int")] System.Nullable<int> wLTStatusID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="MunHandingOver", DbType="Int")] System.Nullable<int> munHandingOver, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Masterplan", DbType="Int")] System.Nullable<int> masterplan, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="InfraApproval", DbType="Int")] System.Nullable<int> infraApproval, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="InfraConstruction", DbType="Int")] System.Nullable<int> infraConstruction)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), landId, userId, landInformation, districtId, area, subAssetID, location, mapImageURL, businessPlanID, businessPlanDetailedID, businessPlanStatusID, landStatusID, landUseId, landTypeID, wLTStatusID, munHandingOver, masterplan, infraApproval, infraConstruction);
 			return ((int)(result.ReturnValue));
 		}
 	}
