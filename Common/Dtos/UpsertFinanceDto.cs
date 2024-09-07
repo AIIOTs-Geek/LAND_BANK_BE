@@ -10,9 +10,12 @@ namespace Common.Dtos
     {
      
         public int LandId {  get; set; }
-        public List<int> TypeIds { get; set; }
+        public List<int>? TypeIds { get; set; }
         public List<decimal>? Value { get; set; }
-        public DateTime Date { get; set; }
-        public int ValuationConsultantId { get; set; }
+        public DateTime? Date { get; set; }
+        public int? ValuationConsultantId { get; set; }
+        public int? ZakatPayment { get; set; }
+        public int? ZakatImplication { get; set; }
+
     }
 }
