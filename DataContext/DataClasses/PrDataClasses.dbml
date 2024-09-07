@@ -272,6 +272,8 @@
     <Parameter Name="ConsultantId" Parameter="consultantId" Type="System.Int32" DbType="Int" />
     <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
     <Parameter Name="TypeIds" Parameter="typeIds" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="ZakatPayment" Parameter="zakatPayment" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ZakatImplication" Parameter="zakatImplication" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

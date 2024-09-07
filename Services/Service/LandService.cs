@@ -189,11 +189,7 @@ namespace Services.Service
 
         public async Task<APIResponse<string>> UpsertFinance(UpsertFinanceDto upsertFinance)
         {
-            if (upsertFinance.TypeIds.Count != upsertFinance.Value.Count)
-            {
-                return ResponseHelper<string>.CreateExceptionErrorResponse(HttpStatusCode.Conflict, new List<string> { "The number of TypeIds must match the number of Values." });
-               
-            }
+           
             var result = await _landRepository.UpsertFinance(upsertFinance);
             if (result == 1)
             {

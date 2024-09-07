@@ -104,12 +104,16 @@ namespace Repositories.Repository
         public async Task<int> UpsertFinance(UpsertFinanceDto upsertFinance)
         {
             int? userId = null;
+            string typeIds = null;
+            string values = null;
 
+            if (upsertFinance.TypeIds != null && upsertFinance.TypeIds.Any() &&
+                   upsertFinance.Value != null && upsertFinance.Value.Any())
+            {
 
-            
-
-            string typeIds = string.Join(",", upsertFinance.TypeIds);
-            string values = string.Join(",", upsertFinance.Value.Select(v => v.ToString("F2", CultureInfo.InvariantCulture)));
+                typeIds = string.Join(",", upsertFinance.TypeIds);
+                 values = string.Join(",", upsertFinance.Value.Select(v => v.ToString("F2", CultureInfo.InvariantCulture)));
+            }
 
             using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
                 {
@@ -120,7 +124,9 @@ namespace Repositories.Repository
                         upsertFinance.Date,
                         upsertFinance.ValuationConsultantId,  
                         userId,
-                        typeIds
+                        typeIds,
+                        upsertFinance.ZakatPayment,
+                        upsertFinance.ZakatImplication
                     );
 
                     if (result == 1)

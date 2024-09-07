@@ -196,9 +196,9 @@ namespace DataContext.DataClasses
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UpsertFinance")]
-		public int UpsertFinance([global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandId", DbType="Int")] System.Nullable<int> landId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Values", DbType="VarChar(MAX)")] string values, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="DateTime2")] System.Nullable<System.DateTime> date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ConsultantId", DbType="Int")] System.Nullable<int> consultantId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TypeIds", DbType="VarChar(MAX)")] string typeIds)
+		public int UpsertFinance([global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandId", DbType="Int")] System.Nullable<int> landId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Values", DbType="VarChar(MAX)")] string values, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="DateTime2")] System.Nullable<System.DateTime> date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ConsultantId", DbType="Int")] System.Nullable<int> consultantId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TypeIds", DbType="VarChar(MAX)")] string typeIds, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ZakatPayment", DbType="Int")] System.Nullable<int> zakatPayment, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ZakatImplication", DbType="Int")] System.Nullable<int> zakatImplication)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), landId, values, date, consultantId, userId, typeIds);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), landId, values, date, consultantId, userId, typeIds, zakatPayment, zakatImplication);
 			return ((int)(result.ReturnValue));
 		}
 	}
