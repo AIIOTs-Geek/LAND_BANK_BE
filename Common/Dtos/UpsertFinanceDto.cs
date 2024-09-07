@@ -8,12 +8,12 @@ namespace Common.Dtos
 {
     public class UpsertFinanceDto
     {
-     
-        public int LandId {  get; set; }
-        public List<int>? TypeIds { get; set; }
-        public List<decimal>? Value { get; set; }
-        public DateTime? Date { get; set; }
-        public int? ValuationConsultantId { get; set; }
+
+        public int LandId { get; set; }      
+        public decimal? BookValue { get; set; }
+        public decimal? CostPer { get; set; }
+        public decimal? LatestValue { get; set; }     
+       
         public int? ZakatPayment { get; set; }
         public int? ZakatImplication { get; set; }
 
