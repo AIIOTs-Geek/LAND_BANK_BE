@@ -187,10 +187,15 @@ namespace Services.Service
             }
         }
 
-        public async Task<APIResponse<string>> UpsertFinance(UpsertFinanceDto upsertFinanceDto)
+        public async Task<APIResponse<string>> UpsertFinance(UpsertFinanceDto upsertFinance)
         {
-            var result = await _landRepository.UpsertFinance(upsertFinanceDto);
-            if (result == -1)
+            if (upsertFinance.TypeIds.Count != upsertFinance.Value.Count)
+            {
+                return ResponseHelper<string>.CreateExceptionErrorResponse(HttpStatusCode.Conflict, new List<string> { "The number of TypeIds must match the number of Values." });
+               
+            }
+            var result = await _landRepository.UpsertFinance(upsertFinance);
+            if (result == 1)
             {
                 return ResponseHelper<string>.CreateExceptionErrorResponse(HttpStatusCode.Conflict, new List<string> { "Finance Details not updated" });
             }

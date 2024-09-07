@@ -256,15 +256,6 @@
       <Column Name="Wlt" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.UpsertFinance" Method="UpsertFinance">
-    <Parameter Name="LandId" Parameter="landId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Value" Parameter="value" Type="System.Decimal" DbType="Decimal(18,2)" />
-    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="ConsultantId" Parameter="consultantId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="TypeId" Parameter="typeId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.AddORUpdateLandCoordinates" Method="AddORUpdateLandCoordinates">
     <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
     <Parameter Name="LandId" Parameter="landId" Type="System.Int32" DbType="Int" />
@@ -273,6 +264,14 @@
     <Parameter Name="LandShapeWKT" Parameter="landShapeWKT" Type="System.String" DbType="NVarChar(MAX)" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.UpsertFinance" Method="UpsertFinance">
+    <Parameter Name="LandId" Parameter="landId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Values" Parameter="values" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime2" />
+    <Parameter Name="ConsultantId" Parameter="consultantId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TypeIds" Parameter="typeIds" Type="System.String" DbType="VarChar(MAX)" />
+
   <Function Name="dbo.UpsertBuyerDetails" Method="UpsertBuyerDetails">
     <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
     <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
@@ -281,6 +280,7 @@
     <Parameter Name="CompanyId" Parameter="companyId" Type="System.Int32" DbType="Int" />
     <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="Mobile" Parameter="mobile" Type="System.String" DbType="NVarChar(50)" />
+
     <Return Type="System.Int32" />
   </Function>
 </Database>
