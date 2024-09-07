@@ -136,7 +136,6 @@ namespace Repositories.Repository
                         upsertFinance.ZakatPayment,
                         upsertFinance.ZakatImplication
                     );
-
                     if (result == 1)
                     {
                         return 1;
