@@ -165,9 +165,9 @@ namespace Services.Service
             {
                 case 0:
                     return ResponseHelper<string>.CreateSuccessRes(
-                   result.ToString(),
-                      new List<string> { "Buyer details proceeded successfully" }
-                          );
+                        "Operation completed successfully", 
+                        new List<string> { "Buyer details processed successfully" }
+                    );
                 case 1001:
                     return ResponseHelper<string>.CreateExceptionErrorResponse(
                         HttpStatusCode.BadRequest,
@@ -176,14 +176,14 @@ namespace Services.Service
                 case 1002:
                     return ResponseHelper<string>.CreateExceptionErrorResponse(
                         HttpStatusCode.NotFound,
-                        new List<string> { " ID does not exist" }
+                        new List<string> { "ID does not exist" }
                     );
                 default:
                     return ResponseHelper<string>.CreateExceptionErrorResponse(
-                       HttpStatusCode.Conflict,
-                       new List<string> { "An Unexpected error occured" }
-                   );
-                   
+                        HttpStatusCode.Conflict,
+                        new List<string> { "An unexpected error occurred" }
+                    );
+
             }
         }
 
