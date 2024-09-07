@@ -257,17 +257,6 @@
     <Parameter Name="ZakatImplication" Parameter="zakatImplication" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.UpsertFinance" Method="UpsertFinance">
-    <Parameter Name="LandId" Parameter="landId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Values" Parameter="values" Type="System.String" DbType="VarChar(MAX)" />
-    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime2" />
-    <Parameter Name="ConsultantId" Parameter="consultantId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="TypeIds" Parameter="typeIds" Type="System.String" DbType="VarChar(MAX)" />
-    <Parameter Name="ZakatPayment" Parameter="zakatPayment" Type="System.Int32" DbType="Int" />
-    <Parameter Name="ZakatImplication" Parameter="zakatImplication" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.UpsertTitleDeed" Method="UpsertTitleDeed">
     <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
     <Parameter Name="LandId" Parameter="landId" Type="System.Int32" DbType="Int" />
@@ -301,6 +290,16 @@
     <Parameter Name="Masterplan" Parameter="masterplan" Type="System.Int32" DbType="Int" />
     <Parameter Name="InfraApproval" Parameter="infraApproval" Type="System.Int32" DbType="Int" />
     <Parameter Name="InfraConstruction" Parameter="infraConstruction" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UpsertFinance" Method="UpsertFinance">
+    <Parameter Name="LandId" Parameter="landId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="BookValueValue" Parameter="bookValueValue" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="CostPerValue" Parameter="costPerValue" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="LatestValue" Parameter="latestValue" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ZakatPayment" Parameter="zakatPayment" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ZakatImplication" Parameter="zakatImplication" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

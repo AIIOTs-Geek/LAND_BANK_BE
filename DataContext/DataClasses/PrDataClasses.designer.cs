@@ -175,13 +175,6 @@ namespace DataContext.DataClasses
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UpsertFinance")]
-		public int UpsertFinance([global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandId", DbType="Int")] System.Nullable<int> landId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Values", DbType="VarChar(MAX)")] string values, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="DateTime2")] System.Nullable<System.DateTime> date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ConsultantId", DbType="Int")] System.Nullable<int> consultantId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TypeIds", DbType="VarChar(MAX)")] string typeIds, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ZakatPayment", DbType="Int")] System.Nullable<int> zakatPayment, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ZakatImplication", DbType="Int")] System.Nullable<int> zakatImplication)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), landId, values, date, consultantId, userId, typeIds, zakatPayment, zakatImplication);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UpsertTitleDeed")]
 		public int UpsertTitleDeed([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandId", DbType="Int")] System.Nullable<int> landId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TitleDeedId", DbType="Int")] System.Nullable<int> titleDeedId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TitleDeedNo", DbType="NVarChar(MAX)")] string titleDeedNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TitleDeedDate", DbType="NVarChar(MAX)")] string titleDeedDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TitleDeedType", DbType="Int")] System.Nullable<int> titleDeedType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TitleDeedStatus", DbType="Int")] System.Nullable<int> titleDeedStatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TDFileUrl", DbType="NVarChar(MAX)")] string tDFileUrl, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TDOwnerID", DbType="Int")] System.Nullable<int> tDOwnerID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DeedSequence", DbType="Int")] System.Nullable<int> deedSequence)
 		{
@@ -212,6 +205,13 @@ namespace DataContext.DataClasses
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="InfraConstruction", DbType="Int")] System.Nullable<int> infraConstruction)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), landId, userId, landInformation, districtId, area, subAssetID, location, mapImageURL, businessPlanID, businessPlanDetailedID, businessPlanStatusID, landStatusID, landUseId, landTypeID, wLTStatusID, munHandingOver, masterplan, infraApproval, infraConstruction);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UpsertFinance")]
+		public int UpsertFinance([global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandId", DbType="Int")] System.Nullable<int> landId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BookValueValue", DbType="Decimal(18,2)")] System.Nullable<decimal> bookValueValue, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CostPerValue", DbType="Decimal(18,2)")] System.Nullable<decimal> costPerValue, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LatestValue", DbType="Decimal(18,2)")] System.Nullable<decimal> latestValue, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ZakatPayment", DbType="Int")] System.Nullable<int> zakatPayment, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ZakatImplication", DbType="Int")] System.Nullable<int> zakatImplication)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), landId, bookValueValue, costPerValue, latestValue, userId, zakatPayment, zakatImplication);
 			return ((int)(result.ReturnValue));
 		}
 	}
