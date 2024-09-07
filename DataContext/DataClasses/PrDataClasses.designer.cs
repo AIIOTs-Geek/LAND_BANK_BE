@@ -182,13 +182,6 @@ namespace DataContext.DataClasses
 			return ((ISingleResult<GetLandByAssetIdResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetLandDetailsFilters")]
-		public ISingleResult<GetLandDetailsFiltersResult> GetLandDetailsFilters([global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandId", DbType="Int")] System.Nullable<int> landId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Deptt", DbType="VarChar(50)")] string deptt, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), landId, deptt, userId);
-			return ((ISingleResult<GetLandDetailsFiltersResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UpsertFinance")]
 		public int UpsertFinance([global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandId", DbType="Int")] System.Nullable<int> landId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Value", DbType="Decimal(18,2)")] System.Nullable<decimal> value, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="Date")] System.Nullable<System.DateTime> date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ConsultantId", DbType="Int")] System.Nullable<int> consultantId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TypeId", DbType="Int")] System.Nullable<int> typeId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId)
 		{
@@ -208,6 +201,13 @@ namespace DataContext.DataClasses
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userId, id, buyerId, buyerName, companyId, email, mobile);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetLandDetailsFilters")]
+		public ISingleResult<GetLandDetailsFiltersResult> GetLandDetailsFilters([global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandId", DbType="Int")] System.Nullable<int> landId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Deptt", DbType="VarChar(50)")] string deptt, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), landId, deptt, userId);
+			return ((ISingleResult<GetLandDetailsFiltersResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -2042,6 +2042,8 @@ namespace DataContext.DataClasses
 		
 		private string _PlotNo;
 		
+		private System.Nullable<int> _ZakatImplication;
+		
 		private string _BusinessPlanDetails;
 		
 		private string _BusinessPlanName;
@@ -2057,6 +2059,8 @@ namespace DataContext.DataClasses
 		private string _DistrictName;
 		
 		private string _CityName;
+		
+		private System.Nullable<long> _TitleDeedId;
 		
 		private string _TDNo;
 		
@@ -2272,6 +2276,22 @@ namespace DataContext.DataClasses
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ZakatImplication", DbType="Int")]
+		public System.Nullable<int> ZakatImplication
+		{
+			get
+			{
+				return this._ZakatImplication;
+			}
+			set
+			{
+				if ((this._ZakatImplication != value))
+				{
+					this._ZakatImplication = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BusinessPlanDetails", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string BusinessPlanDetails
 		{
@@ -2396,6 +2416,22 @@ namespace DataContext.DataClasses
 				if ((this._CityName != value))
 				{
 					this._CityName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TitleDeedId", DbType="BigInt")]
+		public System.Nullable<long> TitleDeedId
+		{
+			get
+			{
+				return this._TitleDeedId;
+			}
+			set
+			{
+				if ((this._TitleDeedId != value))
+				{
+					this._TitleDeedId = value;
 				}
 			}
 		}

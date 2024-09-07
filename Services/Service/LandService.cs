@@ -64,6 +64,7 @@ namespace Services.Service
                     PlotNo = landDetails.PlotNo,
                     TitleDeed = new TitleDeed
                     {
+                        TitleDeedId =(int)landDetails.TitleDeedId,
                         DeedNumber = landDetails.TDNo,
                         DeedType = landDetails.TDType,
                         DeedStatus = landDetails.TitleDeedStatus,
