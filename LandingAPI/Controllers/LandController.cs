@@ -21,9 +21,9 @@ namespace LandingAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetLandsByAssetId(int assetId, string? searchText, int? cityId, int? districtId, int? userId, int? landUseId, int? businessPlanId, int? IsWlt)
+        public async Task<IActionResult> GetLandsByAssetId(int assetId, string? searchText, int? cityId, int? districtId, int? userId, int? landUseId, int? businessPlanId, int? IsWlt,int pageno=1,int pagesize=10)
         {
-            return Response(await _landService.GetLandsByAssetId(assetId, searchText, cityId, districtId, userId, landUseId, businessPlanId, IsWlt));
+            return Response(await _landService.GetLandsByAssetId(assetId, searchText, cityId, districtId, userId, landUseId, businessPlanId, IsWlt,pageno,pagesize));
         }        
         [HttpPost]
         public async Task<IActionResult> UpdateLandOverview(UpdateLandDto landDto)

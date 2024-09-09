@@ -113,10 +113,11 @@ namespace Services.Service
                 throw new Exception("Something went wrong");
             }
         }
-        public async Task<APIResponse<List<LandByAssetIdVm>>> GetLandsByAssetId(int assetId, string? searchText, int? cityId, int? districtId, int? userId, int? landUseId, int? businessPlanId, int? IsWlt)
+        public async Task<APIResponse<List<LandByAssetIdVm>>> GetLandsByAssetId(int assetId, string? searchText, int? cityId, int? districtId, int? userId, int? landUseId, int? businessPlanId, int? IsWlt ,int pageno,int pagesize)
         {
             var landVmList = new List<LandByAssetIdVm>();
-            var landList = await _landRepository.GetLandsByAssetId(assetId, searchText, cityId, districtId, userId, landUseId, businessPlanId, IsWlt);
+            var totalCount = 0;
+            var landList = await _landRepository.GetLandsByAssetId(assetId, searchText, cityId, districtId, userId, landUseId, businessPlanId, IsWlt,pageno,pagesize);
             if (landList == null || !landList.Any())
             {
                 return ResponseHelper<List<LandByAssetIdVm>>.CreateExceptionErrorResponse(HttpStatusCode.NotFound, new List<string> { "No land found" });
@@ -145,10 +146,10 @@ namespace Services.Service
                     Status = item.RandomNumber,
                     Valuation = item.Valuation
                 };
-
+                totalCount = item.TotalCount.Value;
                 landVmList.Add(landVm);
             }
-            return ResponseHelper<List<LandByAssetIdVm>>.CreateGetSuccessResponse(landVmList, landVmList.Count);
+            return ResponseHelper<List<LandByAssetIdVm>>.CreateGetSuccessResponse(landVmList, totalCount);
         }        
         public async Task<APIResponse<string>> UpdateLand(UpdateLandDto landDto)
         {
