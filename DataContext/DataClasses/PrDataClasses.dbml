@@ -135,21 +135,6 @@
       <Column Name="LandShapeArray" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.GetAssetsWithLandCount" Method="GetAssetsWithLandCount">
-    <Parameter Name="SearchText" Parameter="searchText" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="CityId" Parameter="cityId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="DistrictId" Parameter="districtId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="AssetId" Parameter="assetId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
-    <ElementType Name="GetAssetsWithLandCountResult">
-      <Column Name="AssetId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="AssetName" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="AssetCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="NumberOfLands" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TotalLandArea" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
-      <Column Name="CityName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.AddORUpdateLandCoordinates" Method="AddORUpdateLandCoordinates">
     <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
     <Parameter Name="LandId" Parameter="landId" Type="System.Int32" DbType="Int" />
@@ -302,6 +287,24 @@
       <Column Name="ReferenceNumber" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="Valuation" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
       <Column Name="RowNum" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="TotalCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetAssetsWithLandCount" Method="GetAssetsWithLandCount">
+    <Parameter Name="SearchText" Parameter="searchText" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="CityId" Parameter="cityId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DistrictId" Parameter="districtId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AssetId" Parameter="assetId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PageNumber" Parameter="pageNumber" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PageSize" Parameter="pageSize" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetAssetsWithLandCountResult">
+      <Column Name="AssetId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AssetName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AssetCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NumberOfLands" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalLandArea" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="CityName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="TotalCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
