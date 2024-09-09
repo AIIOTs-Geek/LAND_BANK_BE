@@ -15,7 +15,7 @@ namespace Services.IService
         Task<APIResponse<List<AssetNameVm>>> GetAssets();
         Task<APIResponse<List<CityVm>>> GetCities();
         Task<APIResponse<List<DistrictVm>>> GetDistrictsByCityId(int cityId);
-        Task<APIResponse<List<AssetVm>>> GetAssets(string? searchText, int? cityId, int? districtId, int? assetId);
+        Task<APIResponse<List<AssetVm>>> GetAssets(string? searchText, int? cityId, int? districtId, int? assetId,int Pageno,int Pagesize);
         Task<APIResponse<List<StatusVm>>> GetLandUsesAsync(string statusType);
     }
 }

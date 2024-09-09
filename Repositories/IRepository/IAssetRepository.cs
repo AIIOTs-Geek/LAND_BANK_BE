@@ -15,7 +15,7 @@ namespace Repositories.IRepository
         Task<List<GetAssetNamesResult>> GetAssetNames();
         Task<List<GetCitiesResult>> GetAllCities();
         Task<List<GetDistrictByCityIdResult>> GetDistrictsByCityId(int cityId);
-        Task<List<GetAssetsWithLandCountResult>> GetAssets(string? searchText, int? cityId, int? districtId, int? assetId);
+        Task<List<GetAssetsWithLandCountResult>> GetAssets(string? searchText, int? cityId, int? districtId, int? assetId,int pageno,int pagesize);
         Task<List<GetLandUsesResult>> GetLandUsesAsync(string statusType);
     }
 }
