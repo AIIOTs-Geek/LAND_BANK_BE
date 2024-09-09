@@ -26,7 +26,7 @@ namespace Common.ViewModels
         public string AssetName { get; set; }
         public string SubAssetCode { get; set; }
         public string SubAssetName { get; set; }
-        public string  PlotNo { get; set; }
+        public string  PlotNumber { get; set; }
         public string IsWlt { get; set; }
         public string Masterplan { get; set; }
         public string InfraApproval { get; set; }
