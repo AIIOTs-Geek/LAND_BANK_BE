@@ -14,5 +14,7 @@ namespace Repositories.IRepository
         Task<List<GetbuyerDetailsResult>> GetBuyerDetails(string search);
         Task<int> UpdateLandCoordinates(UpdateLandCoordinateDto landCoordinateDto);
         Task<GetLandCoordinatesResult> GetLandCoordinates(int landId);
+
+        Task<int> upsertSale(UpsertSaleDto upsertSaleDto);
     }
 }

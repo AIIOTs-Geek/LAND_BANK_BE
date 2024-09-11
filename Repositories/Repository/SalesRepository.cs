@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Repositories.Repository
 {
-    public class SalesRepository:ISalesRepository
+    public class SalesRepository : ISalesRepository
     {
         private readonly IConfiguration _configuration;
         public SalesRepository(IConfiguration configuration)
@@ -54,7 +54,7 @@ namespace Repositories.Repository
             int result;
             using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
             {
-                result = db.AddORUpdateLandCoordinates(userId, landCoordinateDto.LandId,landCoordinateDto.Latitude,landCoordinateDto.Longitude,landCoordinateDto.LandShape);
+                result = db.AddORUpdateLandCoordinates(userId, landCoordinateDto.LandId, landCoordinateDto.Latitude, landCoordinateDto.Longitude, landCoordinateDto.LandShape);
 
                 if (result != 0)
                 {
@@ -78,5 +78,26 @@ namespace Repositories.Repository
             }
             return result;
         }
-    }
-}
+
+        public async Task<int> upsertSale(UpsertSaleDto upsertSaleDto)
+        {
+            int result;
+            int? userId = null;
+
+            using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
+            {
+
+                result = db.UpsertSales(userId,upsertSaleDto.LandId, upsertSaleDto.ReferenceNumber, upsertSaleDto.SalesMethodId, upsertSaleDto.SalesStatusId, upsertSaleDto.Commission, upsertSaleDto.SaleValue, upsertSaleDto.SaleDate, upsertSaleDto.SalesRepresentative,
+                  upsertSaleDto.AgentName, upsertSaleDto.BuyerId);
+
+
+                if (result == 0)
+                {
+                    return 0;
+                }
+            }
+            return result;
+
+        }
+        }
+    } 
