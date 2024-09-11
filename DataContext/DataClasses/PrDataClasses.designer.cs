@@ -214,6 +214,13 @@ namespace DataContext.DataClasses
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), searchText, cityId, districtId, assetId, userId, pageNumber, pageSize);
 			return ((ISingleResult<GetAssetsWithLandCountResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UpsertSales")]
+		public int UpsertSales([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandId", DbType="Int")] System.Nullable<int> landId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ReferenceNumber", DbType="NVarChar(50)")] string referenceNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SalesMethodId", DbType="Int")] System.Nullable<int> salesMethodId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SalesStatusId", DbType="Int")] System.Nullable<int> salesStatusId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Commission", DbType="Decimal(18,2)")] System.Nullable<decimal> commission, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SaleValue", DbType="Decimal(18,2)")] System.Nullable<decimal> saleValue, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SaleDate", DbType="DateTime")] System.Nullable<System.DateTime> saleDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SalesRepresentative", DbType="Int")] System.Nullable<int> salesRepresentative, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AgentName", DbType="Int")] System.Nullable<int> agentName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BuyerId", DbType="Int")] System.Nullable<int> buyerId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userId, landId, referenceNumber, salesMethodId, salesStatusId, commission, saleValue, saleDate, salesRepresentative, agentName, buyerId);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	public partial class GetStatusResult

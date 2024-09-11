@@ -16,5 +16,7 @@ namespace Services.IService
         Task<APIResponse<List<GetbuyerDetailsResult>>> GetBuyerDetails(string search);
         Task<APIResponse<string>> UpdateLandCoordinated(UpdateLandCoordinateDto landCoordinateDto);
         Task<APIResponse<LandCoordinateVm>> GetLandCoordinates(int landId);
+
+        Task<APIResponse<string>> upsertSale(UpsertSaleDto upsertSaleDto);
     }
 }

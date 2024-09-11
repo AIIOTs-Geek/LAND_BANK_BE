@@ -69,7 +69,30 @@ namespace Services.Service
                 landCoordinateVm.LandShapeArray = landShapeArray;   
             }
             return ResponseHelper<LandCoordinateVm>.CreateSuccessRes(landCoordinateVm, new List<string> { "Coordinates fetched successfully" });
-        }       
+        }    
+        
+        public async Task<APIResponse<string>> upsertSale(UpsertSaleDto upsertSaleDto)
+        {
+            var result = await _salesRepository.upsertSale(upsertSaleDto);
+
+
+            if (result == 0)
+            {
+                return ResponseHelper<string>.CreateExceptionErrorResponse(HttpStatusCode.InternalServerError, new List<string> { "An unknown error occurred" });
+            }
+            else if (result == -1)
+            {
+                return ResponseHelper<string>.CreateExceptionErrorResponse(HttpStatusCode.NotFound, new List<string> { "Agent not found" });
+            }
+            else if (result == -2)
+            {
+                return ResponseHelper<string>.CreateExceptionErrorResponse(HttpStatusCode.NotFound, new List<string> { "Consultant not found" });
+            }
+
+            // Handle the case where result is 1 (success)
+            return ResponseHelper<string>.CreateSuccessRes(result.ToString(), new List<string> { "Sale updated successfully" });
+        }
+    }
 
     }
-}
+

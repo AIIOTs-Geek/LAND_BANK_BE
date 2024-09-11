@@ -1,6 +1,7 @@
 ﻿using Api.Controllers;
 using Common.Dtos;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
 using Services.IService;
 using Services.Service;
 
@@ -34,6 +35,12 @@ namespace API.Controllers
         public async Task<IActionResult> GetLandCoordinates(int landId)
         {
             return Response(await _salesService.GetLandCoordinates(landId));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpsertSale(UpsertSaleDto upsertSaleDto)
+        {
+            return Response(await _salesService.upsertSale(upsertSaleDto));
         }
     }
 }
