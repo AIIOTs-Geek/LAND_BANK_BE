@@ -33,11 +33,11 @@ namespace Common.ViewModels
             get
             {
                 return Status switch
-                {
-                    1 => "Data Not Submitted",
-                    2 => "Approved",
-                    3 => "Send Back",
-                    4 => "Waiting for Approval",
+                {                    
+                    null => "Data Not Submitted",
+                    1 => "Approved",
+                    2 => "Send Back",
+                    3 => "Waiting for Approval",
                    
                 };
             }
