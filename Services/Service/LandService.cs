@@ -146,7 +146,7 @@ namespace Services.Service
                     Status = item.RandomNumber,
                     Valuation = item.Valuation
                 };
-                totalCount = item.TotalCount.Value;
+                //totalCount = item.TotalCount.Value;
                 landVmList.Add(landVm);
             }
             return ResponseHelper<List<LandByAssetIdVm>>.CreateGetSuccessResponse(landVmList, totalCount);
