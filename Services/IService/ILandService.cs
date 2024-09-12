@@ -15,8 +15,8 @@ namespace Services.IService
         Task<APIResponse<LandDetailsVm>> GetLandDetails(int landId, string? deptt);
         Task<APIResponse<List<LandByAssetIdVm>>> GetLandsByAssetId(int assetId, string? searchText, int? cityId, int? districtId, int? userId, int? landUseId, int? businessPlanId, int? IsWlt,int pageno,int pagesize);        
         Task<APIResponse<string>> UpdateLand(UpdateLandDto landDto);
+        Task<APIResponse<string>> LandUpdateAction(LandUpdateActionDto actionDto);
         Task<APIResponse<string>> UpdateBuyerDetails(AddBuyerDto buyerDto);
-
         Task<APIResponse<string>> UpsertFinance(UpsertFinanceDto upsertFinance);
         Task<APIResponse<string>> UpsertTitleDeed(UpsertTitleDeedDto upsertTitleDeed);
 

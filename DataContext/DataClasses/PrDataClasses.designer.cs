@@ -221,6 +221,13 @@ namespace DataContext.DataClasses
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userId, landId, referenceNumber, salesMethodId, salesStatusId, commission, saleValue, saleDate, salesRepresentative, agentName, buyerId);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.LandUpdateAction")]
+		public int LandUpdateAction([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandId", DbType="Int")] System.Nullable<int> landId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Action", DbType="Int")] System.Nullable<int> action)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userId, landId, action);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	public partial class GetStatusResult

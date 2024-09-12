@@ -322,4 +322,10 @@
     <Parameter Name="BuyerId" Parameter="buyerId" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.LandUpdateAction" Method="LandUpdateAction">
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LandId" Parameter="landId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Action" Parameter="action" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>
