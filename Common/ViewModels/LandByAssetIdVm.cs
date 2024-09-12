@@ -36,9 +36,9 @@ namespace Common.ViewModels
                 {                    
                     null => "Data Not Submitted",
                     1 => "Approved",
-                    2 => "Send Back",
+                    2 => "Sent Back",
                     3 => "Waiting for Approval",
-                   
+                    4 => ""
                 };
             }
 
