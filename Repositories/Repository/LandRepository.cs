@@ -152,5 +152,20 @@ namespace Repositories.Repository
                 return 0;
             }
         }
+        public async Task<int> LandUpdateAction(LandUpdateActionDto actionDto)
+        {
+            int? userId = null;
+            using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
+            {
+
+                var result = db.LandUpdateAction(userId, actionDto.LandId, actionDto.Action);
+                if (result != 0)
+                {
+                    return 1;
+                }
+
+                return 0;
+            }
+        }
     }
 }

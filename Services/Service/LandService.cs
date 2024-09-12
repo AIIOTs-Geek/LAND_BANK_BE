@@ -208,6 +208,14 @@ namespace Services.Service
             }
             return ResponseHelper<string>.CreateSuccessRes(result.ToString(), new List<string> { "Title deed Details updated successfully" });
         }
-
+        public async Task<APIResponse<string>> LandUpdateAction(LandUpdateActionDto actionDto)
+        {
+            var result = await _landRepository.LandUpdateAction(actionDto);
+            if (result == 0)
+            {
+                return ResponseHelper<string>.CreateExceptionErrorResponse(HttpStatusCode.Conflict, new List<string> { "Action not taken" });
+            }
+            return ResponseHelper<string>.CreateSuccessRes(result.ToString(), new List<string> { "Action taken successfully" });
+        }
     }
 }
