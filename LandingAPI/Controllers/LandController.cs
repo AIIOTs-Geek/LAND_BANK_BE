@@ -22,7 +22,7 @@ namespace LandingAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> GetLandDetailsForViewer(int landId, string? deptt)
         {
-            return Response(await _landService.GetLandDetails(landId, deptt));
+            return Response(await _landService.GetLandDetailsForViewer(landId, deptt));
         }
 
         [HttpGet]
