@@ -17,6 +17,7 @@ namespace Common.ViewModels
         public decimal Area { get; set; }
         public int IsAreaEdited { get; set; }
         public string City { get; set; }
+        public int? CityId { get; set; }
         public string District { get; set; }
         public int IsDistrictEdited { get; set; }
         public string LandStatus { get; set; }
