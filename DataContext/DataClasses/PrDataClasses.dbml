@@ -321,7 +321,7 @@
       <Column Name="DeedOwner" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="IsWlt" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="TitleDeedStatus" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="RandomNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LandStage" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="ReferenceNumber" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="RowNum" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="Valuation" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
