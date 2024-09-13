@@ -221,6 +221,13 @@ namespace DataContext.DataClasses
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userId, landId, latitude, longitude, landShapeWKT);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetLandByAssetIdForViewer")]
+		public ISingleResult<GetLandByAssetIdForViewerResult> GetLandByAssetIdForViewer([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AssetId", DbType="Int")] System.Nullable<int> assetId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SearchText", DbType="VarChar(100)")] string searchText, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CityId", DbType="Int")] System.Nullable<int> cityId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DistrictId", DbType="Int")] System.Nullable<int> districtId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="OwnerId", DbType="Int")] System.Nullable<int> ownerId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandUseId", DbType="Int")] System.Nullable<int> landUseId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BusinessPlanId", DbType="Int")] System.Nullable<int> businessPlanId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="WLTStatus", DbType="Int")] System.Nullable<int> wLTStatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PageNumber", DbType="Int")] System.Nullable<int> pageNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PageSize", DbType="Int")] System.Nullable<int> pageSize)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), assetId, searchText, cityId, districtId, ownerId, landUseId, businessPlanId, wLTStatus, userId, pageNumber, pageSize);
+			return ((ISingleResult<GetLandByAssetIdForViewerResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class GetStatusResult
@@ -3076,6 +3083,374 @@ namespace DataContext.DataClasses
 				if ((this._Wlt != value))
 				{
 					this._Wlt = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GetLandByAssetIdForViewerResult
+	{
+		
+		private System.Nullable<int> _LandId;
+		
+		private System.Nullable<double> _OldArea;
+		
+		private string _OldLocation;
+		
+		private string _AssetName;
+		
+		private string _SubAssetName;
+		
+		private string _LandStatus;
+		
+		private string _LandType;
+		
+		private string _LandUse;
+		
+		private string _DistrictName;
+		
+		private string _CityName;
+		
+		private string _LandDeed;
+		
+		private string _BusinessPlan;
+		
+		private string _DeedOwner;
+		
+		private string _IsWlt;
+		
+		private string _TitleDeedStatus;
+		
+		private int _AuditID;
+		
+		private string _LandStage;
+		
+		private string _ReferenceNumber;
+		
+		private System.Nullable<long> _RowNum;
+		
+		private System.Nullable<decimal> _Valuation;
+		
+		public GetLandByAssetIdForViewerResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LandId", DbType="Int")]
+		public System.Nullable<int> LandId
+		{
+			get
+			{
+				return this._LandId;
+			}
+			set
+			{
+				if ((this._LandId != value))
+				{
+					this._LandId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OldArea", DbType="Float")]
+		public System.Nullable<double> OldArea
+		{
+			get
+			{
+				return this._OldArea;
+			}
+			set
+			{
+				if ((this._OldArea != value))
+				{
+					this._OldArea = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OldLocation", DbType="NVarChar(MAX)")]
+		public string OldLocation
+		{
+			get
+			{
+				return this._OldLocation;
+			}
+			set
+			{
+				if ((this._OldLocation != value))
+				{
+					this._OldLocation = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetName", DbType="NVarChar(500) NOT NULL", CanBeNull=false)]
+		public string AssetName
+		{
+			get
+			{
+				return this._AssetName;
+			}
+			set
+			{
+				if ((this._AssetName != value))
+				{
+					this._AssetName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SubAssetName", DbType="NVarChar(500) NOT NULL", CanBeNull=false)]
+		public string SubAssetName
+		{
+			get
+			{
+				return this._SubAssetName;
+			}
+			set
+			{
+				if ((this._SubAssetName != value))
+				{
+					this._SubAssetName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LandStatus", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string LandStatus
+		{
+			get
+			{
+				return this._LandStatus;
+			}
+			set
+			{
+				if ((this._LandStatus != value))
+				{
+					this._LandStatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LandType", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string LandType
+		{
+			get
+			{
+				return this._LandType;
+			}
+			set
+			{
+				if ((this._LandType != value))
+				{
+					this._LandType = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LandUse", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string LandUse
+		{
+			get
+			{
+				return this._LandUse;
+			}
+			set
+			{
+				if ((this._LandUse != value))
+				{
+					this._LandUse = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DistrictName", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string DistrictName
+		{
+			get
+			{
+				return this._DistrictName;
+			}
+			set
+			{
+				if ((this._DistrictName != value))
+				{
+					this._DistrictName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CityName", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string CityName
+		{
+			get
+			{
+				return this._CityName;
+			}
+			set
+			{
+				if ((this._CityName != value))
+				{
+					this._CityName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LandDeed", DbType="NVarChar(500)")]
+		public string LandDeed
+		{
+			get
+			{
+				return this._LandDeed;
+			}
+			set
+			{
+				if ((this._LandDeed != value))
+				{
+					this._LandDeed = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BusinessPlan", DbType="NVarChar(500) NOT NULL", CanBeNull=false)]
+		public string BusinessPlan
+		{
+			get
+			{
+				return this._BusinessPlan;
+			}
+			set
+			{
+				if ((this._BusinessPlan != value))
+				{
+					this._BusinessPlan = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeedOwner", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string DeedOwner
+		{
+			get
+			{
+				return this._DeedOwner;
+			}
+			set
+			{
+				if ((this._DeedOwner != value))
+				{
+					this._DeedOwner = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsWlt", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string IsWlt
+		{
+			get
+			{
+				return this._IsWlt;
+			}
+			set
+			{
+				if ((this._IsWlt != value))
+				{
+					this._IsWlt = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TitleDeedStatus", DbType="NVarChar(500)")]
+		public string TitleDeedStatus
+		{
+			get
+			{
+				return this._TitleDeedStatus;
+			}
+			set
+			{
+				if ((this._TitleDeedStatus != value))
+				{
+					this._TitleDeedStatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AuditID", DbType="Int NOT NULL")]
+		public int AuditID
+		{
+			get
+			{
+				return this._AuditID;
+			}
+			set
+			{
+				if ((this._AuditID != value))
+				{
+					this._AuditID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LandStage", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string LandStage
+		{
+			get
+			{
+				return this._LandStage;
+			}
+			set
+			{
+				if ((this._LandStage != value))
+				{
+					this._LandStage = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReferenceNumber", DbType="VarChar(20)")]
+		public string ReferenceNumber
+		{
+			get
+			{
+				return this._ReferenceNumber;
+			}
+			set
+			{
+				if ((this._ReferenceNumber != value))
+				{
+					this._ReferenceNumber = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RowNum", DbType="BigInt")]
+		public System.Nullable<long> RowNum
+		{
+			get
+			{
+				return this._RowNum;
+			}
+			set
+			{
+				if ((this._RowNum != value))
+				{
+					this._RowNum = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Valuation", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> Valuation
+		{
+			get
+			{
+				return this._Valuation;
+			}
+			set
+			{
+				if ((this._Valuation != value))
+				{
+					this._Valuation = value;
 				}
 			}
 		}

@@ -254,7 +254,45 @@ namespace Services.Service
                 landVmList.Add(landVm);
             }
             return ResponseHelper<List<LandByAssetIdVm>>.CreateGetSuccessResponse(landVmList, totalCount);
-        }        
+        }
+
+        public async Task<APIResponse<List<LandByAssetIdVm>>> GetLandsByAssetIdForViewer(int assetId, string? searchText, int? cityId, int? districtId, int? userId, int? landUseId, int? businessPlanId, int? IsWlt, int pageno, int pagesize)
+        {
+            var landVmList = new List<LandByAssetIdVm>();
+            var totalCount = 0;
+            var landList = await _landRepository.GetLandsByAssetIdForViewer(assetId, searchText, cityId, districtId, userId, landUseId, businessPlanId, IsWlt, pageno, pagesize);
+            if (landList == null || !landList.Any())
+            {
+                return ResponseHelper<List<LandByAssetIdVm>>.CreateSuccessRes(landVmList, new List<string> { "No land found" });
+            }
+
+            foreach (var item in landList)
+            {
+                var landVm = new LandByAssetIdVm
+                {
+                    LandId = (long)item.LandId,
+                    ReferenceNumber = item.ReferenceNumber,
+                    Location = item.OldLocation,
+                    LandArea = (decimal)item.OldArea,
+                    CityName = item.CityName,
+                    DistrictName = item.DistrictName,
+                    LandStatus = item.LandStatus,
+                    LandType = item.LandType,
+                    LandUse = item.LandUse,
+                    AssetName = item.AssetName,
+                    SubAssetName = item.SubAssetName,
+                    DeedType = item.LandDeed,
+                    DeedOwner = item.DeedOwner,
+                    BusinessPlan = item.BusinessPlan,
+                    WLTStatus = item.IsWlt,
+                    DeedStatus = item.TitleDeedStatus,
+                    Status = item.LandStage,
+                    Valuation = item.Valuation
+                };
+                landVmList.Add(landVm);
+            }
+            return ResponseHelper<List<LandByAssetIdVm>>.CreateGetSuccessResponse(landVmList, totalCount);
+        }
         public async Task<APIResponse<string>> UpdateLand(UpdateLandDto landDto)
         {
             var result = await _landRepository.Updateland(landDto);
