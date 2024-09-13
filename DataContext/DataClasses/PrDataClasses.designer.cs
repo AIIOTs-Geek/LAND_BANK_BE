@@ -119,20 +119,6 @@ namespace DataContext.DataClasses
 			return ((ISingleResult<GetLandCoordinatesResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UpsertBuyerDetails")]
-		public int UpsertBuyerDetails([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Id", DbType="Int")] System.Nullable<int> id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BuyerId", DbType="VarChar(50)")] string buyerId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BuyerName", DbType="NVarChar(50)")] string buyerName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CompanyId", DbType="Int")] System.Nullable<int> companyId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(50)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mobile", DbType="NVarChar(50)")] string mobile)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userId, id, buyerId, buyerName, companyId, email, mobile);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UpsertBuyerDetails")]
-		public int UpsertBuyerDetails([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Id", DbType="Int")] System.Nullable<int> id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BuyerId", DbType="VarChar(50)")] string buyerId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BuyerName", DbType="NVarChar(50)")] string buyerName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CompanyId", DbType="Int")] System.Nullable<int> companyId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(50)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mobile", DbType="NVarChar(50)")] string mobile, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ZakatPayment", DbType="Int")] System.Nullable<int> zakatPayment, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ZakatImplication", DbType="Int")] System.Nullable<int> zakatImplication)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userId, id, buyerId, buyerName, companyId, email, mobile, zakatPayment, zakatImplication);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UpsertTitleDeed")]
 		public int UpsertTitleDeed([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandId", DbType="Int")] System.Nullable<int> landId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TitleDeedId", DbType="Int")] System.Nullable<int> titleDeedId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TitleDeedNo", DbType="NVarChar(MAX)")] string titleDeedNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TitleDeedDate", DbType="NVarChar(MAX)")] string titleDeedDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TitleDeedType", DbType="Int")] System.Nullable<int> titleDeedType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TitleDeedStatus", DbType="Int")] System.Nullable<int> titleDeedStatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TDFileUrl", DbType="NVarChar(MAX)")] string tDFileUrl, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TDOwnerID", DbType="Int")] System.Nullable<int> tDOwnerID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DeedSequence", DbType="Int")] System.Nullable<int> deedSequence)
 		{
@@ -208,25 +194,32 @@ namespace DataContext.DataClasses
 			return ((ISingleResult<GetLandDetailForViewerResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AddORUpdateLandCoordinates")]
-		public int AddORUpdateLandCoordinates([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandId", DbType="Int")] System.Nullable<int> landId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Latitude", DbType="Decimal(18,9)")] System.Nullable<decimal> latitude, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Longitude", DbType="Decimal(18,9)")] System.Nullable<decimal> longitude, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandShapeWKT", DbType="NVarChar(MAX)")] string landShapeWKT)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userId, landId, latitude, longitude, landShapeWKT);
-			return ((int)(result.ReturnValue));
-		}		
-
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetLandByAssetIdForViewer")]
-		public ISingleResult<GetLandByAssetIdForViewerResult> GetLandByAssetIdForViewer([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AssetId", DbType="Int")] System.Nullable<int> assetId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SearchText", DbType="VarChar(100)")] string searchText, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CityId", DbType="Int")] System.Nullable<int> cityId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DistrictId", DbType="Int")] System.Nullable<int> districtId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="OwnerId", DbType="Int")] System.Nullable<int> ownerId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandUseId", DbType="Int")] System.Nullable<int> landUseId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BusinessPlanId", DbType="Int")] System.Nullable<int> businessPlanId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="WLTStatus", DbType="Int")] System.Nullable<int> wLTStatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PageNumber", DbType="Int")] System.Nullable<int> pageNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PageSize", DbType="Int")] System.Nullable<int> pageSize)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), assetId, searchText, cityId, districtId, ownerId, landUseId, businessPlanId, wLTStatus, userId, pageNumber, pageSize);
-			return ((ISingleResult<GetLandByAssetIdForViewerResult>)(result.ReturnValue));
-
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetLandDetailsFilters")]
 		public ISingleResult<GetLandDetailsFiltersResult> GetLandDetailsFilters([global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandId", DbType="Int")] System.Nullable<int> landId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Deptt", DbType="VarChar(50)")] string deptt, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), landId, deptt, userId);
 			return ((ISingleResult<GetLandDetailsFiltersResult>)(result.ReturnValue));
-
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetLandByAssetIdForViewer")]
+		public ISingleResult<GetLandByAssetIdForViewerResult> GetLandByAssetIdForViewer([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AssetId", DbType="Int")] System.Nullable<int> assetId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SearchText", DbType="VarChar(100)")] string searchText, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CityId", DbType="Int")] System.Nullable<int> cityId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DistrictId", DbType="Int")] System.Nullable<int> districtId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="OwnerId", DbType="Int")] System.Nullable<int> ownerId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandUseId", DbType="Int")] System.Nullable<int> landUseId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BusinessPlanId", DbType="Int")] System.Nullable<int> businessPlanId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="WLTStatus", DbType="Int")] System.Nullable<int> wLTStatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PageNumber", DbType="Int")] System.Nullable<int> pageNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PageSize", DbType="Int")] System.Nullable<int> pageSize)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), assetId, searchText, cityId, districtId, ownerId, landUseId, businessPlanId, wLTStatus, userId, pageNumber, pageSize);
+			return ((ISingleResult<GetLandByAssetIdForViewerResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UpsertBuyerDetails")]
+		public int UpsertBuyerDetails([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Id", DbType="Int")] System.Nullable<int> id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BuyerId", DbType="VarChar(50)")] string buyerId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BuyerName", DbType="NVarChar(50)")] string buyerName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CompanyId", DbType="Int")] System.Nullable<int> companyId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(50)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mobile", DbType="NVarChar(50)")] string mobile)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userId, id, buyerId, buyerName, companyId, email, mobile);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AddORUpdateLandCoordinates")]
+		public int AddORUpdateLandCoordinates([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandId", DbType="Int")] System.Nullable<int> landId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Latitude", DbType="Decimal(18,9)")] System.Nullable<decimal> latitude, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Longitude", DbType="Decimal(18,9)")] System.Nullable<decimal> longitude, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LandShapeWKT", DbType="NVarChar(MAX)")] string landShapeWKT)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userId, landId, latitude, longitude, landShapeWKT);
+			return ((int)(result.ReturnValue));
 		}
 	}
 	
