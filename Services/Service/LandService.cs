@@ -135,7 +135,7 @@ namespace Services.Service
             var landList = await _landRepository.GetLandsByAssetId(assetId, searchText, cityId, districtId, userId, landUseId, businessPlanId, IsWlt,pageno,pagesize);
             if (landList == null || !landList.Any())
             {
-                return ResponseHelper<List<LandByAssetIdVm>>.CreateExceptionErrorResponse(HttpStatusCode.NotFound, new List<string> { "No land found" });
+                return ResponseHelper<List<LandByAssetIdVm>>.CreateSuccessRes(landVmList, new List<string> { "No land found" });
             }
 
             foreach (var item in landList)
@@ -161,7 +161,6 @@ namespace Services.Service
                     Status = item.LandStage,
                     Valuation = item.Valuation
                 };
-                //totalCount = item.TotalCount.Value;
                 landVmList.Add(landVm);
             }
             return ResponseHelper<List<LandByAssetIdVm>>.CreateGetSuccessResponse(landVmList, totalCount);
