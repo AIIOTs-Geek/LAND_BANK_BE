@@ -34,6 +34,20 @@ namespace Repositories.Repository
                 return result;
             }
         }
+        public async Task<GetLandDetailForViewerResult> GetLandDetailsForViewer(int landId, string? deptt)
+        {
+            int? userId = null;
+            using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
+            {
+                var result = db.GetLandDetailForViewer(landId, deptt, userId).SingleOrDefault();
+                if (result == null)
+                {
+                    return null;
+                }
+
+                return result;
+            }
+        }
         public async Task<List<GetLandByAssetIdResult>> GetLandsByAssetId(int assetId, string? searchText, int? cityId, int? districtId, int? ownerId, int? landUseId, int? businessPlanId, int? IsWlt,int pageno,int pagesize)
         {
             var result = new List<GetLandByAssetIdResult>();
@@ -88,26 +102,6 @@ namespace Repositories.Repository
             }
 
         }
-
-        //public async Task<int> UpsertFinance(UpsertFinanceDto upsertFinance)
-        //{
-        //    int? userId = null;
-
-        //    using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
-        //    {
-
-        //        var result = db.UpsertFinance(upsertFinance.LandId,upsertFinance.Value,upsertFinance.Date,upsertFinance.ValuationConsultantId,upsertFinance.TypeId,userId);
-        //        if (result == -1)
-        //        {
-
-        //            return -1;
-        //        }
-
-
-        //        return 1;
-        //    }
-
-        //}
 
         public async Task<int> UpsertFinance(UpsertFinanceDto upsertFinance)
         {

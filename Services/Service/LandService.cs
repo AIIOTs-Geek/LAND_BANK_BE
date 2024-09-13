@@ -128,6 +128,96 @@ namespace Services.Service
                 throw new Exception("Something went wrong");
             }
         }
+        public async Task<APIResponse<LandDetailsVm>> GetLandDetailsForViewer(int landId, string? deptt)
+        {
+            try
+            {
+                var landDetails = await _landRepository.GetLandDetailsForViewer(landId, deptt);
+                if (landDetails == null)
+                {
+                    return ResponseHelper<LandDetailsVm>.CreateExceptionErrorResponse(HttpStatusCode.NotFound, new List<string> { "No details found for this land" });
+                }
+
+                var landDetailsVm = new LandDetailsVm
+                {
+                    LandId =(int)landDetails.LandId,
+                    ReferenceId = landDetails.ReferenceNumber,
+                    MapUrl = landDetails.OldMapImageURL,
+                    LandInformation = landDetails.OldLandInformation,
+                    LandStatus = landDetails.LandStatus,
+                    LandType = landDetails.LandType,
+                    LandUse = landDetails.LandUse,
+                    BusinessPlan = landDetails.BusinessPlanName,
+                    BusinessPlanDetail = landDetails.BusinessPlanDetails,
+                    BusinessPlanStatus = landDetails.BusinessPlanStatus,
+                    City = landDetails.CityName,
+                    District = landDetails.DistrictName,
+                    SubAssetCode = landDetails.SubAssetCode,
+                    SubAssetName = landDetails.SubAssetName,
+                    Status = landDetails.StageName,
+                    AssetCode = landDetails.AssetCode,
+                    AssetName = landDetails.AssetName,
+                    Area = (decimal)landDetails.OldArea,
+                    Location = landDetails.OldLocation,
+                    Latitude = landDetails.Latitude,
+                    Longitude = landDetails.Longitude,
+                    IsWlt = landDetails.WLTStatus,
+                    Masterplan = landDetails.MasterPlan,
+                    InfraApproval = landDetails.InfraApproval,
+                    InfraContraction = landDetails.InfraContraction,
+                    MunHandingOver = landDetails.MHandingOver,
+                    PlotNumber = landDetails.OldPlotNo,
+                    TitleDeed = new TitleDeed
+                    {
+                        TitleDeedId = (int)landDetails.TitleDeedId,
+                        DeedNumber = landDetails.TDNo,
+                        DeedType = landDetails.TDType,
+                        DeedStatus = landDetails.TitleDeedStatus,
+                        Owner = landDetails.TDOwnership,
+                        DeedDate = landDetails.TDDate,
+                    },
+                    OwnerShipDetails = new List<TitleDeed>(),
+                    SaleDetails = new SaleDetailsVm(),
+                    FinanceDetails = new FinanceVm(),
+                    WhiteLandDetails = new List<WltWrapperVm>()
+                };
+                if (!string.IsNullOrEmpty(landDetails.TitleDeeds))
+                {
+                    var jsonTitleDeeds = landDetails.TitleDeeds;
+                    landDetailsVm.OwnerShipDetails = JsonSerializer.Deserialize<List<TitleDeed>>(jsonTitleDeeds);
+                }
+                if (!string.IsNullOrEmpty(landDetails.Sales))
+                {
+                    var jsonSales = landDetails.Sales;
+                    landDetailsVm.SaleDetails = JsonSerializer.Deserialize<SaleDetailsVm>(jsonSales);
+                }
+                if (!string.IsNullOrEmpty(landDetails.Finance))
+                {
+                    try
+                    {
+                        landDetailsVm.FinanceDetails = JsonSerializer.Deserialize<FinanceVm>(landDetails.Finance);
+                    }
+                    catch (JsonException ex)
+                    {
+                        // Handle or log the deserialization error
+                        throw new Exception("Error deserializing Finance", ex);
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(landDetails.Wlt))
+                {
+                    var jsonWlt = landDetails.Wlt;
+                    landDetailsVm.WhiteLandDetails = JsonSerializer.Deserialize<List<WltWrapperVm>>(jsonWlt);
+                }
+
+
+                return ResponseHelper<LandDetailsVm>.CreateSuccessRes(landDetailsVm, new List<string> { "Land details fetched successfully" });
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Something went wrong");
+            }
+        }
         public async Task<APIResponse<List<LandByAssetIdVm>>> GetLandsByAssetId(int assetId, string? searchText, int? cityId, int? districtId, int? userId, int? landUseId, int? businessPlanId, int? IsWlt ,int pageno,int pagesize)
         {
             var landVmList = new List<LandByAssetIdVm>();
