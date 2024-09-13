@@ -222,67 +222,6 @@
       <Column Name="Valuation" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.GetLandDetailsFilters" Method="GetLandDetailsFilters">
-    <Parameter Name="LandId" Parameter="landId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Deptt" Parameter="deptt" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
-    <ElementType Name="GetLandDetailsFiltersResult">
-      <Column Name="LandId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="SubAssetId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IsSubAssetEdited" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="SubAssetName" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="SubAssetCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="AssetName" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="AssetCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="LandInformation" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="IsLandInfoEdited" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Location" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="Area" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
-      <Column Name="IsAreaEdited" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="MapImageURL" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
-      <Column Name="PlotNo" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="ZakatImplication" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ZakatPayment" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="BusinessPlanDetails" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="IsBusinessPlanDetailedEdited" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="BusinessPlanName" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="IsBusinessPlanEdited" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="BusinessPlanStatus" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="IsBusinessPlanStatusEdited" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="LandStatus" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="IsLandStatusEdited" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="LandType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="LandUse" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="IsLandUseEdited" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="DistrictName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="IsDistrictEdited" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="CityName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="TitleDeedId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="TDNo" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="TDType" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="TitleDeedStatus" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="TDDate" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
-      <Column Name="TDOwnership" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="WLTStatus" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="IsWLTStatusEdited" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Latitude" Type="System.Decimal" DbType="Decimal(18,9)" CanBeNull="true" />
-      <Column Name="Longitude" Type="System.Decimal" DbType="Decimal(18,9)" CanBeNull="true" />
-      <Column Name="StageName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="ReferenceNumber" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="MasterPlan" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="IsMasterApprovalStatusEdited" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="InfraApproval" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="IsInfraApprovalStatusEdited" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="InfraContraction" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="IsInfraConstructionStatusEdited" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="MHandingOver" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="IsMuncipalityHandingOverStatusEdited" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="TitleDeeds" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Sales" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Finance" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Wlt" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.GetLandDetailForViewer" Method="GetLandDetailForViewer">
     <Parameter Name="LandId" Parameter="landId" Type="System.Int32" DbType="Int" />
     <Parameter Name="Deptt" Parameter="deptt" Type="System.String" DbType="VarChar(50)" />
@@ -337,6 +276,77 @@
     <Parameter Name="LandShapeWKT" Parameter="landShapeWKT" Type="System.String" DbType="NVarChar(MAX)" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.GetLandDetailsFilters" Method="GetLandDetailsFilters">
+    <Parameter Name="LandId" Parameter="landId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Deptt" Parameter="deptt" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetLandDetailsFiltersResult">
+      <Column Name="LandId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="SubAssetId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsSubAssetEdited" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SubAssetName" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="SubAssetCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AssetName" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="AssetCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LandInformation" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="IsLandInfoEdited" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Location" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Area" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="IsAreaEdited" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MapImageURL" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="PlotNo" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ZakatImplication" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ZakatPayment" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BusinessPlanDetails" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IsBusinessPlanDetailedEdited" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BusinessPlanName" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="IsBusinessPlanEdited" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BusinessPlanStatus" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IsBusinessPlanStatusEdited" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LandStatus" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IsLandStatusEdited" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LandType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LandUse" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IsLandUseEdited" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DistrictName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="IsDistrictEdited" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CityName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="CityId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TitleDeedId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="TDNo" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="TDType" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="TitleDeedStatus" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="TDDate" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="TDOwnership" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="WLTStatus" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IsWLTStatusEdited" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Latitude" Type="System.Decimal" DbType="Decimal(18,9)" CanBeNull="true" />
+      <Column Name="Longitude" Type="System.Decimal" DbType="Decimal(18,9)" CanBeNull="true" />
+      <Column Name="StageName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="ReferenceNumber" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MasterPlan" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IsMasterApprovalStatusEdited" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="InfraApproval" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IsInfraApprovalStatusEdited" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="InfraContraction" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IsInfraConstructionStatusEdited" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MHandingOver" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IsMuncipalityHandingOverStatusEdited" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TitleDeeds" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Sales" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Finance" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Wlt" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+<<<<<<< Mujeeb
+  <Function Name="dbo.AddORUpdateLandCoordinates" Method="AddORUpdateLandCoordinates">
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LandId" Parameter="landId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Latitude" Parameter="latitude" Type="System.Decimal" DbType="Decimal(18,9)" />
+    <Parameter Name="Longitude" Parameter="longitude" Type="System.Decimal" DbType="Decimal(18,9)" />
+    <Parameter Name="LandShapeWKT" Parameter="landShapeWKT" Type="System.String" DbType="NVarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
   <Function Name="dbo.GetLandByAssetIdForViewer" Method="GetLandByAssetIdForViewer">
     <Parameter Name="AssetId" Parameter="assetId" Type="System.Int32" DbType="Int" />
     <Parameter Name="SearchText" Parameter="searchText" Type="System.String" DbType="VarChar(100)" />
@@ -372,4 +382,6 @@
       <Column Name="Valuation" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
     </ElementType>
   </Function>
+=======
+>>>>>>> Develop
 </Database>

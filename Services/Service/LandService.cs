@@ -47,6 +47,7 @@ namespace Services.Service
                     BusinessPlanDetail = landDetails.BusinessPlanDetails,
                     BusinessPlanStatus = landDetails.BusinessPlanStatus,
                     City = landDetails.CityName,
+                    CityId = landDetails.CityId,
                     District = landDetails.DistrictName,
                     SubAssetCode = landDetails.SubAssetCode,
                     SubAssetName = landDetails.SubAssetName,
@@ -353,7 +354,7 @@ namespace Services.Service
         public async Task<APIResponse<string>> LandUpdateAction(LandUpdateActionDto actionDto)
         {
             var result = await _landRepository.LandUpdateAction(actionDto);
-            if (result == 0)
+            if (result == 1)
             {
                 return ResponseHelper<string>.CreateExceptionErrorResponse(HttpStatusCode.Conflict, new List<string> { "Action not taken" });
             }
