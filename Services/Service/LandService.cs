@@ -143,7 +143,7 @@ namespace Services.Service
                     BusinessPlan = item.BusinessPlan,
                     WLTStatus = item.IsWlt,
                     DeedStatus = item.TitleDeedStatus,
-                    Status = item.RandomNumber,
+                    Status = item.LandStage,
                     Valuation = item.Valuation
                 };
                 //totalCount = item.TotalCount.Value;

@@ -25,22 +25,6 @@ namespace Common.ViewModels
         public string DeedOwner { get; set; }
         public string DeedStatus { get; set; }
         public string BusinessPlan { get; set; }
-        public int? Status { get; set; }
-
-
-        public string StatusName
-        {
-            get
-            {
-                return Status switch
-                {                    
-                    null => "Data Not Submitted",
-                    1 => "Approved",
-                    2 => "Sent Back",
-                    3 => "Waiting for Approval"                   
-                };
-            }
-
-        }
+        public string Status { get; set; }        
     }
 }

@@ -2429,7 +2429,7 @@ namespace DataContext.DataClasses
 		
 		private string _TitleDeedStatus;
 		
-		private System.Nullable<int> _RandomNumber;
+		private string _LandStage;
 		
 		private string _ReferenceNumber;
 		
@@ -2681,18 +2681,18 @@ namespace DataContext.DataClasses
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RandomNumber", DbType="Int")]
-		public System.Nullable<int> RandomNumber
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LandStage", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string LandStage
 		{
 			get
 			{
-				return this._RandomNumber;
+				return this._LandStage;
 			}
 			set
 			{
-				if ((this._RandomNumber != value))
+				if ((this._LandStage != value))
 				{
-					this._RandomNumber = value;
+					this._LandStage = value;
 				}
 			}
 		}
