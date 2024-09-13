@@ -50,7 +50,7 @@ namespace Common.ViewModels
         public decimal? Latitude { get; set; }
         public decimal? Longitude { get; set; }
         public string Status { get; set; }
-        public TitleDeed TitleDeed { get; set; }
+        public TitleDeed? TitleDeed { get; set; }
         public List<TitleDeed>? OwnerShipDetails { get; set; }
         public SaleDetailsVm? SaleDetails { get; set; }
         public FinanceVm? FinanceDetails { get; set; }

@@ -117,10 +117,10 @@ namespace Services.Service
 
                 if (!string.IsNullOrEmpty(landDetails.Wlt))
                 {
-                    var jsonWlt = landDetails.Wlt;                    
+                    var jsonWlt = landDetails.Wlt;
                     landDetailsVm.WhiteLandDetails = JsonSerializer.Deserialize<List<WltWrapperVm>>(jsonWlt);
                 }
-                
+
 
                 return ResponseHelper<LandDetailsVm>.CreateSuccessRes(landDetailsVm, new List<string> { "Land details fetched successfully" });
             }

@@ -9,6 +9,6 @@ namespace Common.ViewModels
     public class WltWrapperVm
     {
         public string Year { get; set; }
-        public WltDetailsVm WltDetails { get; set; }
+        public List<WltDetailsVm> WltDetails { get; set; }
     }
 }
