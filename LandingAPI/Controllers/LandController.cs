@@ -55,9 +55,9 @@ namespace LandingAPI.Controllers
             return Response(await _landService.UpsertFinance(upsertFinance));
         }
         [HttpPost]
-        public async Task<IActionResult> UpsertTitleDeed(UpsertTitleDeedDto upsertTitleDeed)
+        public async Task<IActionResult> UpsertTitleDeed(List<UpsertTitleDeedDto> upsertTitleDeeds)
         {
-            return Response(await _landService.UpsertTitleDeed(upsertTitleDeed));
+            return Response(await _landService.UpsertTitleDeed(upsertTitleDeeds));
         }
         [HttpPost]
         public async Task<IActionResult> LandUpdateAction(LandUpdateActionDto actionDto)
