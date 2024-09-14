@@ -48,13 +48,13 @@ namespace Repositories.Repository
                 return result;
             }
         }
-        public async Task<List<GetLandByAssetIdResult>> GetLandsByAssetId(int assetId, string? searchText, int? cityId, int? districtId, int? ownerId, int? landUseId, int? businessPlanId, int? IsWlt,int pageno,int pagesize)
+        public async Task<List<GetLandByAssetIdResult>> GetLandsByAssetId(int assetId, string? searchText, int? cityId, int? districtId, int? ownerId, int? landUseId, int? businessPlanId, int? IsWlt, int pageno, int pagesize)
         {
             var result = new List<GetLandByAssetIdResult>();
             int? userId = null;
             using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
             {
-                result = db.GetLandByAssetId(assetId, searchText, cityId, districtId, ownerId, landUseId, businessPlanId, IsWlt, userId,pageno,pagesize).ToList();
+                result = db.GetLandByAssetId(assetId, searchText, cityId, districtId, ownerId, landUseId, businessPlanId, IsWlt, userId, pageno, pagesize).ToList();
 
                 if (result == null || !result.Any())
                 {
@@ -121,9 +121,9 @@ namespace Repositories.Repository
 
         public async Task<int> UpsertFinance(UpsertFinanceDto upsertFinance)
         {
-            int? userId = null;          
+            int? userId = null;
 
-           
+
 
             using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
             {
@@ -132,8 +132,8 @@ namespace Repositories.Repository
                     upsertFinance.LandId,
                     upsertFinance.BookValue,
                     upsertFinance.CostPer,
-                    upsertFinance.LatestValue,                
-                    userId,                    
+                    upsertFinance.LatestValue,
+                    userId,
                     upsertFinance.ZakatPayment,
                     upsertFinance.ZakatImplication
                 );
@@ -145,22 +145,26 @@ namespace Repositories.Repository
                 return 0;
             }
         }
-        public async Task<int> UpsertTitleDeed(UpsertTitleDeedDto upsertTitleDeed)
+        public async Task<int> UpsertTitleDeed(List<UpsertTitleDeedDto> upsertTitleDeeds)
         {
             int? userId = null;
-            using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
+            int? result = null;
+            foreach (var upsertTitleDeed in upsertTitleDeeds)
             {
-
-                var result = db.UpsertTitleDeed(userId,
-                    upsertTitleDeed.LandId,upsertTitleDeed.TitleDeedId, upsertTitleDeed.DeedNumber,upsertTitleDeed.DeedDate,upsertTitleDeed.DeedType,upsertTitleDeed.DeedStatus,upsertTitleDeed.DeedUrl,upsertTitleDeed.DeedOwner,upsertTitleDeed.DeedSequence
-                );
-                if (result != 0)
+                using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
                 {
-                    return 1;
-                }
 
-                return 0;
+                    result = db.UpsertTitleDeed(userId,
+                        upsertTitleDeed.LandId, upsertTitleDeed.TitleDeedId, upsertTitleDeed.DeedNumber, upsertTitleDeed.DeedDate, upsertTitleDeed.DeedType, upsertTitleDeed.DeedStatus, upsertTitleDeed.DeedUrl, upsertTitleDeed.DeedOwner, upsertTitleDeed.DeedSequence
+                    );
+                }
             }
+            if (result != 0)
+            {
+                return 1;
+            }
+
+            return 0;
         }
         public async Task<int> LandUpdateAction(LandUpdateActionDto actionDto)
         {

@@ -22,7 +22,7 @@ namespace Services.IService
         Task<APIResponse<string>> LandUpdateAction(LandUpdateActionDto actionDto);
         Task<APIResponse<string>> UpdateBuyerDetails(AddBuyerDto buyerDto);
         Task<APIResponse<string>> UpsertFinance(UpsertFinanceDto upsertFinance);
-        Task<APIResponse<string>> UpsertTitleDeed(UpsertTitleDeedDto upsertTitleDeed);
+        Task<APIResponse<string>> UpsertTitleDeed(List<UpsertTitleDeedDto> upsertTitleDeeds);
 
     }
 }
