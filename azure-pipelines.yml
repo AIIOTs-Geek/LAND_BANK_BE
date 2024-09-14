@@ -1,0 +1,57 @@
+trigger: 
+ - PRODUCTION
+
+stages:
+- stage: BuildDeploy
+  jobs:
+  - job: Build
+    pool:
+     vmImage: 'ubuntu-latest'
+    steps: 
+
+     - task: UseDotNet@2
+       inputs:
+         packageType: 'sdk'
+         version: '7.x'
+     - task: DotNetCoreCLI@2
+       inputs:
+         command: 'restore'
+         projects: '**/*.csproj'
+         feedsToUse: 'select'
+     - task: DotNetCoreCLI@2
+       inputs:
+         command: 'build'
+         projects: '**/*.csproj'
+  
+
+     - task: DotNetCoreCLI@2
+       inputs:
+         command: 'publish'
+         publishWebProjects: true
+         arguments: '--configuration Release --output $(Build.ArtifactStagingDirectory)'
+         zipAfterPublish: false
+      
+     - task: PublishBuildArtifacts@1
+       inputs:
+         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+         ArtifactName: 'drop'
+         publishLocation: 'Container'
+
+     - task: CmdLine@2
+       inputs:
+         script: |
+          # Your command line script goes here
+          echo "Current directory: $(pwd)"
+          ls $(Build.ArtifactStagingDirectory)
+        
+    
+     - task: AzureRmWebAppDeployment@4
+       inputs:
+         ConnectionType: 'AzureRM'
+         azureSubscription: 'LANDBANK'
+         appType: 'webApp'
+         WebAppName: 'AWJLBBE'
+         deployToSlotOrASE: true
+         ResourceGroupName: 'AWJ_LandBank'
+         SlotName: 'production'
+         packageForLinux: '$(Build.ArtifactStagingDirectory)/LandingAPI'
