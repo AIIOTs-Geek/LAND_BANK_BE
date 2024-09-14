@@ -342,9 +342,9 @@ namespace Services.Service
             }
             return ResponseHelper<string>.CreateSuccessRes(result.ToString(), new List<string> { "Finance  Details updated successfully" });
         }
-        public async Task<APIResponse<string>> UpsertTitleDeed(List<UpsertTitleDeedDto> upsertTitleDeeds)
+        public async Task<APIResponse<string>> UpsertTitleDeed(UpsertTitleDeedDto upsertTitleDeed)
         {
-            var result = await _landRepository.UpsertTitleDeed(upsertTitleDeeds);
+            var result = await _landRepository.UpsertTitleDeed(upsertTitleDeed);
             if (result == 1)
             {
                 return ResponseHelper<string>.CreateExceptionErrorResponse(HttpStatusCode.Conflict, new List<string> { "Title Deed Details not updated" });
