@@ -145,26 +145,26 @@ namespace Repositories.Repository
                 return 0;
             }
         }
-        public async Task<int> UpsertTitleDeed(List<UpsertTitleDeedDto> upsertTitleDeeds)
+        public async Task<int> UpsertTitleDeed(UpsertTitleDeedDto upsertTitleDeed)
         {
             int? userId = null;
-            int? result = null;
-            foreach (var upsertTitleDeed in upsertTitleDeeds)
+            //int? result = null;
+            //foreach (var upsertTitleDeed in upsertTitleDeeds)
+            //{
+            using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
             {
-                using (var db = new PrDataClassesDataContext(_configuration.GetConnectionString("DefaultConnection")))
+
+                var result = db.UpsertTitleDeed(userId,
+                    upsertTitleDeed.LandId, upsertTitleDeed.TitleDeedId, upsertTitleDeed.DeedNumber, upsertTitleDeed.DeedDate, upsertTitleDeed.DeedType, upsertTitleDeed.DeedStatus, upsertTitleDeed.DeedUrl, upsertTitleDeed.DeedOwner, upsertTitleDeed.DeedSequence
+                );
+                if (result != 0)
                 {
-
-                    result = db.UpsertTitleDeed(userId,
-                        upsertTitleDeed.LandId, upsertTitleDeed.TitleDeedId, upsertTitleDeed.DeedNumber, upsertTitleDeed.DeedDate, upsertTitleDeed.DeedType, upsertTitleDeed.DeedStatus, upsertTitleDeed.DeedUrl, upsertTitleDeed.DeedOwner, upsertTitleDeed.DeedSequence
-                    );
+                    return 1;
                 }
-            }
-            if (result != 0)
-            {
-                return 1;
-            }
 
-            return 0;
+                return 0;
+            }
+            //}
         }
         public async Task<int> LandUpdateAction(LandUpdateActionDto actionDto)
         {
