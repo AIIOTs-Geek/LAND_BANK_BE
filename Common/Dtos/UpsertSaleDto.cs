@@ -15,7 +15,7 @@ namespace Common.Dtos
         public decimal? Commission { get; set; }
         public decimal? SaleValue { get; set; }
         public DateTime? SaleDate { get; set; }
-        public int SalesRepresentative { get; set; }
+        public int? SalesRepresentative { get; set; }
         public int AgentName { get; set; }
         public int ?BuyerId { get; set; }
     }
