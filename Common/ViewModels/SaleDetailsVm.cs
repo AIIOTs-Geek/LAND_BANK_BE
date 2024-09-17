@@ -10,7 +10,7 @@ namespace Common.ViewModels
     {
         public string BuyerName { get; set; }
         public string BuyerId { get; set; }
-        public string Company { get; set; }
+        public string CompanyNameEn { get; set; }
         public string Mobile { get; set; }
         public string Email { get; set; }
         public string RefNumber { get; set; }

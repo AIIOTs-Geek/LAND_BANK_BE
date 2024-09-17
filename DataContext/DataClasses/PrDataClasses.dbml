@@ -246,6 +246,59 @@
       <Column Name="Wlt" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.GetLandByAssetIdForViewer" Method="GetLandByAssetIdForViewer">
+    <Parameter Name="AssetId" Parameter="assetId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SearchText" Parameter="searchText" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="CityId" Parameter="cityId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DistrictId" Parameter="districtId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OwnerId" Parameter="ownerId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LandUseId" Parameter="landUseId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="BusinessPlanId" Parameter="businessPlanId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="WLTStatus" Parameter="wLTStatus" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PageNumber" Parameter="pageNumber" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PageSize" Parameter="pageSize" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetLandByAssetIdForViewerResult">
+      <Column Name="LandId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OldArea" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="OldLocation" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="AssetName" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="SubAssetName" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="LandStatus" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LandType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LandUse" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DistrictName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="CityName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="LandDeed" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="BusinessPlan" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="DeedOwner" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IsWlt" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TitleDeedStatus" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="AuditID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LandStage" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="ReferenceNumber" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="RowNum" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Valuation" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.UpsertBuyerDetails" Method="UpsertBuyerDetails">
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="BuyerId" Parameter="buyerId" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="BuyerName" Parameter="buyerName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="CompanyId" Parameter="companyId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Mobile" Parameter="mobile" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AddORUpdateLandCoordinates" Method="AddORUpdateLandCoordinates">
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LandId" Parameter="landId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Latitude" Parameter="latitude" Type="System.Decimal" DbType="Decimal(18,9)" />
+    <Parameter Name="Longitude" Parameter="longitude" Type="System.Decimal" DbType="Decimal(18,9)" />
+    <Parameter Name="LandShapeWKT" Parameter="landShapeWKT" Type="System.String" DbType="NVarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
   <Function Name="dbo.GetLandDetailsFilters" Method="GetLandDetailsFilters">
     <Parameter Name="LandId" Parameter="landId" Type="System.Int32" DbType="Int" />
     <Parameter Name="Deptt" Parameter="deptt" Type="System.String" DbType="VarChar(50)" />
@@ -307,58 +360,5 @@
       <Column Name="Finance" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="Wlt" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
     </ElementType>
-  </Function>
-  <Function Name="dbo.GetLandByAssetIdForViewer" Method="GetLandByAssetIdForViewer">
-    <Parameter Name="AssetId" Parameter="assetId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="SearchText" Parameter="searchText" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="CityId" Parameter="cityId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="DistrictId" Parameter="districtId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="OwnerId" Parameter="ownerId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="LandUseId" Parameter="landUseId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="BusinessPlanId" Parameter="businessPlanId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="WLTStatus" Parameter="wLTStatus" Type="System.Int32" DbType="Int" />
-    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="PageNumber" Parameter="pageNumber" Type="System.Int32" DbType="Int" />
-    <Parameter Name="PageSize" Parameter="pageSize" Type="System.Int32" DbType="Int" />
-    <ElementType Name="GetLandByAssetIdForViewerResult">
-      <Column Name="LandId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="OldArea" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="OldLocation" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="AssetName" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="SubAssetName" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="LandStatus" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="LandType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="LandUse" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="DistrictName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="CityName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="LandDeed" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="BusinessPlan" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="DeedOwner" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="IsWlt" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="TitleDeedStatus" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="AuditID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="LandStage" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="ReferenceNumber" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="RowNum" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="Valuation" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.UpsertBuyerDetails" Method="UpsertBuyerDetails">
-    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="BuyerId" Parameter="buyerId" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="BuyerName" Parameter="buyerName" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="CompanyId" Parameter="companyId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Mobile" Parameter="mobile" Type="System.String" DbType="NVarChar(50)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.AddORUpdateLandCoordinates" Method="AddORUpdateLandCoordinates">
-    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="LandId" Parameter="landId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Latitude" Parameter="latitude" Type="System.Decimal" DbType="Decimal(18,9)" />
-    <Parameter Name="Longitude" Parameter="longitude" Type="System.Decimal" DbType="Decimal(18,9)" />
-    <Parameter Name="LandShapeWKT" Parameter="landShapeWKT" Type="System.String" DbType="NVarChar(MAX)" />
-    <Return Type="System.Int32" />
   </Function>
 </Database>
